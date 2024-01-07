@@ -40,13 +40,13 @@
     }
 }
 
-/*  */
+/* light mode */
 
 .page-wrap {
     background-color: #F1FAFF;
     height: 100vh;
     width: 100vw;
-    overflow-y: scroll;
+    overflow-y: hidden;
     overflow-x: hidden;
 }
 
@@ -130,7 +130,7 @@
     animation: floatEffect 5s ease-in-out infinite;
 }
 .island2 {
-    animation: floatEffect 5s ease infinite;
+    animation: floatEffect 4s ease infinite;
 }
 .island3 {
     animation: floatEffect 3s linear infinite;
@@ -144,4 +144,3 @@
         transform: translateY(-7px);
     }
 }
-

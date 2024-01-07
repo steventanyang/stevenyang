@@ -1,13 +1,16 @@
 import '../static/Home.css'
+import Toggle from '../components/Toggle'
 import island1 from '../images/island1.png'
 import island2 from '../images/island2.png'
 import island3 from '../images/island3.png'
+import { useState } from 'react'
 
 export default function Home() {
+  const [isToggled, setIsToggled] = useState(false);
+
   return (
     <div className='page-wrap'>
       <div className='toggle-container'>
-        <div className='test'></div>
       </div>
       <div className='main-container'>
         <h2 className='name'>steven yang</h2>
@@ -37,7 +40,7 @@ export default function Home() {
               <img className='island' src={island3}></img>
             </div>
         </div>
-
+        <Toggle rounded={true} isToggled={isToggled} onToggle={() => setIsToggled(!isToggled)}/>
       </div>
 
     </div>
