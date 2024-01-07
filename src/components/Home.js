@@ -11,6 +11,7 @@ export default function Home() {
   return (
     <div className='page-wrap'>
       <div className='toggle-container'>
+        <Toggle rounded={true} isToggled={isToggled} onToggle={() => setIsToggled(!isToggled)}/>
       </div>
       <div className='main-container'>
         <h2 className='name'>steven yang</h2>
@@ -40,7 +41,6 @@ export default function Home() {
               <img className='island' src={island3}></img>
             </div>
         </div>
-        <Toggle rounded={true} isToggled={isToggled} onToggle={() => setIsToggled(!isToggled)}/>
       </div>
 
     </div>
