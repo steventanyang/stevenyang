@@ -79,15 +79,15 @@
     }
 }
 
-/* light mode */
+/* */
 
-.page-wrap {
+/* .page-wrap {
     background-color: #F1FAFF;
     height: 100vh;
     width: 100vw;
     overflow-y: hidden;
     overflow-x: hidden;
-}
+} */
 
 .toggle-container {
     display: flex;
@@ -110,13 +110,13 @@
     height: auto;
 }
 
-.name {
+/* .name {
     color: #5A5A5A;
     font-family: 'Roboto';
     font-size: 3.5rem;
     font-weight: 400;
     margin-top: 5%;
-}
+} */
 
 .links-container {
     display: flex;
@@ -183,3 +183,38 @@
         transform: translateY(-7px);
     }
 }
+
+
+/* dark mode */
+
+.dark-link-text {
+    /* animation: glow 1s ease-in-out infinite alternate; */
+    color: #FEFFDD;
+    color: 0.3s ease;
+    font-family: 'Roboto';
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-shadow: 0 0 1px #FEFFDD, 0 0 2px #FEFFDD, 0 0 3px #FEFFDD;
+}
+
+.dark-link-text:hover {
+    color: #fff;
+}
+
+.dark-island-logo {
+    animation: glow 1s ease-in-out infinite alternate;
+    color: #FEFFDD;
+    font-family: 'Roboto';
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 0 0 1px #FEFFDD, 0 0 2px #FEFFDD, 0 0 3px #FEFFDD;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 0px #FEFFDD, 0 0 0px #FEFFDD, 0 0 0px #FEFFDD;    }
+    to {
+        text-shadow: 0 0 2px #FEFFDD, 0 0 4px #FEFFDD, 0 0 6px #FEFFDD;    }
+  }
+  
