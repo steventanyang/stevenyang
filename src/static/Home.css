@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+@media (max-width: 1025px) {
+    html {
+        font-size: 14px; /* smaller size for tablets */
+    }
+}
+
+@media (max-width: 420px) {
+    html {
+        font-size: 10px; /* even smaller size for mobile phones */
+    }
+}
+
+/*  */
+
+.page-wrap {
+    background-color: #F1FAFF;
+    height: 100vh;
+    width: 100vw;
+}
+
+.toggle-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100vw;
+}
+
+.test {
+    background-color: #ddd;
+    width: 100px;
+    height: 80px;
+}
+
+.main-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    height: auto;
+}
+
+.name {
+    color: #5A5A5A;
+    font-family: 'Roboto';
+    font-size: 3.5rem;
+    font-weight: 400;
+    margin-top: 5%;
+}
+
+.links-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 3%;
+    padding-bottom: 2%;
+    width: 100vw;
+}
+
+.link-text {
+    color: #5A5A5A;
+    font-family: 'Roboto';
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.island-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 3%;
+    padding-bottom: 2%;
+    width: 100vw;
+}
+
+.island-and-logo {
+    display: flex;
+    flex-direction: column;
+}
+
+.island-logo {
+    color: #5A5A5A;
+    font-family: 'Roboto';
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.island {
+    width: 200px;
+    height: 200px;
+}
+.island1 {
+    animation: floatEffect 5s ease-in-out infinite;
+}
+.island2 {
+    animation: floatEffect 5s ease infinite;
+}
+.island3 {
+    animation: floatEffect 5s linear infinite;
+}
+
+@keyframes floatEffect {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-7px);
+    }
+}
