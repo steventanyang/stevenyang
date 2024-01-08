@@ -7,10 +7,10 @@ import darkisland1 from '../images/darkisland1.png'
 import darkisland2 from '../images/darkisland2.png'
 import darkisland3 from '../images/darkisland3.png'
 
-
-import { useState } from 'react'
+import { useContext } from 'react'
+import { DarkContext } from '../contexts/DarkContext';
 import styled, { ThemeProvider } from 'styled-components'
-import {lightTheme, darkTheme} from '../Themes'
+import { Link } from 'react-router-dom';
 
 const PageWrap = styled.div`
   background-color: ${props => props.theme.backgroundColor};
@@ -19,7 +19,6 @@ const PageWrap = styled.div`
   overflow-y: hidden;
   overflow-x: hidden;
 `;
-
 const Name = styled.div`
   color: ${props => props.theme.color};
   font-family: 'Roboto';
@@ -30,11 +29,10 @@ const Name = styled.div`
 `;
 
 export default function Home() {
-  const [isToggled, setIsToggled] = useState(false);
-  const [theme, setTheme] = useState('light');
+
+  const { theme, setTheme, isToggled, setIsToggled } = useContext(DarkContext);
 
   return (
-    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme }>
       <PageWrap>
         <div className='toggle-container'>
           <Toggle 
@@ -60,10 +58,10 @@ export default function Home() {
 
           <div className='island-container'>
             <div className='island-and-logo island2'>
-              <a href='/projects'>
+              <Link to='/projects'>
                 <h2 className={theme === 'light' ? 'island-logo': 'dark-island-logo'}> &lt;/&gt; </h2>
                 <img className='island' src={theme === 'light' ? island2: darkisland2}></img>
-              </a>
+              </Link>
             </div>
             <div className='island-and-logo island1' style={{ marginRight: '2%', marginLeft: '2%' }}>
               <a href='/projects'>
@@ -81,6 +79,5 @@ export default function Home() {
         </div>
 
       </PageWrap>
-    </ThemeProvider>
   );
 }
