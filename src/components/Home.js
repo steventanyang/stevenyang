@@ -9,7 +9,7 @@ import darkisland3 from '../images/darkisland3.png'
 
 import { useContext } from 'react'
 import { DarkContext } from '../contexts/DarkContext';
-import styled, { ThemeProvider } from 'styled-components'
+import styled from 'styled-components'
 import { Link } from 'react-router-dom';
 
 const PageWrap = styled.div`
@@ -48,11 +48,11 @@ export default function Home() {
           <Name>steven yang</Name>
 
           <div className='links-container'>
-            <a className={theme === 'light' ? 'link-text': 'dark-link-text'} href='https://github.com/steventanyang' target="_blank">
+            <a className={theme === 'light' ? 'link-text': 'dark-link-text'} href='https://github.com/steventanyang' target="_blank" rel="noreferrer">
               github</a>
-            <a className={theme === 'light' ? 'link-text': 'dark-link-text'} href='https://www.linkedin.com/in/stevenyangtan/' target="_blank" style={{ marginRight: '2%', marginLeft: '2%' }}>
+            <a className={theme === 'light' ? 'link-text': 'dark-link-text'} href='https://www.linkedin.com/in/stevenyangtan/' target="_blank" rel="noreferrer" style={{ marginRight: '2%', marginLeft: '2%' }}>
               linkedin</a>
-            <a className={theme === 'light' ? 'link-text': 'dark-link-text'} href='https://www.linkedin.com/in/stevenyangtan/'>
+            <a className={theme === 'light' ? 'link-text': 'dark-link-text'} href='https://www.linkedin.com/in/stevenyangtan/' target="_blank" rel="noreferrer">
               email</a>
           </div>
 
@@ -60,19 +60,19 @@ export default function Home() {
             <div className='island-and-logo island2'>
               <Link to='/projects'>
                 <h2 className={theme === 'light' ? 'island-logo': 'dark-island-logo'}> &lt;/&gt; </h2>
-                <img className='island' src={theme === 'light' ? island2: darkisland2}></img>
+                <img className='island' src={theme === 'light' ? island2: darkisland2} alt='island'></img>
               </Link>
             </div>
             <div className='island-and-logo island1' style={{ marginRight: '2%', marginLeft: '2%' }}>
               <a href='/projects'>
                 <h2 className={theme === 'light' ? 'island-logo': 'dark-island-logo'}> (:&lt; </h2>
-                <img className='island' src={theme === 'light' ? island1: darkisland1}></img>
+                <img className='island' src={theme === 'light' ? island1: darkisland1} alt='island'></img>
               </a>
             </div>
             <div className='island-and-logo island3'>
               <a href='/projects'>
                 <h2 className={theme === 'light' ? 'island-logo': 'dark-island-logo'}> &lt;3 </h2>
-                <img className='island' src={theme === 'light' ? island3: darkisland3}></img>
+                <img className='island' src={theme === 'light' ? island3: darkisland3} alt='island'></img>
               </a>
             </div>
           </div>

@@ -13,9 +13,56 @@
     width: 100vw;
 }
 
+.title-container {
+    height: auto; 
+    width: 100vw;
+    text-align: flex-start;
+}
+
+.description-container {
+    height: auto; 
+    width: 100vw;
+    text-align: center;
+}
+
+.grass-humus {
+    display: flex;
+    justify-content: flex-start;
+    width: 100vw;
+    height: 20px;
+}
+
+.topsoil {
+    display: flex;
+    justify-content: flex-start;
+    width: 100vw;
+    height: 80px;
+}
+
+.subsoil {
+    display: flex;
+    justify-content: flex-start;
+    width: 100vw;
+    height: 500px;
+}
+
+.yeartitle {
+    font-family: 'Roboto';
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-left: 1%;
+    margin-top: 1%;
+}
+
+
+
+
+
 .test-container {
     background-color: bisque;
     display: flex;
     justify-content: flex-end;
     width: 100vw;
 }
+
+
