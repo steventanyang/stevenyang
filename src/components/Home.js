@@ -52,7 +52,7 @@ export default function Home() {
               github</a>
             <a className={theme === 'light' ? 'link-text': 'dark-link-text'} href='https://www.linkedin.com/in/stevenyangtan/' target="_blank" rel="noreferrer" style={{ marginRight: '2%', marginLeft: '2%' }}>
               linkedin</a>
-            <a className={theme === 'light' ? 'link-text': 'dark-link-text'} href='https://www.linkedin.com/in/stevenyangtan/' target="_blank" rel="noreferrer">
+            <a className={theme === 'light' ? 'link-text': 'dark-link-text'} href='mailto:steventanyang@gmail.com' target="_blank" rel="noreferrer">
               email</a>
           </div>
 

@@ -1,3 +1,32 @@
+@media (max-width: 2000px) {
+}
+
+@media (max-width: 1025px) {
+    .description {
+        font-size: 1rem;
+    }
+    .description-container {
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+}
+
+@media (max-width: 600px) {
+    html {
+        font-size: 10px;
+    }
+    .description {
+        font-size: 1rem;
+    }
+    .description-container {
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+}
+
+
+
+
 .page-wrap {
     background-color: #F1FAFF;
     height: 100vh;
@@ -25,6 +54,17 @@
     text-align: center;
 }
 
+.description {
+    font-family: 'Roboto';
+    font-size: 2rem;
+    font-weight: 400;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 8%;
+    margin-right: 8%;
+    text-shadow: 0 0 1px #FEFFDD, 0 0 2px #FEFFDD, 0 0 3px #FEFFDD;
+}
+
 .grass-humus {
     display: flex;
     justify-content: flex-start;
@@ -36,7 +76,7 @@
     display: flex;
     justify-content: flex-start;
     width: 100vw;
-    height: 80px;
+    height: 50px;
 }
 
 .subsoil {
@@ -48,10 +88,10 @@
 
 .yeartitle {
     font-family: 'Roboto';
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 700;
-    margin-left: 1%;
-    margin-top: 1%;
+    margin-left: 15px;
+    margin-top: 10px;
 }
 
 

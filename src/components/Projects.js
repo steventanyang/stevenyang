@@ -28,8 +28,10 @@ const Description = styled.div`
   font-family: 'Roboto';
   font-size: 2rem;
   font-weight: 400;
-  margin-top: 3%;
-  margin-bottom: 3%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
   text-shadow: 0 0 1px #FEFFDD, 0 0 2px #FEFFDD, 0 0 3px #FEFFDD;
 `;
 
@@ -55,10 +57,10 @@ export default function Projects() {
       <div className='title-container'>
         <Link to='/'><Title> &lt;/&gt; projects</Title></Link>
       </div>
-      <div className='description-container'>
-        <Description>
+      <div className='description-container' >
+        <div className='description' style={{ color: theme === 'light' ? '#5A5A5A': '#FEFFDD'}}>
           here's a collection of projects that I've worked on over the years!
-        </Description>
+        </div>
       </div>
 
       <div className='grass-humus' style={{ backgroundColor: theme === 'light' ? '#619449': '#3B5856'}}></div>

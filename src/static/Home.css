@@ -31,6 +31,7 @@
         font-size: 14px; 
     }
     .island-container {
+        margin-top: 5%;
         flex-direction: row;
     }
     .island {
