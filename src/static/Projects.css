@@ -94,9 +94,47 @@
     margin-top: 10px;
 }
 
+.projects-container {
+    align-items: center;
+    display: flex; 
+    flex-direction: row;
+    height: auto;
+    justify-content: flex-start;
+    margin-left: 2%;
+    overflow-x: auto;
+    width: 100vw;
+}
+
+.project-box {
+    flex: 0 0 auto;
+    border-radius: 15px;
+    height: 350px;
+    margin-right: 100px;
+    width: 550px;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.project-box:hover {
+    opacity: 0.8;
+}
 
 
+.image-container {
+    position: relative;
+    width: 550px;
+    margin-right: 100px;
+}
 
+.grey-overlay {
+    background-color: grey;
+    border-radius: 15px;
+    flex: 0 0 auto;
+    height: 350px;
+    margin-right: 100px;
+    opacity: 0.5;
+    width: 550px;
+    transition: opacity 0.2s ease-in-out;
+}
 
 .test-container {
     background-color: bisque;
