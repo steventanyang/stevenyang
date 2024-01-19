@@ -126,12 +126,12 @@
 }
 
 .grey-overlay {
-    background-color: grey;
+    background-color: azure;
     border-radius: 15px;
     flex: 0 0 auto;
     height: 350px;
     margin-right: 100px;
-    opacity: 0.5;
+    opacity: 0.1;
     width: 550px;
     transition: opacity 0.2s ease-in-out;
 }

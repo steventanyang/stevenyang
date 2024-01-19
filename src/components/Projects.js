@@ -124,7 +124,7 @@ export default function Projects() {
           <div className='image-container' onClick={() => handleClick('asklebron')}>
             {selectedImage['asklebron']
                 ? <div className='grey-overlay'></div>
-                : <img className='project-box' src={projectlebron} style={{ marginLeft: 'none' }}/>
+                : <img className='project-box' src={asklebron} style={{ marginLeft: 'none' }}/>
             }
           </div>
           <div className='image-container' onClick={() => handleClick('pokemon')}>
