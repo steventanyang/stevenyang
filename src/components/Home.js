@@ -48,11 +48,11 @@ export default function Home() {
           <Name>steven yang</Name>
 
           <div className='links-container'>
-            <a className={theme === 'light' ? 'link-text': 'dark-link-text'} href='https://github.com/steventanyang' target="_blank" rel="noreferrer">
+            <a className={theme === 'light' ? 'link-text': 'dark-link-text'} href='https://github.com/steventanyang' target="_blank" rel="noreferrer" style={{ textDecoration: "none"}}>
               github</a>
-            <a className={theme === 'light' ? 'link-text': 'dark-link-text'} href='https://www.linkedin.com/in/stevenyangtan/' target="_blank" rel="noreferrer" style={{ marginRight: '2%', marginLeft: '2%' }}>
+            <a className={theme === 'light' ? 'link-text': 'dark-link-text'} href='https://www.linkedin.com/in/stevenyangtan/' target="_blank" rel="noreferrer" style={{ marginRight: '2%', marginLeft: '2%', textDecoration: "none" }}>
               linkedin</a>
-            <a className={theme === 'light' ? 'link-text': 'dark-link-text'} href='mailto:steventanyang@gmail.com' target="_blank" rel="noreferrer">
+            <a className={theme === 'light' ? 'link-text': 'dark-link-text'} href='mailto:steventanyang@gmail.com' target="_blank" rel="noreferrer" style={{ textDecoration: "none"}}>
               email</a>
           </div>
 

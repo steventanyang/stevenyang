@@ -126,15 +126,72 @@
 }
 
 .grey-overlay {
-    background-color: azure;
+    background-color: #1F1F1F;
     border-radius: 15px;
     flex: 0 0 auto;
     height: 350px;
     margin-right: 100px;
-    opacity: 0.1;
+    opacity: 1;
     width: 550px;
     transition: opacity 0.2s ease-in-out;
 }
+
+.grey-overlay:hover {
+    opacity: 0.8;
+
+}
+
+.grey-title-container {
+    text-align: center;
+}
+
+.grey-title {
+    color: #FEFFDD;
+    font-family: 'Roboto';
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 20px;
+}
+
+.tech-boxes-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 10px;
+    width: auto;
+}
+
+.techbox {
+    background-color: #373737;
+    border-radius: 8px;
+    margin: 5px 10px;
+    text-align: center;
+}
+
+.techbox-text {
+    color: #797979;
+    font-family: 'Roboto';
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 5px 25px;
+    text-align: center;
+}
+
+.grey-des-container {
+    text-align: flex-start;
+    width: auto;
+}
+.grey-description {
+    color: #797979;
+    font-family: 'Roboto';
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin: 5px 25px;
+    text-align: left;
+}
+
 
 .test-container {
     background-color: bisque;

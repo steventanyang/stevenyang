@@ -27,17 +27,46 @@ const Title = styled.div`
   text-shadow: 0 0 1px #FEFFDD, 0 0 2px #FEFFDD, 0 0 3px #FEFFDD;
 `;
 
-const Description = styled.div`
-  color: ${props => props.theme.color};
-  font-family: 'Roboto';
-  font-size: 2rem;
-  font-weight: 400;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  margin-left: 5%;
-  margin-right: 5%;
-  text-shadow: 0 0 1px #FEFFDD, 0 0 2px #FEFFDD, 0 0 3px #FEFFDD;
-`;
+// const Description = styled.div`
+//   color: ${props => props.theme.color};
+//   font-family: 'Roboto';
+//   font-size: 2rem;
+//   font-weight: 400;
+//   margin-top: 5%;
+//   margin-bottom: 5%;
+//   margin-left: 5%;
+//   margin-right: 5%;
+//   text-shadow: 0 0 1px #FEFFDD, 0 0 2px #FEFFDD, 0 0 3px #FEFFDD;
+// `;
+
+
+function GreyBox(props) {
+  return (
+    <div className='grey-overlay'>
+      <span className='grey-title-container'>
+        <h2 className='grey-title'>{props.title}</h2>
+      </span>
+
+      <span className='tech-boxes-container'>
+          <div className='techbox' style={{backgroundColor: '#23456D'}}>
+            <p className='techbox-text'>React</p>
+          </div>
+          <div className='techbox' style={{backgroundColor: '#23456D'}}>
+            <p className='techbox-text'>React</p>
+          </div>
+          <div className='techbox' style={{backgroundColor: '#23456D'}}>
+            <p className='techbox-text'>React</p>
+          </div>
+      </span>
+
+      <span className='grey-des-container'>
+        <p className='grey-description'>{props.description}</p>
+      </span>
+
+      {/* <a href="https://www.linkedin.com/in/steven-yang-2059b0268/" target="blank">link</a> */}
+    </div>
+  )
+}
 
 export default function Projects() {
 
@@ -68,7 +97,7 @@ export default function Projects() {
 
 
       <div className='title-container'>
-        <Link to='/'><Title> &lt;/&gt; projects</Title></Link>
+        <Link to='/' style={{ textDecoration: "none"}}><Title> &lt;/&gt; projects</Title></Link>
       </div>
       <div className='description-container' >
         <div className='description' style={{ color: theme === 'light' ? '#5A5A5A': '#FEFFDD'}}>
@@ -88,8 +117,11 @@ export default function Projects() {
         <div className='projects-container'>
           <div className='image-container' onClick={() => handleClick('legm')}>
               {selectedImage['legm'] 
-                  ? <div className='grey-overlay'></div>
-                  : <img className='project-box' src={legm} style={{ marginLeft: 'none' }}/>
+                  ? <GreyBox
+                      title='Legm'
+                      description='Legm is a social media platform for gamers to connect with each other.'
+                    />
+                  : <img className='project-box' src={legm} style={{ marginLeft: 'none' }} alt='none'/>
               }
           </div>
         </div>
@@ -103,14 +135,20 @@ export default function Projects() {
         <div className='projects-container'>
             <div className='image-container' onClick={() => handleClick('projectlebron')}>
                 {selectedImage['projectlebron']
-                    ? <div className='grey-overlay'></div>
-                    : <img className='project-box' src={projectlebron} />
+                  ? <GreyBox
+                      title='Legm'
+                      description='Legm is a social media platform for gamers to connect with each other.'
+                    />
+                    : <img className='project-box' src={projectlebron} alt='none'/>
                 }
             </div>
             <div className='image-container' onClick={() => handleClick('projectlebron')}>
                 {selectedImage['projectlebron']
-                    ? <div className='grey-overlay'></div>
-                    : <img className='project-box' src={projectlebron} />
+                    ? <GreyBox
+                      title='Legm'
+                      description='Legm is a social media platform for gamers to connect with each other.'
+                    />
+                    : <img className='project-box' src={projectlebron} alt='none'/>
                 }
             </div>
         </div>
@@ -123,14 +161,20 @@ export default function Projects() {
         <div className='projects-container'>
           <div className='image-container' onClick={() => handleClick('asklebron')}>
             {selectedImage['asklebron']
-                ? <div className='grey-overlay'></div>
-                : <img className='project-box' src={asklebron} style={{ marginLeft: 'none' }}/>
+                ? <GreyBox
+                    title='Legm'
+                    description='Legm is a social media platform for gamers to connect with each other.'
+                  />
+                : <img className='project-box' src={asklebron} style={{ marginLeft: 'none' }} alt='none'/>
             }
           </div>
           <div className='image-container' onClick={() => handleClick('pokemon')}>
             {selectedImage['pokemon']
-                ? <div className='grey-overlay'></div>
-                : <img className='project-box' src={pokemon} />
+                ? <GreyBox
+                    title='Legm'
+                    description='Legm is a social media platform for gamers to connect with each other.'
+                  />
+                : <img className='project-box' src={pokemon} alt='none'/>
             }
           </div>
         </div>
