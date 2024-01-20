@@ -6,6 +6,8 @@ import island3 from '../images/island3.png'
 import darkisland1 from '../images/darkisland1.png'
 import darkisland2 from '../images/darkisland2.png'
 import darkisland3 from '../images/darkisland3.png'
+import darkwebring from '../images/darkwebring.png'
+import webring from '../images/webring.png'
 
 import { useContext } from 'react'
 import { DarkContext } from '../contexts/DarkContext';
@@ -34,16 +36,26 @@ export default function Home() {
 
   return (
       <PageWrap>
-        <div className='toggle-container'>
-          <Toggle 
-            rounded={true} 
-            isToggled={isToggled} 
-            onToggle={() => {
-              setIsToggled(!isToggled); 
-              theme === 'light' ? setTheme('dark') : setTheme('light')
-              }}
-          />
+
+        <div className='top-container'>
+          <div className='webring-container'>
+            <a href='https://se-webring.xyz/' style={{ textDecoration: "none"}}>
+              <img className='webring' src={theme === 'light' ? webring: darkwebring} alt='webring'></img>
+            </a>
+          </div>
+          <div className='toggle-container'>
+            <Toggle 
+              rounded={true} 
+              isToggled={isToggled} 
+              onToggle={() => {
+                setIsToggled(!isToggled); 
+                theme === 'light' ? setTheme('dark') : setTheme('light')
+                }}
+            />
+          </div>
+
         </div>
+
         <div className='main-container'>
           <Name>steven yang</Name>
 

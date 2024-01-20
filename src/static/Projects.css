@@ -95,6 +95,9 @@
     .grey-description {
         display: none;
     }
+    .image-container-bottom {
+        margin-bottom: 20%;
+    }
 }
 
 
@@ -192,6 +195,12 @@
 
 
 .image-container {
+    position: relative;
+    width: 550px;
+    margin-left: 5%;
+}
+
+.image-container-bottom {
     position: relative;
     width: 550px;
     margin-left: 5%;

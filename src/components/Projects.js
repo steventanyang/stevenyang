@@ -40,7 +40,6 @@ const Title = styled.div`
 //   text-shadow: 0 0 1px #FEFFDD, 0 0 2px #FEFFDD, 0 0 3px #FEFFDD;
 // `;
 
-
 function GreyBox(props) {
 
   const Tool = (value) => {
@@ -217,7 +216,7 @@ export default function Projects() {
         <h2 className='yeartitle' style={{ color: theme === 'light' ? '#4C370D': '#2C3023' }}>2022</h2>
 
         <div className='projects-container'>
-          <div className='image-container' onClick={() => handleClick('asklebron')} style={{ marginBottom: '20%'}}>
+          <div className='image-container-bottom' onClick={() => handleClick('asklebron')}>
             {selectedImage['asklebron']
                 ? <GreyBox
                     title='AskLebron'
