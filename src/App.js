@@ -2,6 +2,8 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './components/Home';
 import Projects from './components/Projects'
+import Shinanigans from './components/Shinanigans'
+import Love from './components/Love'
 import { DarkContext } from './contexts/DarkContext';
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from './Themes';
@@ -20,6 +22,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/projects" element={<Projects />} />
+              <Route path="/shinanigans" element={<Shinanigans />} />
+              <Route path="/life" element={<Love />} />
             </Routes>
           </main>
         </ThemeProvider>

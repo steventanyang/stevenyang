@@ -20,6 +20,9 @@
         opacity: 1;
         width: 550px;
     }
+    .grey-description-short {
+        display: none;
+    }
 }
 
 @media (max-width: 1025px) {
@@ -50,6 +53,9 @@
         margin-right: 50px;
         opacity: 1;
         width: 550px;
+    }
+    .grey-description-short {
+        display: none;
     }
 }
 
@@ -86,7 +92,7 @@
         opacity: 1;
         width: 320px;
     }
-    .grey-des-container {
+    .grey-description {
         display: none;
     }
 }
@@ -246,6 +252,16 @@
 }
 
 .grey-description {
+    color: #A4A4A4;
+    font-family: 'Roboto';
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 15px 45px;
+    text-align: left;
+}
+
+.grey-description-short {
     color: #A4A4A4;
     font-family: 'Roboto';
     font-size: 1.2rem;

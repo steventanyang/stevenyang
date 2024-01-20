@@ -64,13 +64,13 @@ export default function Home() {
               </Link>
             </div>
             <div className='island-and-logo island1' style={{ marginRight: '2%', marginLeft: '2%' }}>
-              <a href='/projects' style={{ textDecoration: "none"}}>
+              <a href='/shinanigans' style={{ textDecoration: "none"}}>
                 <h2 className={theme === 'light' ? 'island-logo': 'dark-island-logo'}> (:&lt; </h2>
                 <img className='island' src={theme === 'light' ? island1: darkisland1} alt='island'></img>
               </a>
             </div>
             <div className='island-and-logo island3'>
-              <a href='/projects' style={{ textDecoration: "none"}}>
+              <a href='/life' style={{ textDecoration: "none"}}>
                 <h2 className={theme === 'light' ? 'island-logo': 'dark-island-logo'}> &lt;3 </h2>
                 <img className='island' src={theme === 'light' ? island3: darkisland3} alt='island'></img>
               </a>

@@ -41,35 +41,32 @@ const Title = styled.div`
 // `;
 
 
-
-
-
 function GreyBox(props) {
 
   const Tool = (value) => {
-    if (value == 'CSS') {
+    if (value === 'CSS') {
       return '#757629';
-    } else if (value == 'Django') {
+    } else if (value === 'Django') {
       return '225724';
-    } else if (value == 'Flask') {
+    } else if (value === 'Flask') {
       return '#404040';
-    } else if (value == "Git") {
+    } else if (value === "Git") {
       return '#814A17';
-    } else if (value == "JavaScript") {
+    } else if (value === "JavaScript") {
       return '#767319';
-    } else if (value == "MongoDB") {
+    } else if (value === "MongoDB") {
       return '#1C431E';
-    } else if (value == "MySQL") {
+    } else if (value === "MySQL") {
       return '#85621E';
-    } else if (value == "Pandas") {
+    } else if (value === "Pandas") {
       return '#1C431E';
-    } else if (value == "Python") {
+    } else if (value === "Python") {
       return '#496A7C';
-    } else if (value == "React" || value == "React Native") {
+    } else if (value === "React" || value === "React Native") {
       return '#1F4E68';
-    } else if (value == "Selenium") {
+    } else if (value === "Selenium") {
       return '#405B39';
-    } else if (value == "SQLite") {
+    } else if (value === "SQLite") {
       return '#275B5B';
     } else {
       return '#404040';
@@ -96,6 +93,7 @@ function GreyBox(props) {
 
       <span className='grey-des-container'>
         <p className='grey-description'>{props.description}</p>
+        <p className='grey-description-short'>{props.shortdescription}</p>
       </span>
 
       {/* <a href="https://www.linkedin.com/in/steven-yang-2059b0268/" target="blank">link</a> */}
@@ -156,6 +154,7 @@ export default function Projects() {
                       title='LeGM Fantasy Manager'
                       description='I got tired of losing in my fantasy league. LeGM is an all-in-one fantasy manager so I can start winning again.
                       Features include optimized lineup suggestions, an ai search, a team dashboard, and an injury news feed.'
+                      shortdescription='All-in-one fantasy manager with lineup suggestions, ai search, team dashboard, and news feed'
                       tool1='React'
                       tool2='MySQL'
                       tool3='Selenium'
