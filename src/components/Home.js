@@ -16,7 +16,7 @@ const PageWrap = styled.div`
   background-color: ${props => props.theme.backgroundColor};
   height: 100vh;
   width: 100vw;
-  overflow-y: hidden;
+  overflow-y: auto;
   overflow-x: hidden;
 `;
 const Name = styled.div`
