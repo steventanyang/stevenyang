@@ -9,6 +9,7 @@ import legm from '../images/legm.png'
 import projectlebron from '../images/projectlebron.png'
 import asklebron from '../images/asklebron.png'
 import pokemon from '../images/pokemon.png'
+import chromosense from '../images/chromosense.png'
 
 const PageWrap = styled.div`
   background-color: ${props => props.theme.backgroundColor};
@@ -118,14 +119,14 @@ export default function Projects() {
           <div className='image-container' onClick={() => handleClick('legm')}>
               {selectedImage['legm'] 
                   ? <GreyBox
-                      title='Legm'
-                      description='Legm is a social media platform for gamers to connect with each other.'
+                      title='LeGM Fantasy Manager'
+                      description='I got tired of losing in my fantasy league. LeGM is an all-in-one fantasy manager so I can start winning again.
+                      Features include optimized lineup suggestions, an ai search, a team dashboard, and an injury news feed.'
                     />
                   : <img className='project-box' src={legm} style={{ marginLeft: 'none' }} alt='none'/>
               }
           </div>
         </div>
-
       </div>
 
       {/* 2023 */}
@@ -133,24 +134,36 @@ export default function Projects() {
         <h2 className='yeartitle' style={{ color: theme === 'light' ? '#654A15': '#464D39' }}>2023</h2>
 
         <div className='projects-container'>
-            <div className='image-container' onClick={() => handleClick('projectlebron')}>
-                {selectedImage['projectlebron']
-                  ? <GreyBox
-                      title='Legm'
-                      description='Legm is a social media platform for gamers to connect with each other.'
-                    />
-                    : <img className='project-box' src={projectlebron} alt='none'/>
-                }
-            </div>
-            <div className='image-container' onClick={() => handleClick('projectlebron')}>
-                {selectedImage['projectlebron']
-                    ? <GreyBox
-                      title='Legm'
-                      description='Legm is a social media platform for gamers to connect with each other.'
-                    />
-                    : <img className='project-box' src={projectlebron} alt='none'/>
-                }
-            </div>
+          <div className='image-container' onClick={() => handleClick('projectlebron')}>
+            {selectedImage['projectlebron']
+              ? <GreyBox
+                  title='Project LeBron'
+                  description='I was using this productivity app called "forest" and that became the inspiration behind this app. 
+                  Tracking shootaround stats was something that I always thought would be cool. The hardware used a motion sensor + vibration sensor.'
+                />
+                : <img className='project-box' src={projectlebron} alt='none'/>
+            }
+          </div>
+          <div className='image-container' onClick={() => handleClick('pokemon')}>
+            {selectedImage['pokemon']
+                ? <GreyBox
+                    title='Pokemon Shiny Hunting Simulator'
+                    description='Back in my pokemon prime I used to hunt for shinies on my DS. 
+                    This is a simple simulator that I made to simulate the experience. It tracks all 9 regions and you can adjust the odds.'
+                  />
+                : <img className='project-box' src={pokemon} alt='none'/>
+            }
+          </div>
+          <div className='image-container' onClick={() => handleClick('chromosense')}>
+            {selectedImage['chromosense']
+                ? <GreyBox
+                    title='iGEM Team Website'
+                    description='I had to design and create a website for my igem team. Our project was based on diagnosing fish diseases,
+                    so the website was designed to be fish tank themed.'
+                  />
+                : <img className='project-box' src={chromosense} alt='none'/>
+            }
+          </div>
         </div>
       </div>
 
@@ -162,19 +175,11 @@ export default function Projects() {
           <div className='image-container' onClick={() => handleClick('asklebron')}>
             {selectedImage['asklebron']
                 ? <GreyBox
-                    title='Legm'
-                    description='Legm is a social media platform for gamers to connect with each other.'
+                    title='AskLebron'
+                    description='I was addicted to this fantasy-sports mobile game called stadium live app in highschool. At one point I was probably spending 3+ hours everyday making lineups. 
+                    I said enough was enough and made a program that would automate the process for me. '
                   />
                 : <img className='project-box' src={asklebron} style={{ marginLeft: 'none' }} alt='none'/>
-            }
-          </div>
-          <div className='image-container' onClick={() => handleClick('pokemon')}>
-            {selectedImage['pokemon']
-                ? <GreyBox
-                    title='Legm'
-                    description='Legm is a social media platform for gamers to connect with each other.'
-                  />
-                : <img className='project-box' src={pokemon} alt='none'/>
             }
           </div>
         </div>
