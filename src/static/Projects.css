@@ -1,4 +1,25 @@
 @media (max-width: 2000px) {
+    .projects-container {
+        margin-bottom: 6%;
+    }
+    .yeartitle {
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+    .project-box {
+        height: 350px;
+        margin-right: 50px;
+        width: 550px;
+    }
+    .image-container {
+        margin-right: 50px;
+    }
+    .grey-overlay {
+        height: 350px;
+        margin-right: 50px;
+        opacity: 1;
+        width: 550px;
+    }
 }
 
 @media (max-width: 1025px) {
@@ -8,6 +29,27 @@
     .description-container {
         margin-top: 10%;
         margin-bottom: 10%;
+    }
+    .projects-container {
+        margin-bottom: 10%;
+    }
+    .yeartitle {
+        margin-top: 3%;
+        margin-bottom: 3%;
+    }
+    .image-container {
+        margin-right: 80px;
+    }
+    .project-box {
+        height: 350px;
+        margin-right: 50px;
+        width: 550px;
+    }
+    .grey-overlay {
+        height: 350px;
+        margin-right: 50px;
+        opacity: 1;
+        width: 550px;
     }
 }
 
@@ -19,8 +61,32 @@
         font-size: 1rem;
     }
     .description-container {
-        margin-top: 10%;
+        margin-top: 22%;
+        margin-bottom: 22%;
+    }
+    .projects-container {
         margin-bottom: 10%;
+    }
+    .yeartitle {
+        margin-top: 3%;
+        margin-bottom: 3%;
+    }
+    .image-container {
+        margin-right: 0px;
+    }
+    .project-box {
+        height: 200px;
+        margin-right: 3%;
+        width: 320px;
+    }
+    .grey-overlay {
+        height: 200px;
+        margin-right: 3%;
+        opacity: 1;
+        width: 320px;
+    }
+    .grey-des-container {
+        display: none;
     }
 }
 
@@ -81,17 +147,17 @@
 
 .subsoil {
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     width: 100vw;
-    height: 500px;
+    height: auto;
 }
 
 .yeartitle {
     font-family: 'Roboto';
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 700;
-    margin-left: 15px;
-    margin-top: 10px;
+    margin-left: 25px;
 }
 
 .projects-container {
@@ -100,17 +166,17 @@
     flex-direction: row;
     height: auto;
     justify-content: flex-start;
-    margin-left: 2%;
+    margin-left: 3%;
     overflow-x: auto;
     width: 100vw;
+}
+.projects-container::-webkit-scrollbar {
+    display: none; 
 }
 
 .project-box {
     flex: 0 0 auto;
     border-radius: 15px;
-    height: 350px;
-    margin-right: 100px;
-    width: 550px;
     transition: opacity 0.2s ease-in-out;
 }
 
@@ -122,17 +188,13 @@
 .image-container {
     position: relative;
     width: 550px;
-    margin-right: 100px;
+    margin-left: 5%;
 }
 
 .grey-overlay {
     background-color: #1F1F1F;
     border-radius: 15px;
     flex: 0 0 auto;
-    height: 350px;
-    margin-right: 100px;
-    opacity: 1;
-    width: 550px;
     transition: opacity 0.2s ease-in-out;
 }
 
@@ -150,9 +212,7 @@
     font-family: 'Roboto';
     font-size: 2rem;
     font-weight: 700;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-top: 35px;
+    padding-top: 8%;
 }
 
 .tech-boxes-container {

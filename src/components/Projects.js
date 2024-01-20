@@ -147,7 +147,7 @@ export default function Projects() {
           <div className='image-container' onClick={() => handleClick('pokemon')}>
             {selectedImage['pokemon']
                 ? <GreyBox
-                    title='Pokemon Shiny Hunting Simulator'
+                    title='Pokemon Hunting Simulator'
                     description='Back in my pokemon prime I used to hunt for shinies on my DS. 
                     This is a simple simulator that I made to simulate the experience. It tracks all 9 regions and you can adjust the odds.'
                   />
