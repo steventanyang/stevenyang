@@ -195,7 +195,7 @@ export default function Projects() {
                 : <img className='project-box' src={pokemon} alt='none'/>
             }
           </div>
-          <div className='image-container' onClick={() => handleClick('chromosense')}>
+          <div className='image-container' onClick={() => handleClick('chromosense')} style={{ marginRight: '50px'}}>
             {selectedImage['chromosense']
                 ? <GreyBox
                     title='iGEM Team Website'
@@ -205,7 +205,7 @@ export default function Projects() {
                     tool2='CSS'
                     tool3='JavaScript'
                   />
-                : <img className='project-box' src={chromosense} alt='none' style={{ marginRight: '50px'}}/>
+                : <img className='project-box' src={chromosense} alt='none' />
             }
           </div>
         </div>
