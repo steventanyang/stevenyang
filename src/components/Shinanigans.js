@@ -44,11 +44,11 @@ export default function Shinanigans() {
 
 
       <div className='title-container'>
-        <Link to='/' style={{ textDecoration: "none"}}><Title> (:&lt; shinanigans</Title></Link>
+        <Link to='/' style={{ textDecoration: "none"}}><Title> (:&lt; </Title></Link>
       </div>
       <div className='description-container' >
         <div className='description' style={{ color: theme === 'light' ? '#5A5A5A': '#FEFFDD'}}>
-          under construction!
+          under construction...
         </div>
       </div>
     </PageWrap>

@@ -48,7 +48,7 @@ export default function Love() {
       </div>
       <div className='description-container' >
         <div className='description' style={{ color: theme === 'light' ? '#5A5A5A': '#FEFFDD'}}>
-          under construction!
+          under construction...
         </div>
       </div>
     </PageWrap>
