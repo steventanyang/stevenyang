@@ -1,4 +1,4 @@
-import '../static/Projects.css'
+import '../static/Design.css'
 import Toggle from '../components/Toggle'
 
 import styled from 'styled-components'
@@ -28,17 +28,6 @@ const Title = styled.div`
   text-shadow: 0 0 1px #FEFFDD, 0 0 2px #FEFFDD, 0 0 3px #FEFFDD;
 `;
 
-// const Description = styled.div`
-//   color: ${props => props.theme.color};
-//   font-family: 'Roboto';
-//   font-size: 2rem;
-//   font-weight: 400;
-//   margin-top: 5%;
-//   margin-bottom: 5%;
-//   margin-left: 5%;
-//   margin-right: 5%;
-//   text-shadow: 0 0 1px #FEFFDD, 0 0 2px #FEFFDD, 0 0 3px #FEFFDD;
-// `;
 
 function GreyBox(props) {
 
@@ -81,15 +70,15 @@ function GreyBox(props) {
       </span>
 
       <span className='tech-boxes-container'>
-          <div className='techbox' style={{backgroundColor: Tool(props.tool1)}}>
+          <a href={props.link1} className='techbox' style={{backgroundColor: Tool(props.tool1)}}>
             <p className='techbox-text'>{props.tool1}</p>
-          </div>
-          <div className='techbox' style={{backgroundColor: Tool(props.tool2)}}>
+          </a>
+          <a href={props.link2} className='techbox' style={{backgroundColor: Tool(props.tool2)}}>
             <p className='techbox-text'>{props.tool2}</p>
-          </div>
-          <div className='techbox' style={{backgroundColor: Tool(props.tool3)}}>
+          </a>
+          <a href={props.link3} className='techbox' style={{backgroundColor: Tool(props.tool3)}}>
             <p className='techbox-text'>{props.tool3}</p>
-          </div>
+          </a>
       </span>
 
       <span className='grey-des-container'>
@@ -102,7 +91,7 @@ function GreyBox(props) {
   )
 }
 
-export default function Projects() {
+export default function Design() {
 
   const { theme, setTheme, isToggled, setIsToggled } = useContext(DarkContext);
 
@@ -131,11 +120,11 @@ export default function Projects() {
 
 
       <div className='title-container'>
-        <Link to='/' style={{ textDecoration: "none"}}><Title> &lt;/&gt; projects</Title></Link>
+        <Link to='/' style={{ textDecoration: "none"}}><Title> &lt;3 design</Title></Link>
       </div>
       <div className='description-container' >
         <div className='description' style={{ color: theme === 'light' ? '#5A5A5A': '#FEFFDD'}}>
-          here's a collection of projects that I've worked on over the years!
+          Click on the boxes to learn more!
         </div>
       </div>
 
@@ -144,9 +133,9 @@ export default function Projects() {
       <div className='topsoil' style={{ backgroundColor: theme === 'light' ? '#8C6A28': '#576151'}}></div>
       <div className='topsoil' style={{ backgroundColor: theme === 'light' ? '#73551B': '#464D39'}}></div>
 
-      {/* 2024 */}
+      {/* Projects */}
       <div className='subsoil' style={{ backgroundColor: theme === 'light' ? '#654A15': '#3D4334'}}>
-        <h2 className='yeartitle' style={{ color: theme === 'light' ? '#826122': '#576151' }}>2024</h2>
+        <h2 className='yeartitle' style={{ color: theme === 'light' ? '#826122': '#576151' }}>Projects</h2>
           
         <div className='projects-container'>
           <div className='image-container' onClick={() => handleClick('legm')}>
@@ -155,10 +144,12 @@ export default function Projects() {
                       title='LeGM Fantasy Manager'
                       description='I got tired of losing in my fantasy league. LeGM is an all-in-one fantasy manager so I can start winning again.
                       Features include optimized lineup suggestions, an ai search, a team dashboard, and an injury news feed.'
-                      tool1='React'
-                      tool2='MySQL'
-                      tool3='Selenium'
-                      demo='true'
+                      tool1='Demo'
+                      tool2='Figma'
+                      tool3='Overview'
+                      link1='https://www.linkedin.com/in/steven-yang-2059b0268/'
+                      link2='https://www.linkedin.com/in/steven-yang-2059b0268/'
+                      link3='https://www.linkedin.com/in/steven-yang-2059b0268/'
                     />
                   : <img className='project-box' src={legm} style={{ marginLeft: 'none' }} alt='none'/>
               }
@@ -166,9 +157,9 @@ export default function Projects() {
         </div>
       </div>
 
-      {/* 2023 */}
+      {/* Art */}
       <div className='subsoil' style={{ backgroundColor: theme === 'light' ? '#4C370D': '#2C3023'}}>
-        <h2 className='yeartitle' style={{ color: theme === 'light' ? '#654A15': '#464D39' }}>2023</h2>
+        <h2 className='yeartitle' style={{ color: theme === 'light' ? '#654A15': '#464D39' }}>Paintings</h2>
 
         <div className='projects-container'>
           <div className='image-container' onClick={() => handleClick('projectlebron')}>
@@ -213,9 +204,9 @@ export default function Projects() {
         </div>
       </div>
 
-      {/* 2022 */}      
+      {/* Random */}      
       <div className='subsoil' style={{ backgroundColor: theme === 'light' ? '#726240': '#4C5046'}}>
-        <h2 className='yeartitle' style={{ color: theme === 'light' ? '#4C370D': '#2C3023' }}>2022</h2>
+        <h2 className='yeartitle' style={{ color: theme === 'light' ? '#4C370D': '#2C3023' }}>Random</h2>
 
         <div className='projects-container'>
           <div className='image-container-bottom' onClick={() => handleClick('asklebron')}>

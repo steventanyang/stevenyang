@@ -4,6 +4,7 @@ import Home from './components/Home';
 import Projects from './components/Projects'
 import Shinanigans from './components/Shinanigans'
 import Love from './components/Love'
+import Design from './components/Design'
 import { DarkContext } from './contexts/DarkContext';
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from './Themes';
@@ -24,6 +25,9 @@ function App() {
               <Route path="/projects" element={<Projects />} />
               <Route path="/shinanigans" element={<Shinanigans />} />
               <Route path="/life" element={<Love />} />
+
+              <Route path="/design" element={<Design />} />
+              
             </Routes>
           </main>
         </ThemeProvider>
