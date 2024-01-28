@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import legm from '../images/legm.png'
 import projectlebron from '../images/projectlebron.png'
 import chromosense from '../images/chromosense.png'
+import personalwebsite from '../images/personalsite.png'
 
 import giraffe from '../images/giraffe.png'
 import turtle from '../images/turtle.png'
@@ -48,6 +49,8 @@ function GreyBox(props) {
       return '#757629';
     } else if (value === 'Figma') {
       return '#65499F';
+    } else if (value === 'Canva') {
+      return '#65499F';
     } else if (value === 'Demo') {
       return '#1F4E68';
     } else if (value === "Overview") {
@@ -64,13 +67,13 @@ function GreyBox(props) {
       </span>
 
       <span className='tech-boxes-container'>
-          <a href={props.link1} className='techbox' style={{backgroundColor: Tool(props.tool1)}}>
+          <a href={props.link1} className='techbox' style={{backgroundColor: Tool(props.tool1)}} target="_blank" rel="noreferrer">
             <p className='techbox-text'>{props.tool1}</p>
           </a>
-          <a href={props.link2} className='techbox' style={{backgroundColor: Tool(props.tool2)}}>
+          <a href={props.link2} className='techbox' style={{backgroundColor: Tool(props.tool2)}} target="_blank" rel="noreferrer">
             <p className='techbox-text'>{props.tool2}</p>
           </a>
-          <a href={props.link3} className='techbox' style={{backgroundColor: Tool(props.tool3)}}>
+          <a href={props.link3} className='techbox' style={{backgroundColor: Tool(props.tool3)}} target="_blank" rel="noreferrer">
             <p className='techbox-text'>{props.tool3}</p>
           </a>
       </span>
@@ -141,9 +144,9 @@ export default function Design() {
                   tool1='Demo'
                   tool2='Figma'
                   tool3='Overview'
-                  link1='https://www.linkedin.com/in/steven-yang-2059b0268/'
-                  link2='https://www.linkedin.com/in/steven-yang-2059b0268/'
-                  link3='https://www.linkedin.com/in/steven-yang-2059b0268/'
+                  link1='https://www.loom.com/share/163d795eba134de28679549bbccaf70a?sid=2792ce97-cc50-4b09-ab4a-a2d8de55bbfd'
+                  link2='https://www.figma.com/file/iiahceHfvbCk1GtsY6JAUd/LeGM?type=design&mode=design&t=aLS6fYsD2xkanOsO-1'
+                  link3='https://github.com/steventanyang/LeGM-Fantasy-Manager'
                 />
               : <img className='project-box' src={legm} style={{ marginLeft: 'none' }} alt='none'/>
             }
@@ -157,28 +160,45 @@ export default function Design() {
                   tool1='Demo'
                   tool2='Figma'
                   tool3='Overview'
-                  link1='https://www.linkedin.com/in/steven-yang-2059b0268/'
-                  link2='https://www.linkedin.com/in/steven-yang-2059b0268/'
-                  link3='https://www.linkedin.com/in/steven-yang-2059b0268/'
+                  link1='https://www.loom.com/share/8aecac711d6e448598739394e1358382'
+                  link2='https://www.figma.com/file/GyfJLakNUnWJqpWUtwkHHM/Project-LeBron-%2F-SE101-(Copy)?type=design&node-id=0%3A1&mode=design&t=aLS6fYsD2xkanOsO-1'
+                  link3='https://github.com/Project-Lebron/projectLebron'
                 />
                 : <img className='project-box' src={projectlebron} alt='none'/>
             }
           </div>
-          <div className='image-container' onClick={() => handleClick('chromosense')} style={{ marginRight: '50px'}}>
+          <div className='image-container' onClick={() => handleClick('chromosense')}>
             {selectedImage['chromosense']
               ? <GreyBox
                   title='iGEM Team Website'
                   description='I had to design and create a website for my igem team. Our project was based on diagnosing fish diseases,
                   so the website was designed to be fish tank themed.'
                   tool1='Demo'
+                  tool2='Canva'
+                  tool3='Overview'
+                  link1='https://2023.igem.wiki/lethbridgehs/'
+                  link2='https://www.canva.com/design/DAFkirPfd5M/l-kmR40n69a--Xu9ap5CpQ/edit?utm_content=DAFkirPfd5M&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton'
+                  link3='https://dorian-scapula-076.notion.site/Chromosense-fa1b8c2928ab4b38b6e72d63672e4e40?pvs=4'
+                />
+              : <img className='project-box' src={chromosense} alt='none' style={{ marginRight: '50px'}}/>
+            }
+          </div>
+          <div className='image-container' onClick={() => handleClick('personalwebsite')} style={{ marginRight: '50px'}}>
+            {selectedImage['personalwebsite']
+              ? <GreyBox
+                  title='Personal Website'
+                  description='I wanted to design a personal website to display my projects and other things I have done.'
+                  tool1='Demo'
                   tool2='Figma'
                   tool3='Overview'
-                  link1='https://www.linkedin.com/in/steven-yang-2059b0268/'
-                  link2='https://www.linkedin.com/in/steven-yang-2059b0268/'
-                  link3='https://www.linkedin.com/in/steven-yang-2059b0268/'
+                  link1='https://www.yangsteven.com/'
+                  link2='https://www.figma.com/file/bTcLu5VdEOvrq99m7RNpv5/Personal-Website?type=design&mode=design&t=4YyQfSj2ptgwEUk0-1'
+                  link3='https://github.com/steventanyang/stevenyang'
                 />
-              : <img className='project-box' src={chromosense} alt='none' />
+              : <img className='project-box' src={personalwebsite} alt='none' style={{ marginRight: '50px'}}/>
             }
+          </div>
+          <div className='image-container' onClick={() => handleClick('chromosense')}>
           </div>
         </div>
       </div>
