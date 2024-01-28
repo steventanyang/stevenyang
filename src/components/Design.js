@@ -7,9 +7,19 @@ import { DarkContext } from '../contexts/DarkContext'
 import { Link } from 'react-router-dom';
 import legm from '../images/legm.png'
 import projectlebron from '../images/projectlebron.png'
-import asklebron from '../images/asklebron.png'
-import pokemon from '../images/pokemon.png'
 import chromosense from '../images/chromosense.png'
+
+import giraffe from '../images/giraffe.png'
+import turtle from '../images/turtle.png'
+import river from '../images/river.png'
+import pinkflower from '../images/pinkflower.png'
+import zebra from '../images/zebra.png'
+import hippo from '../images/hippo.png'
+import blueflower from '../images/blueflower.png'
+import elephant from '../images/elephant.png'
+import bluebird from '../images/bluebird.png'
+import tree from '../images/tree.png'
+
 
 const PageWrap = styled.div`
   background-color: ${props => props.theme.backgroundColor};
@@ -36,30 +46,14 @@ function GreyBox(props) {
   const Tool = (value) => {
     if (value === 'CSS') {
       return '#757629';
-    } else if (value === 'Django') {
-      return '225724';
-    } else if (value === 'Flask') {
-      return '#404040';
-    } else if (value === "Git") {
-      return '#814A17';
-    } else if (value === "JavaScript") {
-      return '#767319';
-    } else if (value === "MongoDB") {
-      return '#1C431E';
-    } else if (value === "MySQL") {
-      return '#85621E';
-    } else if (value === "Pandas") {
-      return '#1C431E';
-    } else if (value === "Python") {
-      return '#496A7C';
-    } else if (value === "React" || value === "React Native") {
+    } else if (value === 'Figma') {
+      return '#65499F';
+    } else if (value === 'Demo') {
       return '#1F4E68';
-    } else if (value === "Selenium") {
-      return '#405B39';
-    } else if (value === "SQLite") {
-      return '#275B5B';
-    } else {
+    } else if (value === "Overview") {
       return '#404040';
+    } else {
+      return '#fff';
     }
   };
 
@@ -139,20 +133,52 @@ export default function Design() {
           
         <div className='projects-container'>
           <div className='image-container' onClick={() => handleClick('legm')}>
-              {selectedImage['legm'] 
-                  ? <GreyBox
-                      title='LeGM Fantasy Manager'
-                      description='I got tired of losing in my fantasy league. LeGM is an all-in-one fantasy manager so I can start winning again.
-                      Features include optimized lineup suggestions, an ai search, a team dashboard, and an injury news feed.'
-                      tool1='Demo'
-                      tool2='Figma'
-                      tool3='Overview'
-                      link1='https://www.linkedin.com/in/steven-yang-2059b0268/'
-                      link2='https://www.linkedin.com/in/steven-yang-2059b0268/'
-                      link3='https://www.linkedin.com/in/steven-yang-2059b0268/'
-                    />
-                  : <img className='project-box' src={legm} style={{ marginLeft: 'none' }} alt='none'/>
-              }
+            {selectedImage['legm'] 
+              ? <GreyBox
+                  title='LeGM Fantasy Manager'
+                  description='I got tired of losing in my fantasy league. LeGM is an all-in-one fantasy manager so I can start winning again.
+                  Features include optimized lineup suggestions, an ai search, a team dashboard, and an injury news feed.'
+                  tool1='Demo'
+                  tool2='Figma'
+                  tool3='Overview'
+                  link1='https://www.linkedin.com/in/steven-yang-2059b0268/'
+                  link2='https://www.linkedin.com/in/steven-yang-2059b0268/'
+                  link3='https://www.linkedin.com/in/steven-yang-2059b0268/'
+                />
+              : <img className='project-box' src={legm} style={{ marginLeft: 'none' }} alt='none'/>
+            }
+          </div>
+          <div className='image-container' onClick={() => handleClick('projectlebron')}>
+            {selectedImage['projectlebron']
+              ? <GreyBox
+                  title='Project LeBron'
+                  description='I was using this productivity app called "forest" and that became the inspiration behind this app. 
+                  Tracking shootaround stats was something that I always thought would be cool. The hardware used a motion sensor + vibration sensor.'
+                  tool1='Demo'
+                  tool2='Figma'
+                  tool3='Overview'
+                  link1='https://www.linkedin.com/in/steven-yang-2059b0268/'
+                  link2='https://www.linkedin.com/in/steven-yang-2059b0268/'
+                  link3='https://www.linkedin.com/in/steven-yang-2059b0268/'
+                />
+                : <img className='project-box' src={projectlebron} alt='none'/>
+            }
+          </div>
+          <div className='image-container' onClick={() => handleClick('chromosense')} style={{ marginRight: '50px'}}>
+            {selectedImage['chromosense']
+              ? <GreyBox
+                  title='iGEM Team Website'
+                  description='I had to design and create a website for my igem team. Our project was based on diagnosing fish diseases,
+                  so the website was designed to be fish tank themed.'
+                  tool1='Demo'
+                  tool2='Figma'
+                  tool3='Overview'
+                  link1='https://www.linkedin.com/in/steven-yang-2059b0268/'
+                  link2='https://www.linkedin.com/in/steven-yang-2059b0268/'
+                  link3='https://www.linkedin.com/in/steven-yang-2059b0268/'
+                />
+              : <img className='project-box' src={chromosense} alt='none' />
+            }
           </div>
         </div>
       </div>
@@ -162,74 +188,41 @@ export default function Design() {
         <h2 className='yeartitle' style={{ color: theme === 'light' ? '#654A15': '#464D39' }}>Paintings</h2>
 
         <div className='projects-container'>
-          <div className='image-container' onClick={() => handleClick('projectlebron')}>
-            {selectedImage['projectlebron']
-              ? <GreyBox
-                  title='Project LeBron'
-                  description='I was using this productivity app called "forest" and that became the inspiration behind this app. 
-                  Tracking shootaround stats was something that I always thought would be cool. The hardware used a motion sensor + vibration sensor.'
-                  tool1='React Native'
-                  tool2='MongoDB'
-                  tool3='Flask'
-                />
-                : <img className='project-box' src={projectlebron} alt='none'/>
-            }
-          </div>
-          <div className='image-container' onClick={() => handleClick('pokemon')}>
-            {selectedImage['pokemon']
-                ? <GreyBox
-                    title='Pokemon Hunting Simulator'
-                    description='Back in my pokemon prime I used to hunt for shinies on my DS. 
-                    This is a simple simulator that I made to simulate the experience. It tracks all 9 regions and you can adjust the odds.'
-                    tool1='Django'
-                    tool2='SQLite'
-                    tool3='Python'
-                  />
-                : <img className='project-box' src={pokemon} alt='none'/>
-            }
-          </div>
-          <div className='image-container' onClick={() => handleClick('chromosense')} style={{ marginRight: '50px'}}>
-            {selectedImage['chromosense']
-                ? <GreyBox
-                    title='iGEM Team Website'
-                    description='I had to design and create a website for my igem team. Our project was based on diagnosing fish diseases,
-                    so the website was designed to be fish tank themed.'
-                    tool1='HTML'
-                    tool2='CSS'
-                    tool3='JavaScript'
-                  />
-                : <img className='project-box' src={chromosense} alt='none' />
-            }
-          </div>
+
+          <div className='painting-container' style={{marginLeft: "50px"}}>
+            <img className='project-box-h' src={giraffe} alt='none' /></div>
+          <div className='painting-container'>
+            <img className='project-box' src={turtle} alt='none' /></div>
+          <div className='painting-container'>
+            <img className='project-box-h' src={river} alt='none' /></div>
+          <div className='painting-container'>
+            <img className='project-box' src={pinkflower} alt='none' /></div>
+          <div className='painting-container'>
+            <img className='project-box-h' src={zebra} alt='none' /></div>
+          <div className='painting-container'>
+            <img className='project-box' src={hippo} alt='none' /></div>
+          <div className='painting-container'>
+            <img className='project-box-h' src={elephant} alt='none' /></div>
+          <div className='painting-container'>
+            <img className='project-box' src={blueflower} alt='none' /></div>
+          <div className='painting-container'>
+            <img className='project-box-h' src={tree} alt='none' /></div>
+          <div className='painting-container' style={{marginRight: '50px'}}>
+            <img className='project-box' src={bluebird} alt='none' /></div>
         </div>
+
       </div>
 
       {/* Random */}      
       <div className='subsoil' style={{ backgroundColor: theme === 'light' ? '#726240': '#4C5046'}}>
-        <h2 className='yeartitle' style={{ color: theme === 'light' ? '#4C370D': '#2C3023' }}>Random</h2>
+        <h2 className='yeartitle' style={{ color: theme === 'light' ? '#4C370D': '#2C3023' }}>Random - coming soon...</h2>
 
         <div className='projects-container'>
-          <div className='image-container-bottom' onClick={() => handleClick('asklebron')}>
-            {selectedImage['asklebron']
-                ? <GreyBox
-                    title='AskLebron'
-                    description='I was addicted to this fantasy-sports mobile game called stadium live app in highschool. At one point I was probably spending 3+ hours everyday making lineups. 
-                    I said enough was enough and made a program that would automate the process for me. '
-                    tool1='Python'
-                    tool2='Pandas'
-                    tool3='Flask'
-                  />
-                : <img className='project-box' src={asklebron} style={{ marginLeft: 'none' }} alt='none'/>
-            }
-          </div>
+            
         </div>
       </div>
 
-      {/* <div className='test-container'>
-        <Link to='/'>
-          <h2>penis</h2>
-        </Link>
-      </div> */}
+
 
     </PageWrap>
   );

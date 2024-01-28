@@ -210,6 +210,9 @@ export default function Projects() {
                 : <img className='project-box' src={chromosense} alt='none' />
             }
           </div>
+          <div className='image-container' onClick={() => handleClick('chromosense')}>
+          </div>
+
         </div>
       </div>
 

@@ -11,6 +11,12 @@
         margin-right: 50px;
         width: 550px;
     }
+    .project-box-h {
+        border-radius: 15px;
+        height: 350px;
+        margin-right: 50px;
+        width: auto;
+    }
     .image-container {
         margin-right: 50px;
     }
@@ -48,6 +54,12 @@
         margin-right: 50px;
         width: 550px;
     }
+    .project-box-h {
+        border-radius: 15px;
+        height: 350px;
+        margin-right: 50px;
+        width: auto;
+    }
     .grey-overlay {
         height: 350px;
         margin-right: 50px;
@@ -83,8 +95,14 @@
     }
     .project-box {
         height: 200px;
-        margin-right: 3%;
+        margin-right: 50px;
         width: 320px;
+    }
+    .project-box-h {
+        border-radius: 15px;
+        height: 200px;
+        margin-right: 50px;
+        width: auto;
     }
     .grey-overlay {
         height: 200px;
@@ -198,6 +216,11 @@
     position: relative;
     width: 550px;
     margin-left: 5%;
+}
+
+.painting-container {
+    position: relative;
+    width: auto;
 }
 
 .image-container-bottom {
