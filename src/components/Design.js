@@ -193,7 +193,7 @@ export default function Design() {
                   tool3='Overview'
                   link1='https://www.yangsteven.com/'
                   link2='https://www.figma.com/file/bTcLu5VdEOvrq99m7RNpv5/Personal-Website?type=design&mode=design&t=4YyQfSj2ptgwEUk0-1'
-                  link3='https://github.com/steventanyang/stevenyang'
+                  link3='https://dorian-scapula-076.notion.site/Personal-Website-b226da71dee9403b82b7767cdcab731f?pvs=4'
                 />
               : <img className='project-box' src={personalwebsite} alt='none' style={{ marginRight: '50px'}}/>
             }
