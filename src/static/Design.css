@@ -145,7 +145,7 @@
 .description-container {
     height: auto; 
     width: 100vw;
-    text-align: center;
+    text-align: flex-start;
 }
 
 .description {
@@ -158,6 +158,11 @@
     margin-right: 8%;
     text-shadow: 0 0 1px #FEFFDD, 0 0 2px #FEFFDD, 0 0 3px #FEFFDD;
 }
+
+/* .description-links {
+    text-decoration: none;
+    color: #FEFFDD;
+} */
 
 .grass-humus {
     display: flex;

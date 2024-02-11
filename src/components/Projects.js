@@ -131,11 +131,16 @@ export default function Projects() {
 
 
       <div className='title-container'>
-        <Link to='/' style={{ textDecoration: "none"}}><Title> &lt;/&gt; projects</Title></Link>
+        <Link to='/' style={{ textDecoration: "none"}}><Title> &lt;/&gt; </Title></Link>
       </div>
       <div className='description-container' >
         <div className='description' style={{ color: theme === 'light' ? '#5A5A5A': '#FEFFDD'}}>
-          here's a collection of projects that I've worked on over the years!
+          <ul className='description-text'>I'm a first-year Software Engineering student @ the University of Waterloo</ul>
+          <ul className='description-text'>
+            This summer I'm doing full stack at 
+            <a href='https://www.stadiumverse.com/' className='description-links' style={{ color: theme === 'light' ? '#5A5A5A': '#C8FFFF'}}> Stadium Live Studios.</a>
+          </ul>
+          <ul className='description-text'>Here's a collection of projects that I've worked on over the years!</ul>
         </div>
       </div>
 

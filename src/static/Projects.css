@@ -1,4 +1,4 @@
-@media (max-width: 2000px) {
+@media (max-width: 2500px) {
     .projects-container {
         margin-bottom: 6%;
     }
@@ -23,6 +23,10 @@
     .grey-description-short {
         display: none;
     }
+    .description-text {
+        margin-top: 12px;
+    }
+    
 }
 
 @media (max-width: 1025px) {
@@ -127,7 +131,7 @@
 .description-container {
     height: auto; 
     width: 100vw;
-    text-align: center;
+    text-align: flex-start;
 }
 
 .description {
@@ -139,6 +143,10 @@
     margin-left: 8%;
     margin-right: 8%;
     text-shadow: 0 0 1px #FEFFDD, 0 0 2px #FEFFDD, 0 0 3px #FEFFDD;
+}
+
+.description-links {
+    text-decoration: none;
 }
 
 .grass-humus {
