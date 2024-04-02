@@ -10,6 +10,8 @@ import projectlebron from '../images/projectlebron.png'
 import asklebron from '../images/asklebron.png'
 import pokemon from '../images/pokemon.png'
 import chromosense from '../images/chromosense.png'
+import bucks from '../images/bucks.png'
+import ufcrax from '../images/ufcrax.png'
 
 const PageWrap = styled.div`
   background-color: ${props => props.theme.backgroundColor};
@@ -67,7 +69,7 @@ function GreyBox(props) {
       return '#1F4E68';
     } else if (value === "Selenium") {
       return '#405B39';
-    } else if (value === "SQLite") {
+    } else if (value === "SQLite" || value === "PostgreSQL") {
       return '#275B5B';
     } else {
       return '#404040';
@@ -158,8 +160,7 @@ export default function Projects() {
               {selectedImage['legm'] 
                   ? <GreyBox
                       title='LeGM Fantasy Manager'
-                      description='I got tired of losing in my fantasy league. LeGM is an all-in-one fantasy manager so I can start winning again.
-                      Features include optimized lineup suggestions, an ai search, a team dashboard, and an injury news feed.'
+                      description='I got tired of losing in my fantasy league. LeGM is an all-in-one fantasy manager so I can start winning again.'
                       tool1='React'
                       tool2='MySQL'
                       tool3='Selenium'
@@ -168,6 +169,34 @@ export default function Projects() {
                   : <img className='project-box' src={legm} style={{ marginLeft: 'none' }} alt='none'/>
               }
           </div>
+          <div className='image-container' onClick={() => handleClick('bucks')}>
+              {selectedImage['bucks'] 
+                  ? <GreyBox
+                      title='Bucks Hackathon'
+                      description="We won 2nd place at 2024 Milwaukee Bucks Data analytics hackathon. Our project used ML to optimize ticket pricing. It was a lot of fun & had a great time"
+                      tool1='Python'
+                      tool2='PyTorch'
+                      tool3='Pandas'
+                      demo='true'
+                    />
+                  : <img className='project-box' src={bucks} style={{ marginLeft: 'none' }} alt='none'/>
+              }
+          </div>
+          <div className='image-container' onClick={() => handleClick('ufcrax')} style={{ marginRight: '50px'}}>
+            {selectedImage['ufcrax']
+                ? <GreyBox
+                    title='UFC Rax'
+                    description='Gives users on real app investment suggestions for in-game currency. Has 700+ active users in the first two weeks of launch. --> realrax.com'
+                    tool1='Python'
+                    tool2='Streamlit'
+                    tool3='PostgreSQL'
+                  />
+                : <img className='project-box' src={ufcrax} alt='none' />
+            }
+          </div>
+          <div className='image-container' onClick={() => handleClick('ufcrax')}>
+          </div>
+
         </div>
       </div>
 

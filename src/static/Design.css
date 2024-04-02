@@ -178,14 +178,6 @@
     height: 50px;
 }
 
-.subsoil {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 100vw;
-    height: auto;
-}
-
 .yeartitle {
     font-family: 'Roboto';
     font-size: 2rem;
