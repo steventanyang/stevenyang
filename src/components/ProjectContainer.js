@@ -33,6 +33,7 @@ const EmojiContainer = styled.div`
 const Title = styled.h1`
   font-size: 2rem;
   font-family: "Source Code Pro", monospace;
+  color: ${(props) => props.color};
 `;
 
 const ImageContainer = styled.div`
@@ -54,7 +55,22 @@ const Image = styled.img`
   border-radius: 15px;
 `;
 
-const ProjectContainer = ({ title, emoji }) => {
+const TextContainer = styled.div`
+  width: 80%;
+  opacity: ${(props) => (props.fadeIn ? 1 : 0)};
+  transition: opacity 0.9s ease;
+  text-align: flex-start;
+  margin-top: 20px;
+  line-height: 2;
+`;
+
+const Text = styled.p`
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: ${(props) => props.color};
+`;
+
+const ProjectContainer = ({ title, emoji, description }) => {
   const { theme, setTheme } = useContext(DarkContext);
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
@@ -65,11 +81,11 @@ const ProjectContainer = ({ title, emoji }) => {
 
   const handleExpand = () => {
     if (expanded) {
-        setFadeIn(false);
-        setTimeout(() => setExpanded((prevExpanded) => !prevExpanded), 150);
-      } else {
-        setExpanded((prevExpanded) => !prevExpanded);
-      }
+      setFadeIn(false);
+      setTimeout(() => setExpanded((prevExpanded) => !prevExpanded), 150);
+    } else {
+      setExpanded((prevExpanded) => !prevExpanded);
+    }
   };
 
   useEffect(() => {
@@ -104,13 +120,19 @@ const ProjectContainer = ({ title, emoji }) => {
       >
         <TitleContainer>
           <EmojiContainer>{emoji}</EmojiContainer>
-          <Title>{title}</Title>
+          <Title color={"#73dd79"}>{title}</Title>
         </TitleContainer>
 
         {expanded && (
           <ImageContainer>
             <Image src={pokemon} width={windowSize.width} fadeIn={fadeIn} />
           </ImageContainer>
+        )}
+
+        {expanded && (
+          <TextContainer color={"#73dd79"} fadeIn={fadeIn}>
+            <Text color={"#73dd79"}>{description}</Text>
+          </TextContainer>
         )}
       </Container>
     </>

@@ -196,7 +196,11 @@ const Projects = () => {
                 alt="none"
               />
             )}
-            {/* <ProjectContainer emoji={"🏀"} title={"test title test"} /> */}
+            {/* <ProjectContainer
+              emoji={"🏀"}
+              title={"test title test"}
+              description={"We won 2nd place at 2024 Milwaukee Bucks Data analytics hackathon. Our project used ML to optimize ticket pricing. It was a lot of fun & had a great time"}
+            /> */}
           </div>
           <div className="image-container" onClick={() => handleClick("bucks")}>
             {selectedImage["bucks"] ? (
