@@ -144,7 +144,7 @@ const Projects = () => {
           <ul className="description-text">
             Here's a collection of projects that I've worked on over the years!
           </ul>
-          {/* <ProjectContainer /> */}
+          {/* <ProjectContainer emoji={"🏀"} title={"test title test"} /> */}
         </div>
       </div>
 

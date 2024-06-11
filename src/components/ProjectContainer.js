@@ -1,36 +1,57 @@
 import styled from "styled-components";
 import { useContext, useState, useEffect } from "react";
 import { DarkContext } from "../contexts/DarkContext";
+import pokemon from "../images/pokemon.png";
 
 const Container = styled.div`
   width: ${(props) => (props.phone ? props.width * 0.8 : props.width * 0.4)}px;
   height: ${(props) =>
-    props.expanded ? (props.phone ? 450 : 600) : props.phone ? 70 : 100}px;
+    props.expanded ? (props.phone ? 450 : 600) : props.phone ? 100 : 100}px;
   background-color: ${(props) => props.background};
   border-radius: ${(props) => props.height * 0.015}px;
   border: 4px solid ${(props) => props.border};
   transition: height 0.5s ease;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
   display: flex;
 `;
 
 const TitleContainer = styled.div`
-  justify-content: center;
+  justify-content: flex-start;
+  width: 100%;
   align-items: center;
   display: flex;
   flex-direction: row;
 `;
 
 const EmojiContainer = styled.div`
-    font-size: 3rem;
-    padding: 20px;
+  font-size: 3rem;
+  padding: 20px;
 `;
 
 const Title = styled.h1`
-    font-size: 2rem;
-    font-family: 'Source Code Pro', monospace;
+  font-size: 2rem;
+  font-family: "Source Code Pro", monospace;
+`;
+
+const ImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  width: 100%;
+  height: auto;
+`;
+
+const Image = styled.img`
+  src: ${(props) => props.src};
+  width: 80%;
+  opacity: ${(props) => (props.fadeIn ? 1 : 0)};
+  transition: opacity 0.9s ease;
+  border-radius: 15px;
 `;
 
 const ProjectContainer = ({ title, emoji }) => {
@@ -40,8 +61,15 @@ const ProjectContainer = ({ title, emoji }) => {
     height: window.innerHeight,
   });
   const [expanded, setExpanded] = useState(false);
+  const [fadeIn, setFadeIn] = useState(false);
+
   const handleExpand = () => {
-    setExpanded((prevExpanded) => !prevExpanded);
+    if (expanded) {
+        setFadeIn(false);
+        setTimeout(() => setExpanded((prevExpanded) => !prevExpanded), 150);
+      } else {
+        setExpanded((prevExpanded) => !prevExpanded);
+      }
   };
 
   useEffect(() => {
@@ -51,6 +79,15 @@ const ProjectContainer = ({ title, emoji }) => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  useEffect(() => {
+    if (expanded) {
+      const timer = setTimeout(() => {
+        setFadeIn(true);
+      }, 50);
+      return () => clearTimeout(timer);
+    }
+  }, [expanded]);
 
   const isPhone = windowSize.width < 1250;
 
@@ -69,6 +106,12 @@ const ProjectContainer = ({ title, emoji }) => {
           <EmojiContainer>{emoji}</EmojiContainer>
           <Title>{title}</Title>
         </TitleContainer>
+
+        {expanded && (
+          <ImageContainer>
+            <Image src={pokemon} width={windowSize.width} fadeIn={fadeIn} />
+          </ImageContainer>
+        )}
       </Container>
     </>
   );
