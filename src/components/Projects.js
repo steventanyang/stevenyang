@@ -2,7 +2,7 @@ import "../static/Projects.css";
 import Toggle from "../components/Toggle";
 
 import styled from "styled-components";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { DarkContext } from "../contexts/DarkContext";
 import { Link } from "react-router-dom";
 import legm from "../images/legm.png";
@@ -37,13 +37,25 @@ const DirtContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: ${(props) =>
+    props.theme === "light" ? props.light : props.dark};
+  padding-bottom: 50px;
 `;
 
-const Container = styled.div`
+const YearTitle = styled.h2`
+  font-family: "Source Code Pro", monospace;
+  font-size: 2rem;
+  font-weight: 700;
+  padding-top: 35px;
+  padding-bottom: 20px;
+  color: ${(props) => (props.theme === "light" ? props.light : props.dark)};
+`;
+
+const PContainer = styled.div`
   display: flex;
-  flex-direction: ${(props) => props.phone ? "column" : "row"};
+  flex-direction: ${(props) => (props.phone ? "column" : "row")};
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 `;
 
 function GreyBox(props) {
@@ -111,7 +123,7 @@ const Projects = () => {
     width: window.innerWidth,
     height: window.innerHeight,
   });
-  const isPhone = windowSize.width < 1000;
+  const isPhone = windowSize.width < 1300;
   const [selectedImage, setSelectedImage] = useState({});
 
   const handleClick = (imageId) => {
@@ -120,6 +132,14 @@ const Projects = () => {
       [imageId]: !prevSelected[imageId],
     }));
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <PageWrap>
@@ -162,7 +182,6 @@ const Projects = () => {
           <ul className="description-text">
             Here's a collection of projects that I've worked on over the years!
           </ul>
-          <ProjectContainer emoji={"🏀"} title={"test title test"} />
         </div>
       </div>
 
@@ -184,16 +203,13 @@ const Projects = () => {
       ></div>
 
       {/* 2024 */}
-      <DirtContainer>
-        <h2
-          className="yeartitle"
-          style={{ color: theme === "light" ? "#826122" : "#576151" }}
-        >
+      <DirtContainer theme={theme} light={"#654A15"} dark={"#3D4334"}>
+        <YearTitle theme={theme} light={"#8C6A28"} dark={"#FEFFDD"}>
           2024
-        </h2>
+        </YearTitle>
 
-        <Container phone={isPhone}>
-          <ProjectContainer
+        <PContainer phone={isPhone}>
+          <ProjectContainer // LeResume
             background={"#445F3E"}
             border={"#73dd79"}
             emoji={"🏀"}
@@ -204,7 +220,7 @@ const Projects = () => {
             }
             more={"https://www.stadiumverse.com/"}
           />
-          <ProjectContainer
+          <ProjectContainer // UFC Rax
             background={"#445F3E"}
             border={"#73dd79"}
             emoji={"🏀"}
@@ -215,118 +231,147 @@ const Projects = () => {
             }
             more={"https://www.stadiumverse.com/"}
           />
-        </Container>
+        </PContainer>
+
+        <PContainer phone={isPhone}>
+          <ProjectContainer // Bucks Hackathon
+            background={"#445F3E"}
+            border={"#73dd79"}
+            emoji={"🏀"}
+            title={"test title test"}
+            image={legm}
+            description={
+              "We won 2nd place at 2024 Milwaukee Bucks Data analytics hackathon. Our project used ML to optimize ticket pricing. It was a lot of fun & had a great time"
+            }
+            more={"https://www.stadiumverse.com/"}
+          />
+          <ProjectContainer // LeGM
+            background={"#445F3E"}
+            border={"#73dd79"}
+            emoji={"🏀"}
+            title={"test title test"}
+            image={legm}
+            description={
+              "We won 2nd place at 2024 Milwaukee Bucks Data analytics hackathon. Our project used ML to optimize ticket pricing. It was a lot of fun & had a great time"
+            }
+            more={"https://www.stadiumverse.com/"}
+          />
+        </PContainer>
       </DirtContainer>
 
       {/* 2023 */}
-      <div
-        className="subsoil"
-        style={{ backgroundColor: theme === "light" ? "#4C370D" : "#2C3023" }}
-      >
-        <h2
-          className="yeartitle"
-          style={{ color: theme === "light" ? "#654A15" : "#464D39" }}
-        >
+      <DirtContainer theme={theme} light={"#4C370D"} dark={"#2C3023"}>
+        <YearTitle theme={theme} light={"#73551B"} dark={"#FEFFDD"}>
           2023
-        </h2>
+        </YearTitle>
 
-        <div className="projects-container">
-          <div
-            className="image-container"
-            onClick={() => handleClick("projectlebron")}
-          >
-            {selectedImage["projectlebron"] ? (
-              <GreyBox
-                title="Project LeBron"
-                description='I was using this productivity app called "forest" and that became the inspiration behind this app. 
-                  Tracking shootaround stats was something that I always thought would be cool. The hardware used a motion sensor + vibration sensor.'
-                tool1="React Native"
-                tool2="MongoDB"
-                tool3="Flask"
-              />
-            ) : (
-              <img className="project-box" src={projectlebron} alt="none" />
-            )}
-          </div>
-          <div
-            className="image-container"
-            onClick={() => handleClick("pokemon")}
-          >
-            {selectedImage["pokemon"] ? (
-              <GreyBox
-                title="Pokemon Hunting Simulator"
-                description="Back in my pokemon prime I used to hunt for shinies on my DS. 
-                    This is a simple simulator that I made to simulate the experience. It tracks all 9 regions and you can adjust the odds."
-                tool1="Django"
-                tool2="SQLite"
-                tool3="Python"
-              />
-            ) : (
-              <img className="project-box" src={pokemon} alt="none" />
-            )}
-          </div>
-          <div
-            className="image-container"
-            onClick={() => handleClick("chromosense")}
-            style={{ marginRight: "50px" }}
-          >
-            {selectedImage["chromosense"] ? (
-              <GreyBox
-                title="iGEM Team Website"
-                description="I had to design and create a website for my igem team. Our project was based on diagnosing fish diseases,
-                    so the website was designed to be fish tank themed."
-                tool1="HTML"
-                tool2="CSS"
-                tool3="JavaScript"
-              />
-            ) : (
-              <img className="project-box" src={chromosense} alt="none" />
-            )}
-          </div>
-          <div
-            className="image-container"
-            onClick={() => handleClick("chromosense")}
-          ></div>
-        </div>
-      </div>
+        <PContainer phone={isPhone}>
+          <ProjectContainer // LeResume
+            background={"#445F3E"}
+            border={"#73dd79"}
+            emoji={"🏀"}
+            title={"test title test"}
+            image={legm}
+            description={
+              "We won 2nd place at 2024 Milwaukee Bucks Data analytics hackathon. Our project used ML to optimize ticket pricing. It was a lot of fun & had a great time"
+            }
+            more={"https://www.stadiumverse.com/"}
+          />
+          <ProjectContainer // UFC Rax
+            background={"#445F3E"}
+            border={"#73dd79"}
+            emoji={"🏀"}
+            title={"test title test"}
+            image={legm}
+            description={
+              "We won 2nd place at 2024 Milwaukee Bucks Data analytics hackathon. Our project used ML to optimize ticket pricing. It was a lot of fun & had a great time"
+            }
+            more={"https://www.stadiumverse.com/"}
+          />
+        </PContainer>
+
+        <PContainer phone={isPhone}>
+          <ProjectContainer // Bucks Hackathon
+            background={"#445F3E"}
+            border={"#73dd79"}
+            emoji={"🏀"}
+            title={"test title test"}
+            image={legm}
+            description={
+              "We won 2nd place at 2024 Milwaukee Bucks Data analytics hackathon. Our project used ML to optimize ticket pricing. It was a lot of fun & had a great time"
+            }
+            more={"https://www.stadiumverse.com/"}
+          />
+          <ProjectContainer // LeGM
+            background={"#445F3E"}
+            border={"#73dd79"}
+            emoji={"🏀"}
+            title={"test title test"}
+            image={legm}
+            description={
+              "We won 2nd place at 2024 Milwaukee Bucks Data analytics hackathon. Our project used ML to optimize ticket pricing. It was a lot of fun & had a great time"
+            }
+            more={"https://www.stadiumverse.com/"}
+          />
+        </PContainer>
+      </DirtContainer>
 
       {/* 2022 */}
-      <div
-        className="subsoil"
-        style={{ backgroundColor: theme === "light" ? "#726240" : "#4C5046" }}
-      >
-        <h2
-          className="yeartitle"
-          style={{ color: theme === "light" ? "#4C370D" : "#2C3023" }}
-        >
-          2022
-        </h2>
+      <DirtContainer theme={theme} light={"#726240"} dark={"#4C5046"}>
+        <YearTitle theme={theme} light={"#4C370D"} dark={"#FEFFDD"}>
+          2023
+        </YearTitle>
 
-        <div className="projects-container">
-          <div
-            className="image-container-bottom"
-            onClick={() => handleClick("asklebron")}
-          >
-            {selectedImage["asklebron"] ? (
-              <GreyBox
-                title="AskLebron"
-                description="I was addicted to this fantasy-sports mobile game called stadium live app in highschool. At one point I was probably spending 3+ hours everyday making lineups. 
-                    I said enough was enough and made a program that would automate the process for me. "
-                tool1="Python"
-                tool2="Pandas"
-                tool3="Flask"
-              />
-            ) : (
-              <img
-                className="project-box"
-                src={asklebron}
-                style={{ marginLeft: "none" }}
-                alt="none"
-              />
-            )}
-          </div>
-        </div>
-      </div>
+        <PContainer phone={isPhone}>
+          <ProjectContainer // LeResume
+            background={"#445F3E"}
+            border={"#73dd79"}
+            emoji={"🏀"}
+            title={"test title test"}
+            image={legm}
+            description={
+              "We won 2nd place at 2024 Milwaukee Bucks Data analytics hackathon. Our project used ML to optimize ticket pricing. It was a lot of fun & had a great time"
+            }
+            more={"https://www.stadiumverse.com/"}
+          />
+          <ProjectContainer // UFC Rax
+            background={"#445F3E"}
+            border={"#73dd79"}
+            emoji={"🏀"}
+            title={"test title test"}
+            image={legm}
+            description={
+              "We won 2nd place at 2024 Milwaukee Bucks Data analytics hackathon. Our project used ML to optimize ticket pricing. It was a lot of fun & had a great time"
+            }
+            more={"https://www.stadiumverse.com/"}
+          />
+        </PContainer>
+
+        <PContainer phone={isPhone}>
+          <ProjectContainer // Bucks Hackathon
+            background={"#445F3E"}
+            border={"#73dd79"}
+            emoji={"🏀"}
+            title={"test title test"}
+            image={legm}
+            description={
+              "We won 2nd place at 2024 Milwaukee Bucks Data analytics hackathon. Our project used ML to optimize ticket pricing. It was a lot of fun & had a great time"
+            }
+            more={"https://www.stadiumverse.com/"}
+          />
+          <ProjectContainer // LeGM
+            background={"#445F3E"}
+            border={"#73dd79"}
+            emoji={"🏀"}
+            title={"test title test"}
+            image={legm}
+            description={
+              "We won 2nd place at 2024 Milwaukee Bucks Data analytics hackathon. Our project used ML to optimize ticket pricing. It was a lot of fun & had a great time"
+            }
+            more={"https://www.stadiumverse.com/"}
+          />
+        </PContainer>
+      </DirtContainer>
     </PageWrap>
   );
 };

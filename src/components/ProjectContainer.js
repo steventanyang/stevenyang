@@ -20,7 +20,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: flex-start;
   display: flex;
-  margin: 5px;
+  margin: 10px 10px;
 `;
 
 const TitleContainer = styled.div`
