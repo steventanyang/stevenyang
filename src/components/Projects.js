@@ -32,6 +32,20 @@ const Title = styled.div`
   text-shadow: 0 0 1px #feffdd, 0 0 2px #feffdd, 0 0 3px #feffdd;
 `;
 
+const DirtContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: ${(props) => props.phone ? "column" : "row"};
+  justify-content: center;
+  align-items: center;
+`;
+
 function GreyBox(props) {
   const Tool = (value) => {
     if (value === "CSS") {
@@ -93,7 +107,11 @@ function GreyBox(props) {
 
 const Projects = () => {
   const { theme, setTheme, isToggled, setIsToggled } = useContext(DarkContext);
-
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+  const isPhone = windowSize.width < 1000;
   const [selectedImage, setSelectedImage] = useState({});
 
   const handleClick = (imageId) => {
@@ -144,7 +162,7 @@ const Projects = () => {
           <ul className="description-text">
             Here's a collection of projects that I've worked on over the years!
           </ul>
-          {/* <ProjectContainer emoji={"🏀"} title={"test title test"} /> */}
+          <ProjectContainer emoji={"🏀"} title={"test title test"} />
         </div>
       </div>
 
@@ -166,10 +184,7 @@ const Projects = () => {
       ></div>
 
       {/* 2024 */}
-      <div
-        className="subsoil"
-        style={{ backgroundColor: theme === "light" ? "#654A15" : "#3D4334" }}
-      >
+      <DirtContainer>
         <h2
           className="yeartitle"
           style={{ color: theme === "light" ? "#826122" : "#576151" }}
@@ -177,73 +192,31 @@ const Projects = () => {
           2024
         </h2>
 
-        <div className="projects-container">
-          <div className="image-container" onClick={() => handleClick("legm")}>
-            {selectedImage["legm"] ? (
-              <GreyBox
-                title="LeGM Fantasy Manager"
-                description="I got tired of losing in my fantasy league. LeGM is an all-in-one fantasy manager so I can start winning again."
-                tool1="React"
-                tool2="MySQL"
-                tool3="Selenium"
-                demo="true"
-              />
-            ) : (
-              <img
-                className="project-box"
-                src={legm}
-                style={{ marginLeft: "none" }}
-                alt="none"
-              />
-            )}
-            {/* <ProjectContainer
-              emoji={"🏀"}
-              title={"test title test"}
-              description={"We won 2nd place at 2024 Milwaukee Bucks Data analytics hackathon. Our project used ML to optimize ticket pricing. It was a lot of fun & had a great time"}
-            /> */}
-          </div>
-          <div className="image-container" onClick={() => handleClick("bucks")}>
-            {selectedImage["bucks"] ? (
-              <GreyBox
-                title="Bucks Hackathon"
-                description="We won 2nd place at 2024 Milwaukee Bucks Data analytics hackathon. Our project used ML to optimize ticket pricing. It was a lot of fun & had a great time"
-                tool1="Python"
-                tool2="PyTorch"
-                tool3="Pandas"
-                demo="true"
-              />
-            ) : (
-              <img
-                className="project-box"
-                src={bucks}
-                style={{ marginLeft: "none" }}
-                alt="none"
-              />
-            )}
-          </div>
-          <div
-            className="image-container"
-            onClick={() => handleClick("ufcrax")}
-            style={{ marginRight: "50px" }}
-          >
-            {selectedImage["ufcrax"] ? (
-              <GreyBox
-                title="UFC Rax"
-                description="Gives users on real app investment suggestions for in-game currency. Has 700+ active users in the first two weeks of launch. --> realrax.com"
-                tool1="Python"
-                tool2="Streamlit"
-                tool3="PostgreSQL"
-              />
-            ) : (
-              <img className="project-box" src={ufcrax} alt="none" />
-            )}
-          </div>
-          <div
-            className="image-container"
-            onClick={() => handleClick("ufcrax")}
-          ></div>
-        </div>
-      </div>
+        <Container phone={isPhone}>
+          <ProjectContainer
+            background={"#445F3E"}
+            border={"#73dd79"}
+            emoji={"🏀"}
+            title={"test title test"}
+            image={legm}
+            description={
+              "We won 2nd place at 2024 Milwaukee Bucks Data analytics hackathon. Our project used ML to optimize ticket pricing. It was a lot of fun & had a great time"
+            }
+            more={"https://www.stadiumverse.com/"}
+          />
+          <ProjectContainer
+            background={"#445F3E"}
+            border={"#73dd79"}
+            emoji={"🏀"}
+            title={"test title test"}
+            image={legm}
+            description={
+              "We won 2nd place at 2024 Milwaukee Bucks Data analytics hackathon. Our project used ML to optimize ticket pricing. It was a lot of fun & had a great time"
+            }
+            more={"https://www.stadiumverse.com/"}
+          />
+        </Container>
+      </DirtContainer>
 
       {/* 2023 */}
       <div

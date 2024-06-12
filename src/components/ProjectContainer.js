@@ -1,12 +1,17 @@
 import styled from "styled-components";
 import { useContext, useState, useEffect } from "react";
 import { DarkContext } from "../contexts/DarkContext";
-import pokemon from "../images/pokemon.png";
 
 const Container = styled.div`
   width: ${(props) => (props.phone ? props.width * 0.8 : props.width * 0.4)}px;
   height: ${(props) =>
-    props.expanded ? (props.phone ? 450 : 600) : props.phone ? 100 : 100}px;
+    props.expanded
+      ? props.phone
+        ? props.height * 0.8
+        : props.height * 0.7
+      : props.phone
+      ? 90
+      : 100}px;
   background-color: ${(props) => props.background};
   border-radius: ${(props) => props.height * 0.015}px;
   border: 4px solid ${(props) => props.border};
@@ -15,6 +20,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: flex-start;
   display: flex;
+  margin: 5px;
 `;
 
 const TitleContainer = styled.div`
@@ -26,7 +32,7 @@ const TitleContainer = styled.div`
 `;
 
 const EmojiContainer = styled.div`
-  font-size: 3rem;
+  font-size: 35px;
   padding: 20px;
 `;
 
@@ -70,7 +76,34 @@ const Text = styled.p`
   color: ${(props) => props.color};
 `;
 
-const ProjectContainer = ({ title, emoji, description }) => {
+const LinkContainer = styled.div`
+  width: 80%;
+  text-align: center;
+  opacity: ${(props) => (props.fadeIn ? 1 : 0)};
+  transition: opacity 0.9s ease;
+  padding: 20px;
+`;
+
+const Links = styled.a`
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: ${(props) => props.color};
+  text-decoration: underline;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+const ProjectContainer = ({
+  background,
+  border,
+  title,
+  emoji,
+  image,
+  description,
+  more,
+}) => {
   const { theme, setTheme } = useContext(DarkContext);
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
@@ -113,26 +146,41 @@ const ProjectContainer = ({ title, emoji, description }) => {
         phone={isPhone}
         width={windowSize.width}
         height={windowSize.height}
-        background={"#445F3E"}
-        border={"#73dd79"}
+        background={background}
+        border={border}
         expanded={expanded}
         onClick={handleExpand}
       >
         <TitleContainer>
           <EmojiContainer>{emoji}</EmojiContainer>
-          <Title color={"#73dd79"}>{title}</Title>
+          <Title color={border}>{title}</Title>
         </TitleContainer>
 
         {expanded && (
           <ImageContainer>
-            <Image src={pokemon} width={windowSize.width} fadeIn={fadeIn} />
+            <Image src={image} width={windowSize.width} fadeIn={fadeIn} />
           </ImageContainer>
         )}
 
         {expanded && (
-          <TextContainer color={"#73dd79"} fadeIn={fadeIn}>
-            <Text color={"#73dd79"}>{description}</Text>
+          <TextContainer fadeIn={fadeIn}>
+            <Text color={border}>{description}</Text>
           </TextContainer>
+        )}
+
+        {expanded && (
+          <LinkContainer fadeIn={fadeIn}>
+            {more && (
+              <Links
+                color={border}
+                href={more}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                See More
+              </Links>
+            )}
+          </LinkContainer>
         )}
       </Container>
     </>
