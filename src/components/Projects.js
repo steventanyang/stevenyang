@@ -2,10 +2,11 @@ import "../static/Projects.css";
 import Toggle from "../components/Toggle";
 
 import styled from "styled-components";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { DarkContext } from "../contexts/DarkContext";
 import { Link } from "react-router-dom";
 import legm from "../images/legm.png";
+import leresume from "../images/leresume.png";
 import projectlebron from "../images/projectlebron.png";
 import asklebron from "../images/asklebron.png";
 import pokemon from "../images/pokemon.png";
@@ -32,68 +33,60 @@ const Title = styled.div`
   text-shadow: 0 0 1px #feffdd, 0 0 2px #feffdd, 0 0 3px #feffdd;
 `;
 
-function GreyBox(props) {
-  const Tool = (value) => {
-    if (value === "CSS") {
-      return "#757629";
-    } else if (value === "Django") {
-      return "225724";
-    } else if (value === "Flask") {
-      return "#404040";
-    } else if (value === "Git") {
-      return "#814A17";
-    } else if (value === "JavaScript") {
-      return "#767319";
-    } else if (value === "MongoDB") {
-      return "#1C431E";
-    } else if (value === "MySQL") {
-      return "#85621E";
-    } else if (value === "Pandas") {
-      return "#1C431E";
-    } else if (value === "Python") {
-      return "#496A7C";
-    } else if (value === "React" || value === "React Native") {
-      return "#1F4E68";
-    } else if (value === "Selenium") {
-      return "#405B39";
-    } else if (value === "SQLite" || value === "PostgreSQL") {
-      return "#275B5B";
-    } else {
-      return "#404040";
-    }
-  };
+const DescriptionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: auto;
+  line-height: 1.5;
+  padding-top: 5%;
+  padding-bottom: 5%;
+`;
 
-  return (
-    <div className="grey-overlay">
-      <span className="grey-title-container">
-        <h2 className="grey-title">{props.title}</h2>
-      </span>
+const DescriptionText = styled.ul`
+  color: ${(props) => props.color};
+  font-family: "Source Code Pro", monospace;
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-left: 10%;
+  margin-right: 8%;
+`;
 
-      <span className="tech-boxes-container">
-        <div className="techbox" style={{ backgroundColor: Tool(props.tool1) }}>
-          <p className="techbox-text">{props.tool1}</p>
-        </div>
-        <div className="techbox" style={{ backgroundColor: Tool(props.tool2) }}>
-          <p className="techbox-text">{props.tool2}</p>
-        </div>
-        <div className="techbox" style={{ backgroundColor: Tool(props.tool3) }}>
-          <p className="techbox-text">{props.tool3}</p>
-        </div>
-      </span>
+const DirtContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: ${(props) =>
+    props.theme === "light" ? props.light : props.dark};
+  padding-bottom: 50px;
+`;
 
-      <span className="grey-des-container">
-        <p className="grey-description">{props.description}</p>
-        <p className="grey-description-short">{props.shortdescription}</p>
-      </span>
+const YearTitle = styled.h2`
+  font-family: "Source Code Pro", monospace;
+  font-size: 2rem;
+  font-weight: 700;
+  padding-top: 35px;
+  padding-bottom: 20px;
+  color: ${(props) => (props.theme === "light" ? props.light : props.dark)};
+`;
 
-      {/* <a href="https://www.linkedin.com/in/steven-yang-2059b0268/" target="blank">link</a> */}
-    </div>
-  );
-}
+const PContainer = styled.div`
+  display: flex;
+  flex-direction: ${(props) => (props.phone ? "column" : "row")};
+  justify-content: center;
+  align-items: flex-start;
+`;
 
 const Projects = () => {
   const { theme, setTheme, isToggled, setIsToggled } = useContext(DarkContext);
-
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+  const isPhone = windowSize.width < 1300;
   const [selectedImage, setSelectedImage] = useState({});
 
   const handleClick = (imageId) => {
@@ -102,6 +95,14 @@ const Projects = () => {
       [imageId]: !prevSelected[imageId],
     }));
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <PageWrap>
@@ -121,32 +122,25 @@ const Projects = () => {
           <Title> &lt;/&gt; </Title>
         </Link>
       </div>
-      <div className="description-container">
-        <div
-          className="description"
-          style={{ color: theme === "light" ? "#5A5A5A" : "#FEFFDD" }}
-        >
-          <ul className="description-text">
-            I'm a first-year Software Engineering student @ the University of
-            Waterloo
-          </ul>
-          <ul className="description-text">
-            This summer I'm doing full stack at
-            <a
-              href="https://www.stadiumverse.com/"
-              className="description-links"
-              style={{ color: theme === "light" ? "#5A5A5A" : "#C8FFFF" }}
-            >
-              {" "}
-              Stadium Live Studios.
-            </a>
-          </ul>
-          <ul className="description-text">
-            Here's a collection of projects that I've worked on over the years!
-          </ul>
-          {/* <ProjectContainer emoji={"🏀"} title={"test title test"} /> */}
-        </div>
-      </div>
+      <DescriptionContainer>
+        <DescriptionText color={theme === "light" ? "#5A5A5A" : "#FEFFDD"}>
+          - I'm a first-year Software Engineering student @ the University of
+          Waterloo
+        </DescriptionText>
+        <DescriptionText color={theme === "light" ? "#5A5A5A" : "#FEFFDD"}>
+          - This summer I'm doing full stack at{" "}
+          <a
+            href="https://www.stadiumverse.com/"
+            className="description-links"
+            style={{ color: theme === "light" ? "#5A5A5A" : "#C8FFFF" }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {" "}
+            Stadium Live Studios.{" "}
+          </a>
+        </DescriptionText>
+      </DescriptionContainer>
 
       <div
         className="grass-humus"
@@ -166,194 +160,126 @@ const Projects = () => {
       ></div>
 
       {/* 2024 */}
-      <div
-        className="subsoil"
-        style={{ backgroundColor: theme === "light" ? "#654A15" : "#3D4334" }}
-      >
-        <h2
-          className="yeartitle"
-          style={{ color: theme === "light" ? "#826122" : "#576151" }}
-        >
+      <DirtContainer theme={theme} light={"#654A15"} dark={"#3D4334"}>
+        <YearTitle theme={theme} light={"#8C6A28"} dark={"#FEFFDD"}>
           2024
-        </h2>
+        </YearTitle>
 
-        <div className="projects-container">
-          <div className="image-container" onClick={() => handleClick("legm")}>
-            {selectedImage["legm"] ? (
-              <GreyBox
-                title="LeGM Fantasy Manager"
-                description="I got tired of losing in my fantasy league. LeGM is an all-in-one fantasy manager so I can start winning again."
-                tool1="React"
-                tool2="MySQL"
-                tool3="Selenium"
-                demo="true"
-              />
-            ) : (
-              <img
-                className="project-box"
-                src={legm}
-                style={{ marginLeft: "none" }}
-                alt="none"
-              />
-            )}
-            {/* <ProjectContainer
-              emoji={"🏀"}
-              title={"test title test"}
-              description={"We won 2nd place at 2024 Milwaukee Bucks Data analytics hackathon. Our project used ML to optimize ticket pricing. It was a lot of fun & had a great time"}
-            /> */}
-          </div>
-          <div className="image-container" onClick={() => handleClick("bucks")}>
-            {selectedImage["bucks"] ? (
-              <GreyBox
-                title="Bucks Hackathon"
-                description="We won 2nd place at 2024 Milwaukee Bucks Data analytics hackathon. Our project used ML to optimize ticket pricing. It was a lot of fun & had a great time"
-                tool1="Python"
-                tool2="PyTorch"
-                tool3="Pandas"
-                demo="true"
-              />
-            ) : (
-              <img
-                className="project-box"
-                src={bucks}
-                style={{ marginLeft: "none" }}
-                alt="none"
-              />
-            )}
-          </div>
-          <div
-            className="image-container"
-            onClick={() => handleClick("ufcrax")}
-            style={{ marginRight: "50px" }}
-          >
-            {selectedImage["ufcrax"] ? (
-              <GreyBox
-                title="UFC Rax"
-                description="Gives users on real app investment suggestions for in-game currency. Has 700+ active users in the first two weeks of launch. --> realrax.com"
-                tool1="Python"
-                tool2="Streamlit"
-                tool3="PostgreSQL"
-              />
-            ) : (
-              <img className="project-box" src={ufcrax} alt="none" />
-            )}
-          </div>
-          <div
-            className="image-container"
-            onClick={() => handleClick("ufcrax")}
-          ></div>
-        </div>
-      </div>
+        <PContainer phone={isPhone}>
+          <ProjectContainer // LeResume
+            background={"#E1E1E1"}
+            border={"#73698A"}
+            emoji={"💸"}
+            title={"LeResume"}
+            image={leresume}
+            description={"soon ..."}
+            more={"https://leresume-website.vercel.app/"}
+          />
+          <ProjectContainer // UFC Rax
+            background={"#000"}
+            border={"#E4E4E4"}
+            emoji={"🥊"}
+            title={"ufc rax"}
+            image={ufcrax}
+            description={
+              "Gives users investment advice on virtual currency based mobile game using historical ufc fight data. 3500+ active users."
+            }
+            more={"https://realrax.com/"}
+          />
+        </PContainer>
+
+        <PContainer phone={isPhone}>
+          <ProjectContainer // Bucks Hackathon
+            background={"#0F481B"}
+            border={"#E1D3B7"}
+            emoji={"🏀"}
+            title={"milwaukee bucks hackathon"}
+            image={bucks}
+            description={
+              "We won 2nd place at 2024 Milwaukee Bucks Data analytics hackathon. Our project used ML to optimize ticket pricing."
+            }
+            more={"https://www.nba.com/bucks/hackathon"}
+          />
+          <ProjectContainer // LeGM
+            background={"#FFFFFF"}
+            border={"#144458"}
+            emoji={"🧠"}
+            title={"LeGM"}
+            image={legm}
+            description={
+              "LeGM is a all-in-one fantasy basketball manager. It includes league insights, stat tracking, automated waiver suggestions, + more."
+            }
+            more={"https://www.stadiumverse.com/"}
+          />
+        </PContainer>
+      </DirtContainer>
 
       {/* 2023 */}
-      <div
-        className="subsoil"
-        style={{ backgroundColor: theme === "light" ? "#4C370D" : "#2C3023" }}
-      >
-        <h2
-          className="yeartitle"
-          style={{ color: theme === "light" ? "#654A15" : "#464D39" }}
-        >
+      <DirtContainer theme={theme} light={"#4C370D"} dark={"#2C3023"}>
+        <YearTitle theme={theme} light={"#73551B"} dark={"#FEFFDD"}>
           2023
-        </h2>
+        </YearTitle>
 
-        <div className="projects-container">
-          <div
-            className="image-container"
-            onClick={() => handleClick("projectlebron")}
-          >
-            {selectedImage["projectlebron"] ? (
-              <GreyBox
-                title="Project LeBron"
-                description='I was using this productivity app called "forest" and that became the inspiration behind this app. 
-                  Tracking shootaround stats was something that I always thought would be cool. The hardware used a motion sensor + vibration sensor.'
-                tool1="React Native"
-                tool2="MongoDB"
-                tool3="Flask"
-              />
-            ) : (
-              <img className="project-box" src={projectlebron} alt="none" />
-            )}
-          </div>
-          <div
-            className="image-container"
-            onClick={() => handleClick("pokemon")}
-          >
-            {selectedImage["pokemon"] ? (
-              <GreyBox
-                title="Pokemon Hunting Simulator"
-                description="Back in my pokemon prime I used to hunt for shinies on my DS. 
-                    This is a simple simulator that I made to simulate the experience. It tracks all 9 regions and you can adjust the odds."
-                tool1="Django"
-                tool2="SQLite"
-                tool3="Python"
-              />
-            ) : (
-              <img className="project-box" src={pokemon} alt="none" />
-            )}
-          </div>
-          <div
-            className="image-container"
-            onClick={() => handleClick("chromosense")}
-            style={{ marginRight: "50px" }}
-          >
-            {selectedImage["chromosense"] ? (
-              <GreyBox
-                title="iGEM Team Website"
-                description="I had to design and create a website for my igem team. Our project was based on diagnosing fish diseases,
-                    so the website was designed to be fish tank themed."
-                tool1="HTML"
-                tool2="CSS"
-                tool3="JavaScript"
-              />
-            ) : (
-              <img className="project-box" src={chromosense} alt="none" />
-            )}
-          </div>
-          <div
-            className="image-container"
-            onClick={() => handleClick("chromosense")}
-          ></div>
-        </div>
-      </div>
+        <PContainer phone={isPhone}>
+          <ProjectContainer // project lebron
+            background={"#253342"}
+            border={"#D2D2CC"}
+            emoji={"📊"}
+            title={"project lebron"}
+            image={projectlebron}
+            description={
+              "shootaround tracking app w/ real-time shot feedback + motion + vibration sensor hardware. Built for se101 project course."
+            }
+            more={"https://www.youtube.com/shorts/9Tw3vGxFPsM"}
+          />
+          <ProjectContainer // pokemon shiny hunter
+            background={"#2F66A6"}
+            border={"#EEC006"}
+            emoji={"🌟"}
+            title={"pokemon shiny hunter"}
+            image={pokemon}
+            description={
+              "Shiny hunting simulator complete with full 9 region pokedex."
+            }
+            more={""}
+          />
+        </PContainer>
+
+        <PContainer phone={isPhone}>
+          <ProjectContainer // chromosense website
+            background={"#EFEEEB"}
+            border={"#0D72A8"}
+            emoji={"🐟"}
+            title={"chromosense"}
+            image={chromosense}
+            description={
+              "website that I helped make for my igem team that has really bad code."
+            }
+            more={""}
+          />
+        </PContainer>
+      </DirtContainer>
 
       {/* 2022 */}
-      <div
-        className="subsoil"
-        style={{ backgroundColor: theme === "light" ? "#726240" : "#4C5046" }}
-      >
-        <h2
-          className="yeartitle"
-          style={{ color: theme === "light" ? "#4C370D" : "#2C3023" }}
-        >
+      <DirtContainer theme={theme} light={"#726240"} dark={"#4C5046"}>
+        <YearTitle theme={theme} light={"#4C370D"} dark={"#FEFFDD"}>
           2022
-        </h2>
+        </YearTitle>
 
-        <div className="projects-container">
-          <div
-            className="image-container-bottom"
-            onClick={() => handleClick("asklebron")}
-          >
-            {selectedImage["asklebron"] ? (
-              <GreyBox
-                title="AskLebron"
-                description="I was addicted to this fantasy-sports mobile game called stadium live app in highschool. At one point I was probably spending 3+ hours everyday making lineups. 
-                    I said enough was enough and made a program that would automate the process for me. "
-                tool1="Python"
-                tool2="Pandas"
-                tool3="Flask"
-              />
-            ) : (
-              <img
-                className="project-box"
-                src={asklebron}
-                style={{ marginLeft: "none" }}
-                alt="none"
-              />
-            )}
-          </div>
-        </div>
-      </div>
+        <PContainer phone={isPhone}>
+          <ProjectContainer // ask lebron
+            background={"#30113D"}
+            border={"#F2F1EE"}
+            emoji={"⛹️"}
+            title={"stadium live lineup optimizer"}
+            image={asklebron}
+            description={
+              "daily fantasy sports lineup optimizer for stadiumlive app. Uses player projection data to find good combinations."
+            }
+            more={""}
+          />
+        </PContainer>
+      </DirtContainer>
     </PageWrap>
   );
 };
