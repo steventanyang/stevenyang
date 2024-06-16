@@ -8,7 +8,7 @@ const Container = styled.div`
     props.expanded
       ? props.phone
         ? props.height * 0.8
-        : props.height * 0.7
+        : props.height * 0.75
       : props.phone
       ? 90
       : 100}px;
@@ -66,7 +66,7 @@ const TextContainer = styled.div`
   opacity: ${(props) => (props.fadeIn ? 1 : 0)};
   transition: opacity 0.9s ease;
   text-align: flex-start;
-  margin-top: 20px;
+  margin-top: 40px;
   line-height: 2;
 `;
 
