@@ -23,7 +23,7 @@ const PageWrap = styled.div`
 `;
 const Name = styled.div`
   color: ${props => props.theme.color};
-  font-family: 'Roboto';
+  font-family: 'Source Code Pro', monospace;
   font-size: 3.5rem;
   font-weight: 400;
   margin-top: 5%;

@@ -161,7 +161,7 @@
 
 .link-text {
     color: #5A5A5A;
-    font-family: 'Roboto';
+    font-family: 'Source Code Pro', monospace;
     font-size: 1.5rem;
     font-weight: 400;
     color: 0.3s ease;
@@ -224,7 +224,7 @@
     /* animation: glow 1s ease-in-out infinite alternate; */
     color: #FEFFDD;
     color: 0.3s ease;
-    font-family: 'Roboto';
+    font-family: 'Source Code Pro', monospace;
     font-size: 1.5rem;
     font-weight: 400;
     text-shadow: 0 0 1px #FEFFDD, 0 0 2px #FEFFDD, 0 0 3px #FEFFDD;
