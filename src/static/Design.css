@@ -168,14 +168,14 @@
     display: flex;
     justify-content: flex-start;
     width: 100vw;
-    height: 20px;
+    height: 15px;
 }
 
 .topsoil {
     display: flex;
     justify-content: flex-start;
     width: 100vw;
-    height: 50px;
+    height: 25px;
 }
 
 .yeartitle {

@@ -271,7 +271,7 @@ const Projects = () => {
             background={"#30113D"}
             border={"#F2F1EE"}
             emoji={"⛹️"}
-            title={"stadium live lineup optimizer"}
+            title={"stadium live optimizer"}
             image={asklebron}
             description={
               "daily fantasy sports lineup optimizer for stadiumlive app. Uses player projection data to find good combinations."
