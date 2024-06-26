@@ -166,15 +166,27 @@ const Projects = () => {
         </YearTitle>
 
         <PContainer phone={isPhone}>
+          <ProjectContainer // LeCoach
+            background={"#303030"}
+            border={"#B7EC97"}
+            emoji={"🔍"}
+            title={"LeCoach"}
+            image={""}
+            description={"👨🏻‍🍳 soon ..."}
+            more={""}
+          />
           <ProjectContainer // LeResume
             background={"#E1E1E1"}
             border={"#73698A"}
             emoji={"💸"}
             title={"LeResume"}
             image={leresume}
-            description={"soon ..."}
-            more={"https://leresume-website.vercel.app/"}
+            description={"👨🏻‍🍳 soon ..."}
+            more={"https://leresume.ca"}
           />
+        </PContainer>
+
+        <PContainer phone={isPhone}>
           <ProjectContainer // UFC Rax
             background={"#000"}
             border={"#E4E4E4"}
@@ -182,13 +194,10 @@ const Projects = () => {
             title={"ufc rax"}
             image={ufcrax}
             description={
-              "Gives users investment advice on virtual currency based mobile game using historical ufc fight data. 3500+ active users."
+              "Gives users investment advice on virtual currency based mobile game using historical ufc fight data. 4000+ active users."
             }
             more={"https://realrax.com/"}
           />
-        </PContainer>
-
-        <PContainer phone={isPhone}>
           <ProjectContainer // Bucks Hackathon
             background={"#0F481B"}
             border={"#E1D3B7"}
@@ -200,6 +209,9 @@ const Projects = () => {
             }
             more={"https://www.nba.com/bucks/hackathon"}
           />
+        </PContainer>
+
+        <PContainer phone={isPhone}>
           <ProjectContainer // LeGM
             background={"#FFFFFF"}
             border={"#144458"}
