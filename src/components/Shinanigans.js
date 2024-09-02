@@ -29,7 +29,7 @@ export default function Shinanigans() {
 
   const sampleCode = `
   const greet = () => {
-    console.log('Hello, World!');
+    console.log('under construction!');
   }
   `;
 
