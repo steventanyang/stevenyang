@@ -1,6 +1,6 @@
 import "../static/Projects.css";
 import Toggle from "../components/Toggle";
-import Code from "./CodeText";
+import Code from "../components/CodeText";
 
 import styled from "styled-components";
 import { useContext, useState } from "react";
@@ -34,14 +34,14 @@ const Description = styled.div`
   margin-right: 8%;
 `;
 
-export default function Shinanigans() {
+const Stadiumlive = () => {
   const { theme, setTheme, isToggled, setIsToggled } = useContext(DarkContext);
 
   const sampleCode = `
-  const greet = () => {
-    console.log('under construction!');
-  }
-  `;
+    const greet = () => {
+      console.log('under construction!');
+    }
+    `;
 
   return (
     <PageWrap>
@@ -58,7 +58,7 @@ export default function Shinanigans() {
 
       <div className="title-container">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <Title> (:&lt; </Title>
+          <Title> Stadium Live </Title>
         </Link>
       </div>
 
@@ -72,4 +72,6 @@ export default function Shinanigans() {
       </div>
     </PageWrap>
   );
-}
+};
+
+export default Stadiumlive;

@@ -1,11 +1,13 @@
 import "../static/Projects.css";
 import Toggle from "../components/Toggle";
-import Code from "./CodeText";
+import Code from "../components/CodeText";
 
 import styled from "styled-components";
 import { useContext, useState } from "react";
 import { DarkContext } from "../contexts/DarkContext";
 import { Link } from "react-router-dom";
+
+import projectlebron from "../images/projectlebron.png";
 
 const PageWrap = styled.div`
   background-color: ${(props) => props.theme.backgroundColor};
@@ -24,24 +26,38 @@ const Title = styled.div`
   text-shadow: 0 0 1px #feffdd, 0 0 2px #feffdd, 0 0 3px #feffdd;
 `;
 
-const Description = styled.div`
+const CodeBlock = styled.div`
   font-family: "Source Code Pro", monospace;
   font-size: 2rem;
   font-weight: 400;
-  margin-top: 5%;
-  margin-bottom: 5%;
+  margin-top: 3%;
+  margin-bottom: 3%;
   margin-left: 8%;
   margin-right: 8%;
 `;
 
-export default function Shinanigans() {
+const Image = styled.div`
+  width: ${(props) => props.theme.color};
+`;
+
+const Paragraph = styled.div`
+  font-family: "Source Code Pro", monospace;
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  margin-left: 8%;
+  margin-right: 8%;
+`;
+
+const Vorp = () => {
   const { theme, setTheme, isToggled, setIsToggled } = useContext(DarkContext);
 
   const sampleCode = `
-  const greet = () => {
-    console.log('under construction!');
-  }
-  `;
+    const greet = () => {
+      console.log('under construction!');
+    }
+    `;
 
   return (
     <PageWrap>
@@ -58,18 +74,39 @@ export default function Shinanigans() {
 
       <div className="title-container">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <Title> (:&lt; </Title>
+          <Title> Vorp </Title>
         </Link>
       </div>
 
       <div className="description-container">
-        <Description
+        <CodeBlock
           className="description"
           style={{ color: theme === "light" ? "#5A5A5A" : "#FEFFDD" }}
         >
           <Code code={sampleCode} />
-        </Description>
+        </CodeBlock>
+
+        <Paragraph style={{ color: theme === "light" ? "#5A5A5A" : "#FEFFDD" }}>
+          asdfjkljsdfja sdklfj; hjklh kjh kjhlk h
+        </Paragraph>
+
+        <Image>
+          <img
+            src={projectlebron}
+            alt=""
+            style={{
+              width: "40%",
+              height: "auto",
+              marginTop: "5px",
+              marginBottom: "5px",
+              marginLeft: "8%",
+              marginRight: "8%",
+            }}
+          />
+        </Image>
       </div>
     </PageWrap>
   );
-}
+};
+
+export default Vorp;

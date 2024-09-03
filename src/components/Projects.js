@@ -124,11 +124,11 @@ const Projects = () => {
       </div>
       <DescriptionContainer>
         <DescriptionText color={theme === "light" ? "#5A5A5A" : "#FEFFDD"}>
-          - I'm a first-year Software Engineering student @ the University of
+          - I'm a 2nd-year Software Engineering student @ the University of
           Waterloo
         </DescriptionText>
         <DescriptionText color={theme === "light" ? "#5A5A5A" : "#FEFFDD"}>
-          - This summer I'm doing full stack at{" "}
+          - Last summer I was a SWE intern at{" "}
           <a
             href="https://www.stadiumverse.com/"
             className="description-links"
@@ -139,6 +139,31 @@ const Projects = () => {
             {" "}
             Stadium Live Studios.{" "}
           </a>
+          {/* I wrote about it here:{" "}
+          <Link
+            to="/vorp"
+            style={{
+              color: theme === "light" ? "#5A5A5A" : "#C8FFFF",
+              textDecoration: "underline",
+            }}
+          >
+            Stadiumlive{" "}
+          </Link> */}
+        </DescriptionText>
+
+        <DescriptionText color={theme === "light" ? "#5A5A5A" : "#FEFFDD"}>
+          - I'm also leading analytics for wloo's varsity wbb team. 
+          {/* Here's a
+          snippet of some work I did this summer:{" "}
+          <Link
+            to="/vorp"
+            style={{
+              color: theme === "light" ? "#5A5A5A" : "#FFC075",
+              textDecoration: "underline",
+            }}
+          >
+            Vorp
+          </Link> */}
         </DescriptionText>
       </DescriptionContainer>
 

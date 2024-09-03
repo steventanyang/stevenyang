@@ -5,6 +5,8 @@ import Projects from "./components/Projects";
 import Shinanigans from "./components/Shinanigans";
 import Love from "./components/Love";
 import Design from "./components/Design";
+import Vorp from "./pages/Vorp";
+import Stadiumlive from "./pages/Stadiumlive";
 import GlobalStyle from "./GlobalStyle";
 import { DarkContext } from "./contexts/DarkContext";
 import { ThemeProvider } from "styled-components";
@@ -29,6 +31,11 @@ function App() {
               <Route path="/shinanigans" element={<Shinanigans />} />
               <Route path="/life" element={<Love />} />
 
+              {/* writing */}
+              <Route path="/vorp" element={<Vorp />} />
+              <Route path="/stadiumlive" element={<Stadiumlive />} />
+
+              {/* private pages */}
               <Route path="/design" element={<Design />} />
             </Routes>
           </main>

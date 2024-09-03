@@ -1,10 +1,8 @@
 import React from "react";
-
 import { useContext, useState } from "react";
-
 import { DarkContext } from "../contexts/DarkContext";
 
-const CodeBlock = ({ code, lang = "javascript" }) => {
+const CodeText = ({ code, lang = "javascript" }) => {
   const { theme } = useContext(DarkContext);
 
   return (
@@ -12,15 +10,13 @@ const CodeBlock = ({ code, lang = "javascript" }) => {
       style={{
         backgroundColor: theme === "light" ? "#f5f5f5" : "#181818",
         padding: "10px",
-        borderRadius: "5px",
+        borderRadius: "7px",
         overflowX: "auto",
       }}
     >
       <code style={{ fontSize: "1.5rem", fontWeight: 800 }}>{code}</code>
     </pre>
-
-    // test
   );
 };
 
-export default CodeBlock;
+export default CodeText;
