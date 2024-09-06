@@ -15,6 +15,12 @@ const PageWrap = styled.div`
   width: 100vw;
   overflow-y: scroll;
   overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const Title = styled.div`
@@ -37,18 +43,23 @@ const CodeBlock = styled.div`
 `;
 
 const Image = styled.div`
-  width: ${(props) => props.theme.color};
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Paragraph = styled.div`
   font-family: "Source Code Pro", monospace;
   font-size: 1.5rem;
-  font-weight: 900;
+  font-weight: 400;
   margin-top: 3%;
   margin-bottom: 3%;
   margin-left: 8%;
   margin-right: 8%;
+  line-height: 2;
 `;
+
 
 const Vorp = () => {
   const { theme, setTheme, isToggled, setIsToggled } = useContext(DarkContext);
@@ -87,7 +98,9 @@ const Vorp = () => {
         </CodeBlock>
 
         <Paragraph style={{ color: theme === "light" ? "#5A5A5A" : "#FEFFDD" }}>
-          asdfjkljsdfja sdklfj; hjklh kjh kjhlk h
+          asdfjkljsdfja sdklfj; hjklh kjh kjhlk h jklsdfjl asdjfkl jalsdkfj{" "}
+          <br />
+          asdjflkja sdfjkasdklfj asdfjklajsd fklasdjf klajsd fklajsdf
         </Paragraph>
 
         <Image>
@@ -104,6 +117,8 @@ const Vorp = () => {
             }}
           />
         </Image>
+
+
       </div>
     </PageWrap>
   );

@@ -22,6 +22,12 @@ const PageWrap = styled.div`
   width: 100vw;
   overflow-y: scroll;
   overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const Title = styled.div`

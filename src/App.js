@@ -6,6 +6,7 @@ import Shinanigans from "./components/Shinanigans";
 import Love from "./components/Love";
 import Design from "./components/Design";
 import Vorp from "./pages/Vorp";
+import Ball from "./pages/Ball";
 import Stadiumlive from "./pages/Stadiumlive";
 import GlobalStyle from "./GlobalStyle";
 import { DarkContext } from "./contexts/DarkContext";
@@ -32,6 +33,7 @@ function App() {
               <Route path="/life" element={<Love />} />
 
               {/* writing */}
+              <Route path="/ball" element={<Ball />} />
               <Route path="/vorp" element={<Vorp />} />
               <Route path="/stadiumlive" element={<Stadiumlive />} />
 

@@ -20,6 +20,12 @@ const PageWrap = styled.div`
   width: 100vw;
   overflow-y: auto;
   overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 const Name = styled.div`
   color: ${props => props.theme.color};
