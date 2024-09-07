@@ -29,10 +29,10 @@ const PageWrap = styled.div`
 const Title = styled.div`
   color: ${(props) => props.theme.color};
   font-family: "Roboto";
-  font-size: 3.5rem;
+  font-size: 3.0rem;
   font-weight: 400;
   margin-left: 10%;
-  margin-bottom: 8%;
+  margin-bottom: 2%;
   text-shadow: 0 0 1px #feffdd, 0 0 2px #feffdd, 0 0 3px #feffdd;
 `;
 
@@ -58,11 +58,11 @@ const Image = styled.div`
 
 const Paragraph = styled.div`
   color: ${(props) => (props.theme === "light" ? "#5A5A5A" : "#C7C7B7")};
-  font-family: "Source Code Pro", monospace;
-  font-size: 1.5rem;
+  font-family: "Roboto";
+  font-size: 1.6rem;
   font-weight: 400;
-  margin-top: 3%;
-  margin-bottom: 3%;
+  margin-top: 2%;
+  margin-bottom: 2%;
   margin-left: 15%;
   margin-right: 15%;
   line-height: 2;
@@ -70,18 +70,26 @@ const Paragraph = styled.div`
 
 const Bold = styled.span`
   color: ${(props) => (props.theme === "light" ? "#5A5A5A" : "#feffdd")};
-  font-family: "Source Code Pro", monospace;
+  font-family: "Roboto";
   font-size: 1.5rem;
+  font-weight: 900;
+`;
+
+const ExLink = styled.a`
+  color: ${(props) => (props.theme === "light" ? "#5A5A5A" : "#feffdd")};
+  font-family: "Roboto";
+  font-size: 1.6rem;
+  text-decoration: underline;
   font-weight: 900;
 `;
 
 const Heading = styled.div`
   color: ${(props) => (props.theme === "light" ? "#5A5A5A" : "#feffdd")};
-  font-family: "Source Code Pro", monospace;
-  font-size: 1.8rem;
+  font-family: "Roboto";
+  font-size: 2rem;
   font-weight: 900;
   margin-top: 8%;
-  margin-bottom: 3%;
+  margin-bottom: 1%;
   margin-left: 15%;
   margin-right: 15%;
 `;
@@ -96,6 +104,19 @@ const Ball = () => {
   const reboundingPercentage = `
    trb% = trb / mp / (tmTrb + oppTrb) * tmMp / 5
  `;
+
+  const ExternalLink = ({ href, children, theme }) => {
+    return (
+      <ExLink
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        theme={theme}
+      >
+        {children}
+      </ExLink>
+    );
+  };
 
   return (
     <PageWrap>
@@ -112,7 +133,7 @@ const Ball = () => {
 
       <div className="title-container">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <Title> vorp + basketball analytics </Title>
+          <Title> VORP + basketball analytics </Title>
         </Link>
       </div>
 
@@ -251,7 +272,7 @@ const Ball = () => {
         <Paragraph theme={theme}>
           We can take rebounding as an example. "Rebounds per game" doesn't
           account for minutes played, possessions per game, or available
-          rebounds to grab. This gave way to **Rebounding Percentage**, or the
+          rebounds to grab. This gave way to Rebounding Percentage, or the
           percent of available rebounds grabbed while in the game.
         </Paragraph>
 
@@ -283,8 +304,51 @@ const Ball = () => {
 
         <Heading theme={theme}>P3: Impact</Heading>
 
+        <Paragraph theme={theme}>
+          Basketball analytics aim to measure player value, which is ultimately
+          defined by how much they contribute to winning. There have been
+          multiple attempts to create an all-in-one metric that condenses an
+          "impact" to a single number. These impact metrics can be categorized
+          into two groups: "top-down" and "bottom-up".
+        </Paragraph>
 
-            
+        <Paragraph theme={theme}>
+          Top-down metrics look at a player's value by analyzing how their team
+          performs with and without them on the court. A popular top-down metric
+          is RAPM (Regularized Adjusted Plus-Minus), an optimized version of RPM
+          (Real Plus-Minus).
+        </Paragraph>
+
+        <Paragraph theme={theme}>
+          Bottom-up metrics focus on the box score, assigning specific values
+          and weights to each player's action to quantify "impact". Popular
+          examples of bottom-up metrics include PER, Win Shares per 48 (WS/48),
+          FIC, and WPA.
+        </Paragraph>
+
+        <Paragraph theme={theme}>
+          However, the most trusted metrics combine methodologies from both
+          subgroups of metrics. You can look at metrics like{" "}
+          <ExternalLink
+            href="https://fivethirtyeight.com/features/introducing-raptor-our-new-metric-for-the-modern-nba/"
+            theme={theme}
+          >
+            RAPTOR
+          </ExternalLink>
+          ,{" "}
+          <ExternalLink href="https://www.bball-index.com/lebron-introduction/" theme={theme}>
+            LEBRON
+          </ExternalLink>
+          ,{" "}
+          <ExternalLink href="https://dunksandthrees.com/epm" theme={theme}>
+            EPM
+          </ExternalLink>
+          , and{" "}
+          <ExternalLink href="https://www.stadiumverse.com" theme={theme}>
+            DPM.
+          </ExternalLink>
+          
+        </Paragraph>
       </div>
     </PageWrap>
   );
