@@ -262,14 +262,28 @@ const Ball = () => {
           began to change.
         </Paragraph>
 
+        <Paragraph theme={theme}>
+          The gold standard for measuring efficiency became True Shooting
+          Percentage (TS%). TS% goes beyond FG% by incorporating free throws and
+          three-pointers into the equation. This was preferred over other
+          adjusted efficiency metrics like eFG%, which failed to account for
+          free throws.
+        </Paragraph>
+
         <CodeBlock className="description" theme={theme}>
           <Code code={trueShooting} />
         </CodeBlock>
 
         <Paragraph theme={theme}>
-          As we move up the pyramid, the next layers help us better quantify
-          player value and skill, going beyond basic measurements and
-          generalizations.
+          Another key concept involving efficiency is "skill curves", which map
+          out the relationship between volume and efficiency. As a player
+          increases their offensive volume, there comes a point where their
+          efficiency drops due to various tradeoffs. This point is where the
+          curve changes may differ for different players. This tipping point
+          varies between players — think of how someone like Michael Jordan
+          could maintain high efficiency with increased volume, compared to a
+          player like Killian Hayes, whose efficiency might decline more sharply
+          under similar circumstances.
         </Paragraph>
 
         <SubHeading theme={theme}>P2 : Rate Based Metrics</SubHeading>
@@ -590,8 +604,11 @@ const Ball = () => {
         <Paragraph theme={theme}>
           In the upcoming weeks, I'll be aggregating more advanced metrics to
           complete the our warriors analytics dashboard. If you see any glaring
-          mistakes please call me out on it. Thank you Jason, Jessica, Roy,
-          Martin and David + uwaggs for your support.
+          mistakes please call me out on it. Finally, I'm always looking to
+          learn more about basketball analytics / data engineering, so feel free
+          reach out if you have valuable resources or interesting opportunities
+          in this area. Thank you Jason, Jessica, Roy, Martin and David + uwaggs
+          for your support.
         </Paragraph>
 
         <SubHeading theme={theme}>Appendix :</SubHeading>
