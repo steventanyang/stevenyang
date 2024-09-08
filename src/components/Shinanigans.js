@@ -15,7 +15,7 @@ const PageWrap = styled.div`
   overflow-x: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  
+
   &::-webkit-scrollbar {
     display: none;
   }
@@ -38,6 +38,18 @@ const Description = styled.div`
   margin-bottom: 5%;
   margin-left: 8%;
   margin-right: 8%;
+`;
+
+const Paragraph = styled.div`
+  color: ${(props) => (props.theme === "light" ? "#5A5A5A" : "#feffdd")};
+  font-family: "Roboto";
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 15%;
+  margin-right: 15%;
+  line-height: 2;
 `;
 
 export default function Shinanigans() {
@@ -73,7 +85,12 @@ export default function Shinanigans() {
           className="description"
           style={{ color: theme === "light" ? "#5A5A5A" : "#FEFFDD" }}
         >
-          <Code code={sampleCode} />
+          <Link to="/ball">
+            <Paragraph theme={theme} style={{ textDecoration: "underline" }}>
+              {" "}
+              vorp{" "}
+            </Paragraph>
+          </Link>
         </Description>
       </div>
     </PageWrap>

@@ -27,6 +27,7 @@ const PageWrap = styled.div`
     display: none;
   }
 `;
+
 const Name = styled.div`
   color: ${props => props.theme.color};
   font-family: 'Source Code Pro', monospace;
