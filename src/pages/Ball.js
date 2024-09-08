@@ -207,13 +207,6 @@ const Ball = () => {
           />
         </Image>
 
-        <Paragraph theme={theme}>
-          I think basketball analytics can be thought of as a pyramid. Each
-          ascending layer becomes more technical and adds more context. While
-          every stat has its downsides, the next layer up in the pyramid aims to
-          address and cover these gaps.
-        </Paragraph>
-
         <SubHeading theme={theme}>PO: Traditional Stats</SubHeading>
 
         <Paragraph theme={theme}>
@@ -392,9 +385,15 @@ const Ball = () => {
         <Paragraph theme={theme}>
           I've spent the past month building out data infrastructure for our
           varsity warriors basketball team. Now, I'm creating an advanced
-          analytics dashboard for our coaching staff, inspired by
-          DunksAndThrees.com and Ben Taylor's thinkingbasketball.net. I choose
-          to start with VORP.
+          analytics dashboard for our coaching staff, inspired by{" "}
+          <ExternalLink href="https://dunksandthrees.com/epm" theme={theme}>
+            dunksandthrees.com
+          </ExternalLink>{" "}
+          and{" "}
+          <ExternalLink href="https://thinkingbasketball.net/" theme={theme}>
+            thinkingbasketball.net.
+          </ExternalLink>{" "}
+          I choose to start with VORP.
         </Paragraph>
 
         <Paragraph theme={theme}>
@@ -445,7 +444,7 @@ const Ball = () => {
           My possession estimates closely matched what Synergy had. This allowed
           me to fully transitioned away from Synergy and consolidate my data
           source. I also manually calculated pace, offrtg, and defrtg. This is
-          visualization of my database schema :
+          my database schema visualized:
         </Paragraph>
 
         <Image>
