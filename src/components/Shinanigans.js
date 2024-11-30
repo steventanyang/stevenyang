@@ -80,7 +80,7 @@ export default function Shinanigans() {
         </Link>
       </div>
 
-      <div className="description-container">
+      {/* <div className="description-container">
         <Description
           className="description"
           style={{ color: theme === "light" ? "#5A5A5A" : "#FEFFDD" }}
@@ -92,7 +92,7 @@ export default function Shinanigans() {
             </Paragraph>
           </Link>
         </Description>
-      </div>
+      </div> */}
     </PageWrap>
   );
 }

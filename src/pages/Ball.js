@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 
 import pyramid from "../images/bballpyramid.png";
 import chrispaul from "../images/chrispaul42.png";
+import skillcurve from "../images/skillcurve.png";
 import fourfactor from "../images/fourfactor.png";
 import vorpdatabase from "../images/vorpdatabase.png";
 import positionEst from "../images/position_est.png";
@@ -275,16 +276,31 @@ const Ball = () => {
         </CodeBlock>
 
         <Paragraph theme={theme}>
-          Another key concept involving efficiency is "skill curves", which map
-          out the relationship between volume and efficiency. As a player
-          increases their offensive volume, there comes a point where their
-          efficiency drops due to various tradeoffs. This point is where the
-          curve changes may differ for different players. This tipping point
-          varies between players — think of how someone like Michael Jordan
-          could maintain high efficiency with increased volume, compared to a
-          player like Killian Hayes, whose efficiency might decline more sharply
-          under similar circumstances.
+          Another key concept involving efficiency are "skill curves", which map
+          out the relationship between <Bold theme={theme}>volume</Bold> and{" "}
+          <Bold theme={theme}>efficiency</Bold>. As a player increases their
+          offensive volume, there comes a point where their efficiency drops due
+          to various tradeoffs. This point is where the curve changes may differ
+          for different players. This tipping point varies between players —
+          think of how someone like Michael Jordan could maintain high
+          efficiency with increased volume, compared to a player like Killian
+          Hayes, whose efficiency might decline more sharply under similar
+          circumstances. Advanced metrics often account for these relationships
+          tied to volume.
         </Paragraph>
+
+        <Image>
+          <img
+            src={skillcurve}
+            alt=""
+            style={{
+              width: "50%",
+              height: "auto",
+              marginLeft: "8%",
+              marginRight: "8%",
+            }}
+          />
+        </Image>
 
         <SubHeading theme={theme}>P2 : Rate Based Metrics</SubHeading>
 
@@ -317,8 +333,8 @@ const Ball = () => {
         <Paragraph theme={theme}>
           Combining the ideas of efficiency and rate-based metrics, Dean Oliver
           introduced the "Four Factors" of basketball, which generalize team
-          performance to 4 key metrics: Effective field goal %, Turnover %,
-          Offensive Rebound %, and Free Throw Rate. These factors not only
+          performance to 4 key metrics: <Bold theme={theme}>Effective field goal %, Turnover %,
+          Offensive Rebound %, and Free Throw Rate.</Bold> These factors not only
           identify a team's strengths and weaknesses, but they also correlate
           closely with winning basketball games.
         </Paragraph>
@@ -421,7 +437,7 @@ const Ball = () => {
           was important since I don't have accurate play by play data. <br />
           3. VORP is <Bold theme={theme}> unique</Bold> because it's impact
           metric classification isn't defined -- to me to falls somewhere in
-          between. While it is built upon box score data, it estimates a players
+          between. While it is built upon box score data, it estimates a players'
           on-off impact. <br />
           4. <Bold theme={theme}> OBPM</Bold> (Offensive Box Plus-Minus) and
           <Bold theme={theme}> DBPM</Bold> (Defensive Box Plus-Minus) can be
@@ -605,10 +621,10 @@ const Ball = () => {
           In the upcoming weeks, I'll be aggregating more advanced metrics to
           complete the our warriors analytics dashboard. If you see any glaring
           mistakes please call me out on it. Finally, I'm always looking to
-          learn more about basketball analytics / data engineering, so feel free
-          reach out if you have valuable resources or interesting opportunities
-          in this area. Thank you Jason, Jessica, Roy, Martin and David + uwaggs
-          for your support.
+          learn more about basketball analytics / data engineering +
+          infrastructure, so feel free reach out if you have valuable resources
+          or interesting opportunities in this area. Thank you Jason, Jessica,
+          Roy, Martin and David + uwaggs for your support.
         </Paragraph>
 
         <SubHeading theme={theme}>Appendix :</SubHeading>
