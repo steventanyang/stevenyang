@@ -7,10 +7,8 @@ import { DarkContext } from "../contexts/DarkContext";
 import { Link } from "react-router-dom";
 import legm from "../images/legm.png";
 import leresume from "../images/leresume.png";
-import projectlebron from "../images/projectlebron.png";
-import asklebron from "../images/asklebron.png";
-import pokemon from "../images/pokemon.png";
-import chromosense from "../images/chromosense.png";
+import marketloo from "../images/marketloo.png";
+import elitecode from "../images/elitecode.png";
 import bucks from "../images/bucks.png";
 import ufcrax from "../images/ufcrax.png";
 
@@ -24,7 +22,7 @@ const PageWrap = styled.div`
   overflow-x: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  
+
   &::-webkit-scrollbar {
     display: none;
   }
@@ -134,6 +132,10 @@ const Projects = () => {
           Waterloo
         </DescriptionText>
         <DescriptionText color={theme === "light" ? "#5A5A5A" : "#FEFFDD"}>
+          - Currently working as a SWE intern on the AML / gen ai cloud
+          integration team at Sunlife.
+        </DescriptionText>
+        <DescriptionText color={theme === "light" ? "#5A5A5A" : "#FEFFDD"}>
           - Last summer I was a SWE intern at{" "}
           <a
             href="https://www.stadiumverse.com/"
@@ -158,7 +160,8 @@ const Projects = () => {
         </DescriptionText>
 
         <DescriptionText color={theme === "light" ? "#5A5A5A" : "#FEFFDD"}>
-          - I'm also leading analytics for wloo's varsity wbb team. 
+          - I'm also building analytics infrastructure for varsity sports at
+          Waterloo.
           {/* Here's a
           snippet of some work I did this summer:{" "}
           <Link
@@ -193,10 +196,40 @@ const Projects = () => {
       {/* 2024 */}
       <DirtContainer theme={theme} light={"#654A15"} dark={"#3D4334"}>
         <YearTitle theme={theme} light={"#8C6A28"} dark={"#FEFFDD"}>
-          2024
+          projects
         </YearTitle>
 
         <PContainer phone={isPhone}>
+          <ProjectContainer // lighthouse
+            background={"#E1D3B7"}
+            border={"#0F481B"}
+            emoji={"🏀"}
+            title={"milwaukee bucks hackathon 2025"}
+            image={""}
+            description={"👨🏻‍🍳 soon ..."}
+            more={""}
+          />
+          <ProjectContainer // LeCoach
+            background={"#1E345A"}
+            border={"#84BCEB"}
+            emoji={"📈"}
+            title={"marketloo"}
+            image={marketloo}
+            description={"👨🏻‍🍳 soon ..."}
+            more={""}
+          />
+        </PContainer>
+
+        <PContainer phone={isPhone}>
+          <ProjectContainer // lighthouse
+            background={"#232323"}
+            border={"#DAB1F7"}
+            emoji={"🧑‍💻"}
+            title={"elitecode"}
+            image={""}
+            description={"👨🏻‍🍳 soon ..."}
+            more={""}
+          />
           <ProjectContainer // LeCoach
             background={"#303030"}
             border={"#B7EC97"}
@@ -206,6 +239,9 @@ const Projects = () => {
             description={"👨🏻‍🍳 soon ..."}
             more={""}
           />
+        </PContainer>
+
+        <PContainer phone={isPhone}>
           <ProjectContainer // LeResume
             background={"#E1E1E1"}
             border={"#73698A"}
@@ -215,34 +251,44 @@ const Projects = () => {
             description={"👨🏻‍🍳 soon ..."}
             more={"https://leresume.ca"}
           />
-        </PContainer>
 
-        <PContainer phone={isPhone}>
           <ProjectContainer // UFC Rax
-            background={"#000"}
+            background={"#111111"}
             border={"#E4E4E4"}
             emoji={"🥊"}
             title={"ufc rax"}
             image={ufcrax}
             description={
-              "Gives users investment advice on virtual currency based mobile game using historical ufc fight data. 4000+ active users."
+              <>
+                Investment analytics platform for{" "}
+                <a
+                  href="https://www.realapp.link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "#E4E4E4", textDecoration: "underline" }}
+                >
+                  www.realapp.link
+                </a>{" "}
+                with 30,000+ active users.
+              </>
             }
-            more={"https://realrax.com/"}
+            more={"https://ufcrax-v2.vercel.app/"}
           />
+        </PContainer>
+
+        <PContainer phone={isPhone}>
           <ProjectContainer // Bucks Hackathon
             background={"#0F481B"}
             border={"#E1D3B7"}
             emoji={"🏀"}
-            title={"milwaukee bucks hackathon"}
+            title={"milwaukee bucks hackathon 2024"}
             image={bucks}
             description={
               "We won 2nd place at 2024 Milwaukee Bucks Data analytics hackathon. Our project used ML to optimize ticket pricing."
             }
             more={"https://www.nba.com/bucks/hackathon"}
           />
-        </PContainer>
 
-        <PContainer phone={isPhone}>
           <ProjectContainer // LeGM
             background={"#FFFFFF"}
             border={"#144458"}
@@ -258,7 +304,7 @@ const Projects = () => {
       </DirtContainer>
 
       {/* 2023 */}
-      <DirtContainer theme={theme} light={"#4C370D"} dark={"#2C3023"}>
+      {/* <DirtContainer theme={theme} light={"#4C370D"} dark={"#2C3023"}>
         <YearTitle theme={theme} light={"#73551B"} dark={"#FEFFDD"}>
           2023
         </YearTitle>
@@ -301,10 +347,10 @@ const Projects = () => {
             more={""}
           />
         </PContainer>
-      </DirtContainer>
+      </DirtContainer> */}
 
       {/* 2022 */}
-      <DirtContainer theme={theme} light={"#726240"} dark={"#4C5046"}>
+      {/* <DirtContainer theme={theme} light={"#726240"} dark={"#4C5046"}>
         <YearTitle theme={theme} light={"#4C370D"} dark={"#FEFFDD"}>
           2022
         </YearTitle>
@@ -322,7 +368,7 @@ const Projects = () => {
             more={""}
           />
         </PContainer>
-      </DirtContainer>
+      </DirtContainer> */}
     </PageWrap>
   );
 };
