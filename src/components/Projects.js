@@ -1,5 +1,6 @@
 import "../static/Projects.css";
 import Toggle from "../components/Toggle";
+import Stars from "./Stars";
 
 import styled from "styled-components";
 import { useContext, useState, useEffect } from "react";
@@ -59,6 +60,8 @@ const DescriptionText = styled.ul`
 `;
 
 const DirtContainer = styled.div`
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -110,6 +113,7 @@ const Projects = () => {
 
   return (
     <PageWrap>
+      {theme === "dark" && <Stars />}
       <div className="toggle-container">
         <Toggle
           rounded={true}

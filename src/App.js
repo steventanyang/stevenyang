@@ -13,6 +13,7 @@ import { DarkContext } from "./contexts/DarkContext";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./Themes";
 import { useState } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   const [isToggled, setIsToggled] = useState(false);
@@ -20,6 +21,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <Analytics />
       <DarkContext.Provider
         value={{ isToggled, setIsToggled, theme, setTheme }}
       >

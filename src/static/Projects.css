@@ -149,6 +149,8 @@
 }
 
 .grass-humus {
+    position: relative;
+    z-index: 2;
     display: flex;
     justify-content: flex-start;
     width: 100vw;
@@ -156,6 +158,8 @@
 }
 
 .topsoil {
+    position: relative;
+    z-index: 2;
     display: flex;
     justify-content: flex-start;
     width: 100vw;
