@@ -8,10 +8,13 @@ import { DarkContext } from "../contexts/DarkContext";
 import { Link } from "react-router-dom";
 import legm from "../images/legm.png";
 import leresume from "../images/leresume.png";
-import marketloo from "../images/marketloo.png";
-import elitecode from "../images/elitecode.png";
 import bucks from "../images/bucks.png";
 import ufcrax from "../images/ufcrax.png";
+
+// videos
+import elitecodeVideo from "../videos/elitecode.mov";
+import marketlooVideo from "../videos/marketloo.mov";
+import leresumeVideo from "../videos/leresume.mov";
 
 import ProjectContainer from "./ProjectContainer";
 
@@ -213,14 +216,14 @@ const Projects = () => {
             description={"👨🏻‍🍳 soon ..."}
             more={""}
           />
-          <ProjectContainer // LeCoach
+          <ProjectContainer // marketloo
             background={"#1E345A"}
             border={"#84BCEB"}
             emoji={"📈"}
             title={"marketloo"}
-            image={marketloo}
-            description={"👨🏻‍🍳 soon ..."}
-            more={""}
+            video={marketlooVideo}
+            description={"Gamified prediction market platform with real-time paper trading + funcitonal order book system. Deployed ai agents to simulate market dynamics."}
+            more={"https://market-loo.vercel.app/"}
           />
         </PContainer>
 
@@ -230,9 +233,14 @@ const Projects = () => {
             border={"#DAB1F7"}
             emoji={"🧑‍💻"}
             title={"elitecode"}
-            image={""}
-            description={"👨🏻‍🍳 soon ..."}
-            more={""}
+            video={elitecodeVideo}
+            description={
+              <>
+                Obsidian x Anki for leetcode. Built a graph visualizer on question similarity, an integrated chrome extension, 
+                + auto generated ai review w/ syntax highlighting. 
+              </>
+            }
+            more={"Learn more"}
           />
           <ProjectContainer // LeCoach
             background={"#303030"}
@@ -251,8 +259,8 @@ const Projects = () => {
             border={"#73698A"}
             emoji={"💸"}
             title={"LeResume"}
-            image={leresume}
-            description={"👨🏻‍🍳 soon ..."}
+            video={leresumeVideo}
+            description={"Auto generate resumes and cover letters for waterloo works."}
             more={"https://leresume.ca"}
           />
 
@@ -262,6 +270,7 @@ const Projects = () => {
             emoji={"🥊"}
             title={"ufc rax"}
             image={ufcrax}
+            // video={"path/to/your/video.mp4"}
             description={
               <>
                 Investment analytics platform for{" "}
@@ -274,6 +283,9 @@ const Projects = () => {
                   www.realapp.link
                 </a>{" "}
                 with 30,000+ active users.
+                <br />
+                Uses real-time data, custom recommendations algorithm, and
+                aggregates 30 years of historial ufc data.
               </>
             }
             more={"https://ufcrax-v2.vercel.app/"}
@@ -305,6 +317,11 @@ const Projects = () => {
             more={"https://www.stadiumverse.com/"}
           />
         </PContainer>
+      </DirtContainer>
+      <DirtContainer theme={theme} light={"#4C370D"} dark={"#2C3023"}>
+        <YearTitle theme={theme} light={"#73551B"} dark={"#FEFFDD"}>
+          
+        </YearTitle>
       </DirtContainer>
 
       {/* 2023 */}

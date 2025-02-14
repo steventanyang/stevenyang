@@ -95,12 +95,73 @@ const Links = styled.a`
   }
 `;
 
+const VideoContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+`;
+
+const Video = styled.video`
+  width: 80%;
+  opacity: ${(props) => (props.fadeIn ? 1 : 0)};
+  transition: opacity 0.9s ease;
+  border-radius: 15px;
+  cursor: pointer;
+`;
+
+const PopupOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+`;
+
+const PopupVideo = styled.video`
+  max-width: 90%;
+  max-height: 90vh;
+`;
+
+const CloseButton = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.5rem;
+  font-family: "Source Code Pro", monospace;
+  cursor: pointer;
+  z-index: 1001;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+  }
+`;
+
 const ProjectContainer = ({
   background,
   border,
   title,
   emoji,
   image,
+  video,
   description,
   more,
 }) => {
@@ -111,6 +172,7 @@ const ProjectContainer = ({
   });
   const [expanded, setExpanded] = useState(false);
   const [fadeIn, setFadeIn] = useState(false);
+  const [showVideoPopup, setShowVideoPopup] = useState(false);
 
   const handleExpand = () => {
     if (expanded) {
@@ -140,6 +202,11 @@ const ProjectContainer = ({
 
   const isPhone = windowSize.width < 1250;
 
+  const handleVideoClick = (e) => {
+    e.stopPropagation();
+    setShowVideoPopup(true);
+  };
+
   return (
     <>
       <Container
@@ -156,10 +223,25 @@ const ProjectContainer = ({
           <Title color={border}>{title}</Title>
         </TitleContainer>
 
-        {expanded && (
-          <ImageContainer>
-            <Image src={image} width={windowSize.width} fadeIn={fadeIn} />
-          </ImageContainer>
+        {expanded && video ? (
+          <VideoContainer>
+            <Video
+              src={video}
+              fadeIn={fadeIn}
+              onClick={handleVideoClick}
+              controls={false}
+              muted
+              loop
+              autoPlay
+            />
+          </VideoContainer>
+        ) : (
+          expanded &&
+          image && (
+            <ImageContainer>
+              <Image src={image} width={windowSize.width} fadeIn={fadeIn} />
+            </ImageContainer>
+          )
         )}
 
         {expanded && (
@@ -183,6 +265,20 @@ const ProjectContainer = ({
           </LinkContainer>
         )}
       </Container>
+
+      {showVideoPopup && (
+        <PopupOverlay onClick={() => setShowVideoPopup(false)}>
+          <CloseButton onClick={() => setShowVideoPopup(false)}>
+            ✕
+          </CloseButton>
+          <PopupVideo
+            src={video}
+            controls
+            autoPlay
+            onClick={(e) => e.stopPropagation()}
+          />
+        </PopupOverlay>
+      )}
     </>
   );
 };
