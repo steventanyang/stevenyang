@@ -8,15 +8,16 @@ import { DarkContext } from "../contexts/DarkContext";
 import { Link } from "react-router-dom";
 import legm from "../images/legm.png";
 import leresume from "../images/leresume.png";
+
 import bucks from "../images/bucks.png";
 import ufcrax from "../images/ufcrax.png";
 
-// videos
-import elitecodeVideo from "../videos/elitecode.mov";
-import marketlooVideo from "../videos/marketloo.mov";
-import leresumeVideo from "../videos/leresume.mov";
-
 import ProjectContainer from "./ProjectContainer";
+
+// videos
+const elitecodeVideo = "https://yangstevenwebsite.s3.us-east-1.amazonaws.com/elitecode.mov";
+const marketlooVideo = "https://yangstevenwebsite.s3.us-east-1.amazonaws.com/marketloo.mov";
+const leresumeVideo = "https://yangstevenwebsite.s3.us-east-1.amazonaws.com/leresume.mov";
 
 const PageWrap = styled.div`
   background-color: ${(props) => props.theme.backgroundColor};
