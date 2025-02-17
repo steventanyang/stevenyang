@@ -136,6 +136,9 @@ const Projects = () => {
       </div>
       <DescriptionContainer>
         <DescriptionText color={theme === "light" ? "#5A5A5A" : "#FEFFDD"}>
+          Here are some projects that I've worked on recently:
+        </DescriptionText>
+        {/* <DescriptionText color={theme === "light" ? "#5A5A5A" : "#FEFFDD"}>
           - I'm a 2nd-year Software Engineering student @ the University of
           Waterloo
         </DescriptionText>
@@ -155,7 +158,7 @@ const Projects = () => {
             {" "}
             Stadium Live Studios.{" "}
           </a>
-          {/* I wrote about it here:{" "}
+          I wrote about it here:{" "}
           <Link
             to="/vorp"
             style={{
@@ -164,13 +167,13 @@ const Projects = () => {
             }}
           >
             Stadiumlive{" "}
-          </Link> */}
+          </Link>
         </DescriptionText>
 
         <DescriptionText color={theme === "light" ? "#5A5A5A" : "#FEFFDD"}>
           - I'm also building analytics infrastructure for varsity sports at
           Waterloo.
-          {/* Here's a
+          Here's a
           snippet of some work I did this summer:{" "}
           <Link
             to="/vorp"
@@ -180,8 +183,8 @@ const Projects = () => {
             }}
           >
             Vorp
-          </Link> */}
-        </DescriptionText>
+          </Link>
+        </DescriptionText> */}
       </DescriptionContainer>
 
       <div

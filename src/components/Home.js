@@ -17,12 +17,10 @@ import HomeStars from "./HomeStars";
 
 const PageWrap = styled.div`
   background-color: ${(props) => props.theme.backgroundColor};
-  height: 100vh;
-  width: 100vw;
-  overflow-y: auto;
+  min-height: 100vh;
+  width: 100%;
   overflow-x: hidden;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  padding-bottom: 2rem;
 
   &::-webkit-scrollbar {
     display: none;
@@ -32,10 +30,137 @@ const PageWrap = styled.div`
 const Name = styled.div`
   color: ${(props) => props.theme.color};
   font-family: "Source Code Pro", monospace;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 400;
-  margin-top: 5%;
+  margin-top: 4%;
+  text-align: center;
+  width: 100%;
   text-shadow: 0 0 1px #feffdd, 0 0 2px #feffdd, 0 0 3px #feffdd;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+`;
+
+const LinksContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    gap: 1.5rem;
+  }
+`;
+
+const StyledLink = styled.a`
+  color: ${(props) => props.theme.color};
+  font-family: "Source Code Pro", monospace;
+  font-size: 1.2rem;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.75rem;
+  }
+`;
+
+const Spacer = styled.div`
+  width: 300px;
+  height: 1px;
+  background-color: ${(props) => props.theme.color};
+  margin: 1.5rem auto;
+  opacity: 0.2;
+`;
+
+const HighlightedLink = styled(Link)`
+  font-family: "Source Code Pro", monospace;
+  text-decoration: none;
+  transition: all 0.2s;
+
+  ${(props) =>
+    props.theme === "light"
+      ? `
+      color: #424242;
+      font-weight: 700;
+    `
+      : `
+      color: ${props.darkColor || "#7FDFFF"};
+      text-shadow: 0 0 4px #B4DBFF, 0 0 10px #B4DBFF;
+    `}
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+const IntroText = styled.div`
+  color: ${(props) => props.theme.color};
+  font-family: "Source Code Pro", monospace;
+  font-size: 1.1rem;
+  font-weight: 400;
+  width: 100%;
+  max-width: 600px;
+  text-align: left;
+  line-height: 1.6;
+  padding: 0 1rem;
+  margin-top: 0.5rem;
+
+  .heading {
+    font-weight: 700;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: 0 1.5rem;
+  }
+`;
+
+const IslandContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+  width: 100%;
+
+  .island {
+    width: 160px;
+    height: auto;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  .island-and-logo {
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    .island {
+      width: 140px;
+    }
+  }
+`;
+
+const MainContainer = styled.div`
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export default function Home() {
@@ -66,44 +191,83 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="main-container">
+      <MainContainer>
         <Name>steven yang</Name>
-
-        <div className="links-container">
-          <a
-            className={theme === "light" ? "link-text" : "dark-link-text"}
+        <LinksContainer>
+          <StyledLink
             href="https://github.com/steventanyang"
             target="_blank"
             rel="noreferrer"
-            style={{ textDecoration: "none" }}
           >
             github
-          </a>
-          <a
-            className={theme === "light" ? "link-text" : "dark-link-text"}
+          </StyledLink>
+          <StyledLink
             href="https://www.linkedin.com/in/stevenyangtan/"
             target="_blank"
             rel="noreferrer"
-            style={{
-              marginRight: "2%",
-              marginLeft: "2%",
-              textDecoration: "none",
-            }}
           >
             linkedin
-          </a>
-          <a
-            className={theme === "light" ? "link-text" : "dark-link-text"}
+          </StyledLink>
+          <StyledLink
             href="mailto:steventanyang@gmail.com"
             target="_blank"
             rel="noreferrer"
-            style={{ textDecoration: "none" }}
           >
             email
-          </a>
-        </div>
+          </StyledLink>
+        </LinksContainer>
 
-        <div className="island-container">
+        <Spacer />
+
+        <IntroText>
+          <span className="heading">Currently:</span> Working on the gen ai
+          integration team @ sunlife. I'm looking for opportunities that bridge
+          engineering with product / design.
+          <br />
+          <br />
+          <span className="heading">Previously:</span> Built products for 500k
+          sports-fans at{" "}
+          <HighlightedLink to="/projects" theme={theme} darkColor="#7FDFFF">
+            Stadium Live.
+          </HighlightedLink>{" "}
+          Built data infrastructure + led software development for varsity
+          sports analytics at waterloo.{" "}
+          <HighlightedLink to="/projects" theme={theme} darkColor="#7FDFFF">
+            Created cool projects
+          </HighlightedLink>{" "}
+          with code + design.
+          <br />
+          <br />
+          <span className="heading">Background:</span> I'm in my 2nd year
+          studying{" "}
+          <HighlightedLink
+            as="a"
+            href="https://uwaterloo.ca/future-students/programs/software-engineering"
+            target="_blank"
+            rel="noreferrer"
+            theme={theme}
+            darkColor="#7FDFFF"
+          >
+            Software Engineering @ Waterloo
+          </HighlightedLink>
+          . I grew up in southern Alberta.
+          <br />
+          <br />
+          <span className="heading">Interests:</span> I love sports - especially{" "}
+          <HighlightedLink
+            as="a"
+            href="https://www.youtube.com/watch?v=qBN90Ymk_gM&ab_channel=%EC%9D%B4%EC%A4%80%ED%98%81"
+            target="_blank"
+            rel="noreferrer"
+            theme={theme}
+            darkColor="#7FDFFF"
+          >
+            basketball
+          </HighlightedLink>. I also enjoy spending time engaging with art. I paint,
+          make music, and like graphic design.
+        </IntroText>
+
+        <IslandContainer>
           <div className="island-and-logo island2">
             <Link to="/projects" style={{ textDecoration: "none" }}>
               <h2
@@ -121,10 +285,7 @@ export default function Home() {
               ></img>
             </Link>
           </div>
-          <div
-            className="island-and-logo island1"
-            style={{ marginRight: "2%", marginLeft: "2%" }}
-          >
+          <div className="island-and-logo island1">
             <Link to="/shinanigans" style={{ textDecoration: "none" }}>
               <h2
                 className={
@@ -158,8 +319,8 @@ export default function Home() {
               ></img>
             </Link>
           </div>
-        </div>
-      </div>
+        </IslandContainer>
+      </MainContainer>
     </PageWrap>
   );
 }
