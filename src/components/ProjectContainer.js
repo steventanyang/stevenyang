@@ -14,7 +14,18 @@ const Container = styled.div`
       : 100}px;
   background-color: ${(props) => props.background};
   border-radius: ${(props) => props.height * 0.015}px;
-  border: 4px solid ${(props) => props.border};
+  
+  ${props => props.rainbowBorder 
+    ? `
+      border: 4px solid transparent;
+      background-image: linear-gradient(${props.background}, ${props.background}),
+                        linear-gradient(145deg, #B7EC97, #7BD9CA, #88D1E4, #A0CBEC, #8FC9D9, #7BD9CA, #B7EC97);
+      background-origin: border-box;
+      background-clip: content-box, border-box;
+    `
+    : `border: 4px solid ${props.border};`
+  }
+  
   transition: height 0.5s ease;
   flex-direction: column;
   align-items: center;
@@ -164,6 +175,7 @@ const ProjectContainer = ({
   video,
   description,
   more,
+  rainbowBorder = false,
 }) => {
   const { theme, setTheme } = useContext(DarkContext);
   const [windowSize, setWindowSize] = useState({
@@ -217,6 +229,7 @@ const ProjectContainer = ({
         border={border}
         expanded={expanded}
         onClick={handleExpand}
+        rainbowBorder={rainbowBorder}
       >
         <TitleContainer>
           <EmojiContainer>{emoji}</EmojiContainer>

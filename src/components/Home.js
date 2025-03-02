@@ -221,8 +221,8 @@ export default function Home() {
 
         <IntroText>
           <span className="heading">Currently:</span> Working on the gen ai
-          integration team @ sunlife. I'm looking for opportunities that bridge
-          engineering with product / design.
+          integration team @ sunlife. I'm looking for opportunities in
+          engineering / product / design.
           <br />
           <br />
           <span className="heading">Previously:</span> Built products for 500k
@@ -233,9 +233,8 @@ export default function Home() {
           Built data infrastructure + led software development for varsity
           sports analytics at waterloo.{" "}
           <HighlightedLink to="/projects" theme={theme} darkColor="#7FDFFF">
-            Created cool projects
+            Created cool projects.
           </HighlightedLink>{" "}
-          with code + design.
           <br />
           <br />
           <span className="heading">Background:</span> I'm in my 2nd year
@@ -263,8 +262,9 @@ export default function Home() {
             darkColor="#7FDFFF"
           >
             basketball
-          </HighlightedLink>. I also enjoy spending time engaging with art. I paint,
-          make music, and like graphic design.
+          </HighlightedLink>
+          . I also enjoy spending time engaging with art. I paint, make music,
+          and like graphic design.
         </IntroText>
 
         <IslandContainer>

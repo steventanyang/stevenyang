@@ -15,9 +15,14 @@ import ufcrax from "../images/ufcrax.png";
 import ProjectContainer from "./ProjectContainer";
 
 // videos
-const elitecodeVideo = "https://yangstevenwebsite.s3.us-east-1.amazonaws.com/elitecode.mov";
-const marketlooVideo = "https://yangstevenwebsite.s3.us-east-1.amazonaws.com/marketloo.mov";
-const leresumeVideo = "https://yangstevenwebsite.s3.us-east-1.amazonaws.com/leresume.mov";
+const elitecodeVideo =
+  "https://yangstevenwebsite.s3.us-east-1.amazonaws.com/elitecode.mov";
+const marketlooVideo =
+  "https://yangstevenwebsite.s3.us-east-1.amazonaws.com/marketloo.mov";
+const leresumeVideo =
+  "https://yangstevenwebsite.s3.us-east-1.amazonaws.com/leresume.mov";
+const lecoachVideo =
+  "https://yangstevenwebsite.s3.us-east-1.amazonaws.com/lecoach.mp4";
 
 const PageWrap = styled.div`
   background-color: ${(props) => props.theme.backgroundColor};
@@ -211,7 +216,23 @@ const Projects = () => {
         </YearTitle>
 
         <PContainer phone={isPhone}>
-          <ProjectContainer // lighthouse
+          <ProjectContainer // LeCoach
+            background={"#303030"}
+            border={"#B7EC97"}
+            emoji={"🔍"}
+            title={"LeCoach"}
+            image={""}
+            description={
+              "Complete analytics platform for usports basketball. 10+ years of historical data, win probability model, + multi agent system for game analysis."
+            }
+            more={""}
+            rainbowBorder={true}
+            video={lecoachVideo}
+          />
+        </PContainer>
+
+        <PContainer phone={isPhone}>
+          {/* <ProjectContainer // lighthouse
             background={"#E1D3B7"}
             border={"#0F481B"}
             emoji={"🏀"}
@@ -219,19 +240,18 @@ const Projects = () => {
             image={""}
             description={"👨🏻‍🍳 soon ..."}
             more={""}
-          />
+          /> */}
           <ProjectContainer // marketloo
             background={"#1E345A"}
             border={"#84BCEB"}
             emoji={"📈"}
             title={"marketloo"}
             video={marketlooVideo}
-            description={"Gamified prediction market platform with real-time paper trading + funcitonal order book system. Deployed ai agents to simulate market dynamics."}
+            description={
+              "Gamified prediction market platform with real-time paper trading + funcitonal order book system. Deployed ai agents to simulate market dynamics."
+            }
             more={"https://market-loo.vercel.app/"}
           />
-        </PContainer>
-
-        <PContainer phone={isPhone}>
           <ProjectContainer // lighthouse
             background={"#232323"}
             border={"#DAB1F7"}
@@ -240,20 +260,12 @@ const Projects = () => {
             video={elitecodeVideo}
             description={
               <>
-                Obsidian x Anki for leetcode. Built a graph visualizer on question similarity, an integrated chrome extension, 
-                + auto generated ai review w/ syntax highlighting. 
+                Obsidian x Anki for leetcode. Built a graph visualizer on
+                question similarity, an integrated chrome extension, + auto
+                generated ai review w/ syntax highlighting.
               </>
             }
             more={"Learn more"}
-          />
-          <ProjectContainer // LeCoach
-            background={"#303030"}
-            border={"#B7EC97"}
-            emoji={"🔍"}
-            title={"LeCoach"}
-            image={""}
-            description={"👨🏻‍🍳 soon ..."}
-            more={""}
           />
         </PContainer>
 
@@ -264,7 +276,9 @@ const Projects = () => {
             emoji={"💸"}
             title={"LeResume"}
             video={leresumeVideo}
-            description={"Auto generate resumes and cover letters for waterloo works."}
+            description={
+              "Auto generate resumes and cover letters for waterloo works."
+            }
             more={"https://leresume.ca"}
           />
 
@@ -323,9 +337,7 @@ const Projects = () => {
         </PContainer>
       </DirtContainer>
       <DirtContainer theme={theme} light={"#4C370D"} dark={"#2C3023"}>
-        <YearTitle theme={theme} light={"#73551B"} dark={"#FEFFDD"}>
-          
-        </YearTitle>
+        <YearTitle theme={theme} light={"#73551B"} dark={"#FEFFDD"}></YearTitle>
       </DirtContainer>
 
       {/* 2023 */}
