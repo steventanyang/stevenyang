@@ -119,7 +119,7 @@ export const ProjectsSection = ({ theme, isPhone }) => (
 
     <DirtContainer theme={theme} light={"#654A15"} dark={"#3D4334"}>
       <YearTitle theme={theme} light={"#8C6A28"} dark={"#FEFFDD"}>
-        projects
+        
       </YearTitle>
 
       <PContainer phone={isPhone}>
@@ -270,6 +270,10 @@ export const ShinanigansSection = ({ theme }) => (
         }}
       />
     </DirtContainer>
+
+    <DirtContainer theme={theme} light={"#654A15"} dark={"#3D4334"}>
+      <YearTitle theme={theme} light={"#8C6A28"} dark={"#FEFFDD"}></YearTitle>
+    </DirtContainer>
   </>
 );
 
@@ -299,6 +303,10 @@ export const LifeSection = ({ theme }) => (
           pointerEvents: "none",
         }}
       />
+    </DirtContainer>
+
+    <DirtContainer theme={theme} light={"#654A15"} dark={"#3D4334"}>
+      <YearTitle theme={theme} light={"#8C6A28"} dark={"#FEFFDD"}></YearTitle>
     </DirtContainer>
   </>
 );

@@ -118,9 +118,8 @@ export const IslandContainer = styled.div`
   margin-top: 3rem;
   width: 100%;
 
-  .island {
-    width: 160px;
-    height: auto;
+  .island-and-logo {
+    text-align: center;
     transition: transform 0.2s;
     cursor: pointer;
 
@@ -129,8 +128,9 @@ export const IslandContainer = styled.div`
     }
   }
 
-  .island-and-logo {
-    text-align: center;
+  .island {
+    width: 160px;
+    height: auto;
   }
 
   @media (max-width: 768px) {

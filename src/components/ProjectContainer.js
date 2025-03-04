@@ -13,7 +13,7 @@ const Container = styled.div`
       ? 90
       : 100}px;
   background-color: ${(props) => props.background};
-  border-radius: ${(props) => props.height * 0.015}px;
+  border-radius: ${(props) => props.height * 0.010}px;
   
   ${props => props.rainbowBorder 
     ? `

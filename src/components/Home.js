@@ -7,6 +7,7 @@ import darkisland1 from "../images/darkisland1.png";
 import darkisland2 from "../images/darkisland2.png";
 import darkisland3 from "../images/darkisland3.png";
 import darkwebring from "../images/darkwebring.png";
+import webringdark from "../images/webringdark.png";
 import webring from "../images/webring.png";
 
 import {
@@ -235,7 +236,7 @@ export default function Home() {
           <a href="https://se-webring.xyz/" style={{ textDecoration: "none" }}>
             <img
               className="webring"
-              src={theme === "light" ? webring : darkwebring}
+              src={theme === "light" ? webring : webringdark}
               alt="webring"
             ></img>
           </a>
