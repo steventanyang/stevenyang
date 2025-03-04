@@ -158,9 +158,9 @@ export const ProjectsSection = ({ theme, isPhone }) => (
           video={elitecodeVideo}
           description={
             <>
-              Obsidian x Anki for leetcode. Built a graph visualizer on
-              question similarity, an integrated chrome extension, +
-              auto generated ai review w/ syntax highlighting.
+              Obsidian x Anki for leetcode. Built a graph visualizer on question
+              similarity, an integrated chrome extension, + auto generated ai
+              review w/ syntax highlighting.
             </>
           }
           more={"Learn more"}
@@ -236,6 +236,12 @@ export const ProjectsSection = ({ theme, isPhone }) => (
         />
       </PContainer>
     </DirtContainer>
+
+    <DirtContainer theme={theme} light={"#654A15"} dark={"#3D4334"}>
+      <YearTitle theme={theme} light={"#8C6A28"} dark={"#FEFFDD"}>
+        
+      </YearTitle>
+    </DirtContainer>
   </>
 );
 
@@ -255,15 +261,15 @@ export const ShinanigansSection = ({ theme }) => (
       </YearTitle>
 
       {/* Blank image to create space */}
-      <img 
-        src={blankSpace} 
-        alt="" 
-        style={{ 
-          width: "100%", 
-          height: "300px", 
+      <img
+        src={blankSpace}
+        alt=""
+        style={{
+          width: "100%",
+          height: "300px",
           opacity: 0,
-          pointerEvents: "none"
-        }} 
+          pointerEvents: "none",
+        }}
       />
     </DirtContainer>
   </>
@@ -285,16 +291,16 @@ export const LifeSection = ({ theme }) => (
       </YearTitle>
 
       {/* Blank image to create space */}
-      <img 
-        src={blankSpace} 
-        alt="" 
-        style={{ 
-          width: "100%", 
-          height: "300px", 
+      <img
+        src={blankSpace}
+        alt=""
+        style={{
+          width: "100%",
+          height: "300px",
           opacity: 0,
-          pointerEvents: "none"
-        }} 
+          pointerEvents: "none",
+        }}
       />
     </DirtContainer>
   </>
-); 
+);
