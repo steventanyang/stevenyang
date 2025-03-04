@@ -4,6 +4,10 @@ import styled from "styled-components";
 import Toggle from "../components/Toggle";
 import { DarkContext } from "../contexts/DarkContext";
 import Stars from "../components/Stars";
+import dashboard from "../images/lecoach/lecoach1.png";
+import gameanalysis from "../images/lecoach/lecoach2.png";
+import playerperformance from "../images/lecoach/lecoach3.png";
+import agent from "../images/lecoach/lecoach4.png";
 
 const PageWrap = styled.div`
   background-color: ${(props) => props.theme.backgroundColor};
@@ -55,16 +59,16 @@ const NavLink = styled.div`
 
   a {
     text-decoration: none;
-    color: ${(props) => (props.theme === "light" ? "#222" : "#7FDFFF")};
+    color: ${(props) => (props.theme === "light" ? "#222" : "#FFFFFF")};
     font-size: 16px;
     font-weight: 400;
     display: flex;
     align-items: center;
 
     &:hover {
-      color: ${(props) => (props.theme === "light" ? "#0D72A8" : "#B4DBFF")};
+      color: ${(props) => (props.theme === "light" ? "#0D72A8" : "#FFFFFF")};
       text-shadow: ${(props) =>
-        props.theme === "light" ? "none" : "0 0 4px #B4DBFF, 0 0 10px #B4DBFF"};
+        props.theme === "light" ? "none" : "0 0 4px #FFFFFF, 0 0 10px #FFFFFF"};
     }
   }
 `;
@@ -150,11 +154,13 @@ const SubsectionContent = styled.div`
 const SubsectionText = styled.div`
   margin-bottom: 20px;
   line-height: 1.6;
+  font-size: 16px;
   color: ${(props) => (props.theme === "light" ? "#333" : props.theme.color)};
 `;
 
 const SubsectionImage = styled.div`
   margin: 15px 0 25px 0;
+  width: 55%;
   img {
     max-width: 100%;
     border-radius: 4px;
@@ -207,8 +213,8 @@ const LeCoach = () => {
           <ProjectTitle theme={theme}>LeCoach</ProjectTitle>
           <Navigation>
             <NavLink theme={theme}>
-              <Link to="/projects">
-                <Arrow>←</Arrow>Back to Projects
+              <Link to="/">
+                <Arrow>←</Arrow>Back to Home
               </Link>
             </NavLink>
           </Navigation>
@@ -247,35 +253,35 @@ const LeCoach = () => {
           <DividerLine theme={theme} margin="60px 0" />
 
           <SectionTitle theme={theme}>User Flow</SectionTitle>
-          <ProjectDescription theme={theme}>
-            I went into the design process with the goal of making the platform as minimal as possible.
-          </ProjectDescription>
+          {/* <ProjectDescription theme={theme}>
+            The primary 
+          </ProjectDescription> */}
 
           <Subsection
-            title="Dashboard Overview"
-            text="When users first log in, they're presented with a comprehensive dashboard showing key metrics and recent game analyses. This gives coaches an immediate understanding of their team's performance at a glance."
-            image="https://placeholder.com/path-to-your-image1.jpg"
+            title="Games Navigation"
+            text="Users can navigate through all games dating back to the 2005-06 season."
+            image={dashboard}
             currentTheme={theme}
           />
 
           <Subsection
-            title="Game Analysis Interface"
-            text="Users can select specific games to analyze in depth. The interface provides multiple views including play-by-play breakdowns, player matchup analytics, and shooting charts."
-            image="https://placeholder.com/path-to-your-image2.jpg"
+            title="Analysis Interface"
+            text="The win probability graph is powered by a model trained on 1.4 million historical plays. More team metrics will be available soon (traditional stats + VORP, BPM, etc.)"
+            image={gameanalysis}
             currentTheme={theme}
           />
 
           <Subsection
-            title="Player Performance Tracking"
-            text="Individual player metrics are tracked over time, allowing coaches to identify trends and development areas. This section includes comparative analysis against historical performance."
-            image="https://placeholder.com/path-to-your-image3.jpg"
+            title="Play by play tracking"
+            text="View detailed play by play tracking for every game."
+            image={playerperformance}
             currentTheme={theme}
           />
 
           <Subsection
-            title="AI-Powered Recommendations"
-            text="Our multi-agent system analyzes game data to provide actionable insights and recommendations for strategic adjustments. These are presented in a clear, intuitive format."
-            image="https://placeholder.com/path-to-your-image4.jpg"
+            title="Agent chat"
+            text="The agent system analyzes game data to answer any question about the game."
+            image={agent}
             currentTheme={theme}
           />
 

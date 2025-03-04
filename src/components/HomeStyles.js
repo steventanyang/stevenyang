@@ -175,7 +175,7 @@ export const NavigationText = styled.div`
 
 export const NavItem = styled.span`
   color: ${(props) =>
-    props.theme === "light" ? props.theme.color : "#FEFFDD"};
+    props.theme === "light" ? props.theme.color : "#F6F6F6"};
   font-family: "Source Code Pro", monospace;
   font-size: 1.2rem;
   cursor: pointer;
@@ -196,7 +196,7 @@ export const NavUnderline = styled.div`
   bottom: -2px;
   height: 2px;
   background-color: ${(props) =>
-    props.theme === "light" ? "#424242" : "#FEFFDD"};
+    props.theme === "light" ? "#424242" : "#fff"};
   left: ${(props) => props.left}px;
   width: ${(props) => props.width}px;
   transition: left 0.25s ease, width 0.25s ease;

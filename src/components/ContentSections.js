@@ -118,9 +118,7 @@ export const ProjectsSection = ({ theme, isPhone }) => (
     <SoilLayers theme={theme} />
 
     <DirtContainer theme={theme} light={"#654A15"} dark={"#3D4334"}>
-      <YearTitle theme={theme} light={"#8C6A28"} dark={"#FEFFDD"}>
-        
-      </YearTitle>
+      <YearTitle theme={theme} light={"#8C6A28"} dark={"#FEFFDD"}></YearTitle>
 
       <PContainer phone={isPhone}>
         <ProjectContainer
