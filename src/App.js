@@ -14,6 +14,7 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./Themes";
 import { useState } from "react";
 import { Analytics } from "@vercel/analytics/react";
+import LeCoach from './pages/LeCoach';
 
 function App() {
   const [isToggled, setIsToggled] = useState(false);
@@ -41,6 +42,7 @@ function App() {
 
               {/* private pages */}
               <Route path="/design" element={<Design />} />
+              <Route path="/lecoach" element={<LeCoach />} />
             </Routes>
           </main>
         </ThemeProvider>

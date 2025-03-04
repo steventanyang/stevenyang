@@ -225,7 +225,7 @@ const Projects = () => {
             description={
               "Complete analytics platform for usports basketball. 10+ years of historical data, win probability model, + multi agent system for game analysis."
             }
-            more={""}
+            more={"/lecoach"}
             rainbowBorder={true}
             video={lecoachVideo}
           />

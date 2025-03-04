@@ -9,166 +9,227 @@ import darkisland3 from "../images/darkisland3.png";
 import darkwebring from "../images/darkwebring.png";
 import webring from "../images/webring.png";
 
-import { useContext } from "react";
+import {
+  useContext,
+  useState,
+  useRef,
+  useEffect,
+  lazy,
+  Suspense,
+  useCallback,
+  useMemo,
+} from "react";
 import { DarkContext } from "../contexts/DarkContext";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
 import HomeStars from "./HomeStars";
 
-const PageWrap = styled.div`
-  background-color: ${(props) => props.theme.backgroundColor};
-  min-height: 100vh;
-  width: 100%;
-  overflow-x: hidden;
-  padding-bottom: 2rem;
+// Import content sections
+import {
+  ProjectsSection,
+  ShinanigansSection,
+  LifeSection,
+} from "./ContentSections";
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
-`;
+// Import styled components
+import {
+  PageWrap,
+  Name,
+  LinksContainer,
+  StyledLink,
+  Spacer,
+  HighlightedLink,
+  IntroText,
+  IslandContainer,
+  MainContainer,
+  ProjectsSection as ProjectsSectionStyled,
+  NavigationText,
+  NavItem,
+  NavUnderline,
+  ContentWrapper,
+} from "./HomeStyles";
 
-const Name = styled.div`
-  color: ${(props) => props.theme.color};
-  font-family: "Source Code Pro", monospace;
-  font-size: 2.5rem;
-  font-weight: 400;
-  margin-top: 4%;
-  text-align: center;
-  width: 100%;
-  text-shadow: 0 0 1px #feffdd, 0 0 2px #feffdd, 0 0 3px #feffdd;
-
-  @media (max-width: 768px) {
-    font-size: 2rem;
-  }
-`;
-
-const LinksContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 1.5rem;
-  width: 100%;
-
-  @media (max-width: 768px) {
-    gap: 1.5rem;
-  }
-`;
-
-const StyledLink = styled.a`
-  color: ${(props) => props.theme.color};
-  font-family: "Source Code Pro", monospace;
-  font-size: 1.2rem;
-  text-decoration: none;
-  opacity: 0.8;
-  transition: opacity 0.2s;
-
-  &:hover {
-    opacity: 1;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 0.75rem;
-  }
-`;
-
-const Spacer = styled.div`
-  width: 300px;
-  height: 1px;
-  background-color: ${(props) => props.theme.color};
-  margin: 1.5rem auto;
-  opacity: 0.2;
-`;
-
-const HighlightedLink = styled(Link)`
-  font-family: "Source Code Pro", monospace;
-  text-decoration: none;
-  transition: all 0.2s;
-
-  ${(props) =>
-    props.theme === "light"
-      ? `
-      color: #424242;
-      font-weight: 700;
-    `
-      : `
-      color: ${props.darkColor || "#7FDFFF"};
-      text-shadow: 0 0 4px #B4DBFF, 0 0 10px #B4DBFF;
-    `}
-
-  &:hover {
-    opacity: 0.8;
-  }
-`;
-
-const IntroText = styled.div`
-  color: ${(props) => props.theme.color};
-  font-family: "Source Code Pro", monospace;
-  font-size: 1.1rem;
-  font-weight: 400;
-  width: 100%;
-  max-width: 600px;
-  text-align: left;
-  line-height: 1.6;
-  padding: 0 1rem;
-  margin-top: 0.5rem;
-
-  .heading {
-    font-weight: 700;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-    padding: 0 1.5rem;
-  }
-`;
-
-const IslandContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 3rem;
-  width: 100%;
-
-  .island {
-    width: 160px;
-    height: auto;
-    transition: transform 0.2s;
-
-    &:hover {
-      transform: translateY(-5px);
-    }
-  }
-
-  .island-and-logo {
-    text-align: center;
-  }
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-
-    .island {
-      width: 140px;
-    }
-  }
-`;
-
-const MainContainer = styled.div`
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
+// Lazy load the Stars component
+const Stars = lazy(() => import("./Stars"));
 
 export default function Home() {
   const { theme, setTheme, isToggled, setIsToggled } = useContext(DarkContext);
+  const [unlocked, setUnlocked] = useState(false);
+  const [showNavigation, setShowNavigation] = useState(false);
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+  const isPhone = windowSize.width < 1300;
+
+  // Add a state to track the current section
+  const [currentSection, setCurrentSection] = useState("projects");
+
+  const topRef = useRef(null);
+  const projectsRef = useRef(null);
+
+  // Add refs for navigation items
+  const homeNavRef = useRef(null);
+  const projectsNavRef = useRef(null);
+  const shinanigansNavRef = useRef(null);
+  const lifeNavRef = useRef(null);
+
+  // Add state for underline position
+  const [underlineStyle, setUnderlineStyle] = useState({
+    left: 0,
+    width: 0,
+  });
+
+  // Add this to optimize initial render
+  const [isInitialRender, setIsInitialRender] = useState(true);
+
+  const handleScroll = useCallback(() => {
+    const scrollPosition = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const isMobile = window.innerWidth < 768;
+
+    // Get the position of the grass/soil section
+    const projectsSectionTop =
+      projectsRef.current?.getBoundingClientRect().top + window.scrollY || 0;
+    const grassSectionTop = projectsSectionTop + windowHeight * 0.2; // Approximate position of grass
+
+    // Show navigation when islands are out of view but hide when reaching grass
+    const navThreshold = isMobile ? windowHeight * 0.6 : windowHeight * 0.9;
+    const shouldShowNav =
+      scrollPosition > navThreshold && scrollPosition < grassSectionTop;
+
+    setShowNavigation(shouldShowNav);
+
+    // Auto-unlock when scrolled down
+    if (scrollPosition > windowHeight * 0.5 && !unlocked) {
+      setUnlocked(true);
+    }
+  }, [unlocked]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+    };
+
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("scroll", handleScroll);
+
+    // Mark initial render as complete
+    setIsInitialRender(false);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [handleScroll]);
+
+  // Update underline position when section changes
+  useEffect(() => {
+    if (!showNavigation) return; // Skip calculations if navigation is hidden
+
+    let activeRef;
+
+    switch (currentSection) {
+      case "projects":
+        activeRef = projectsNavRef.current;
+        break;
+      case "design":
+        activeRef = shinanigansNavRef.current;
+        break;
+      case "life":
+        activeRef = lifeNavRef.current;
+        break;
+      default:
+        activeRef = homeNavRef.current;
+    }
+
+    if (activeRef) {
+      // Calculate position relative to the navigation container
+      const navContainer = activeRef.parentElement;
+      const containerLeft = navContainer.getBoundingClientRect().left;
+      const itemLeft = activeRef.getBoundingClientRect().left;
+      const relativeLeft = itemLeft - containerLeft;
+
+      setUnderlineStyle({
+        left: relativeLeft,
+        width: activeRef.offsetWidth,
+      });
+    }
+  }, [currentSection, showNavigation]);
+
+  const handleIslandClick = (section) => {
+    setCurrentSection(section);
+    setUnlocked(true);
+    setTimeout(() => {
+      projectsRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  };
+
+  const scrollToTop = () => {
+    topRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  // Navigation handlers
+  const navigateToProjects = () => {
+    setCurrentSection("projects");
+
+    if (!unlocked) {
+      setUnlocked(true);
+      setTimeout(() => {
+        projectsRef.current?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  };
+
+  const navigateToDesign = () => {
+    setCurrentSection("design");
+
+    if (!unlocked) {
+      setUnlocked(true);
+      setTimeout(() => {
+        projectsRef.current?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  };
+
+  const navigateToLife = () => {
+    setCurrentSection("life");
+
+    if (!unlocked) {
+      setUnlocked(true);
+      setTimeout(() => {
+        projectsRef.current?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  };
+
+  // Add this function to handle the home navigation
+  const navigateToHome = () => {
+    // Immediately hide the navigation
+    setShowNavigation(false);
+    // Then scroll to top
+    scrollToTop();
+  };
+
+  // Render the appropriate content based on currentSection
+  const sectionContent = useMemo(() => {
+    switch (currentSection) {
+      case "design":
+        return <ShinanigansSection theme={theme} />;
+      case "life":
+        return <LifeSection theme={theme} />;
+      case "projects":
+      default:
+        return <ProjectsSection theme={theme} isPhone={isPhone} />;
+    }
+  }, [currentSection, theme, isPhone]);
 
   return (
-    <PageWrap>
-      {theme === "dark" && <HomeStars />}
+    <PageWrap unlocked={unlocked}>
+      <div ref={topRef}></div>
+      {theme === "dark" && !isInitialRender && (
+        <Suspense fallback={<div></div>}>
+          <Stars />
+        </Suspense>
+      )}
       <div className="top-container">
         <div className="webring-container">
           <a href="https://se-webring.xyz/" style={{ textDecoration: "none" }}>
@@ -227,12 +288,20 @@ export default function Home() {
           <br />
           <span className="heading">Previously:</span> Built products for 500k
           sports-fans at{" "}
-          <HighlightedLink to="/projects" theme={theme} darkColor="#7FDFFF">
+          <HighlightedLink
+            onClick={() => handleIslandClick("projects")}
+            theme={theme}
+            darkColor="#7FDFFF"
+          >
             Stadium Live.
           </HighlightedLink>{" "}
           Built data infrastructure + led software development for varsity
           sports analytics at waterloo.{" "}
-          <HighlightedLink to="/projects" theme={theme} darkColor="#7FDFFF">
+          <HighlightedLink
+            onClick={() => handleIslandClick("projects")}
+            theme={theme}
+            darkColor="#7FDFFF"
+          >
             Created cool projects.
           </HighlightedLink>{" "}
           <br />
@@ -269,7 +338,10 @@ export default function Home() {
 
         <IslandContainer>
           <div className="island-and-logo island2">
-            <Link to="/projects" style={{ textDecoration: "none" }}>
+            <div
+              onClick={() => handleIslandClick("projects")}
+              style={{ cursor: "pointer" }}
+            >
               <h2
                 className={
                   theme === "light" ? "island-logo" : "dark-island-logo"
@@ -283,10 +355,13 @@ export default function Home() {
                 src={theme === "light" ? island2 : darkisland2}
                 alt="island"
               ></img>
-            </Link>
+            </div>
           </div>
           <div className="island-and-logo island1">
-            <Link to="/shinanigans" style={{ textDecoration: "none" }}>
+            <div
+              onClick={() => handleIslandClick("design")}
+              style={{ cursor: "pointer" }}
+            >
               <h2
                 className={
                   theme === "light" ? "island-logo" : "dark-island-logo"
@@ -300,10 +375,13 @@ export default function Home() {
                 src={theme === "light" ? island1 : darkisland1}
                 alt="island"
               ></img>
-            </Link>
+            </div>
           </div>
           <div className="island-and-logo island3">
-            <Link to="/life" style={{ textDecoration: "none" }}>
+            <div
+              onClick={() => handleIslandClick("life")}
+              style={{ cursor: "pointer" }}
+            >
               <h2
                 className={
                   theme === "light" ? "island-logo" : "dark-island-logo"
@@ -317,10 +395,58 @@ export default function Home() {
                 src={theme === "light" ? island3 : darkisland3}
                 alt="island"
               ></img>
-            </Link>
+            </div>
           </div>
         </IslandContainer>
       </MainContainer>
+
+      {/* Content Section */}
+      <ProjectsSectionStyled ref={projectsRef}>
+        <NavigationText theme={theme} visible={showNavigation}>
+          <NavItem
+            ref={homeNavRef}
+            theme={theme}
+            onClick={navigateToHome}
+            active={false}
+          >
+            about
+          </NavItem>
+          <NavItem
+            ref={projectsNavRef}
+            theme={theme}
+            onClick={navigateToProjects}
+            active={currentSection === "projects"}
+          >
+            projects
+          </NavItem>
+          <NavItem
+            ref={shinanigansNavRef}
+            theme={theme}
+            onClick={navigateToDesign}
+            active={currentSection === "design"}
+          >
+            design
+          </NavItem>
+          <NavItem
+            ref={lifeNavRef}
+            theme={theme}
+            onClick={navigateToLife}
+            active={currentSection === "life"}
+          >
+            life
+          </NavItem>
+
+          {/* Add the sliding underline */}
+          <NavUnderline
+            theme={theme}
+            left={underlineStyle.left}
+            width={underlineStyle.width}
+          />
+        </NavigationText>
+
+        {/* Render the memoized content without the wrapper */}
+        {sectionContent}
+      </ProjectsSectionStyled>
     </PageWrap>
   );
 }

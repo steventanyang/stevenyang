@@ -1,60 +1,55 @@
-import styled, { keyframes } from 'styled-components';
+import React, { useEffect, useRef } from "react";
+import "../static/Stars.css";
 
-const twinkle = keyframes`
-  0% { opacity: 0.3; }
-  50% { opacity: 0.6; }
-  100% { opacity: 0.3; }
-`;
-
-const StarContainer = styled.div`
-  position: fixed;
-  width: 100%;
-  height: 40vh;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 1;
-`;
-
-const Star = styled.div`
-  position: absolute;
-  background: #FEFFDD;
-  border-radius: 50%;
-  box-shadow: 0 0 2px rgba(254, 255, 221, 0.4), 0 0 4px rgba(254, 255, 221, 0.2);
-  animation: ${twinkle} ${props => props.duration}s ease-in-out infinite;
-  animation-delay: ${props => props.delay}s;
-  width: ${props => props.size}px;
-  height: ${props => props.size}px;
-  left: ${props => props.x}%;
-  top: ${props => props.y}%;
-  opacity: 0.3;
-`;
-
-const Stars = () => {
-  // Generate random stars with smaller sizes
-  const stars = Array.from({ length: 40 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 1.5 + 0.5,
-    duration: Math.random() * 4 + 3,
-    delay: Math.random() * 3
-  }));
-
-  return (
-    <StarContainer>
-      {stars.map(star => (
-        <Star
-          key={star.id}
-          x={star.x}
-          y={star.y}
-          size={star.size}
-          duration={star.duration}
-          delay={star.delay}
-        />
-      ))}
-    </StarContainer>
-  );
-};
-
-export default Stars; 
+export default function Stars() {
+  const starsRef = useRef(null);
+  
+  useEffect(() => {
+    if (!starsRef.current) return;
+    
+    // Reduce the number of stars for better performance
+    const starCount = window.innerWidth < 768 ? 30 : 50; // Even fewer stars
+    const container = starsRef.current;
+    container.innerHTML = '';
+    
+    // Create stars in batches for better performance
+    const createStars = (startIdx, count) => {
+      if (startIdx >= starCount) return;
+      
+      const fragment = document.createDocumentFragment();
+      const endIdx = Math.min(startIdx + count, starCount);
+      
+      for (let i = startIdx; i < endIdx; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        
+        // Randomize star positions
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.left = `${Math.random() * 100}%`;
+        
+        // Vary star sizes but keep them small
+        const size = Math.random() * 1.5 + 0.5; // Smaller stars
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        
+        // Add simple animation with CSS
+        star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        star.style.animationDelay = `${Math.random() * 2}s`;
+        
+        fragment.appendChild(star);
+      }
+      
+      container.appendChild(fragment);
+      
+      // Create the next batch in the next frame
+      if (endIdx < starCount) {
+        requestAnimationFrame(() => createStars(endIdx, count));
+      }
+    };
+    
+    // Start creating stars in batches of 10
+    createStars(0, 10);
+  }, []);
+  
+  return <div className="stars-container" ref={starsRef}></div>;
+} 
