@@ -110,7 +110,7 @@ const SoilLayers = ({ theme }) => (
 export const ProjectsSection = ({ theme, isPhone }) => (
   <>
     <DescriptionContainer>
-      <DescriptionText color={theme === "light" ? "#5A5A5A" : "#FEFFDD"}>
+      <DescriptionText color={theme === "light" ? "#5A5A5A" : "#F6F6F6"}>
         Here are some projects that I've worked on recently:
       </DescriptionText>
     </DescriptionContainer>
@@ -132,7 +132,7 @@ export const ProjectsSection = ({ theme, isPhone }) => (
           description={
             "Complete analytics platform for usports basketball. 10+ years of historical data, win probability model, + multi agent system for game analysis."
           }
-          more={"/lecoach"}
+          // more={"/lecoach"}
           rainbowBorder={true}
           video={lecoachVideo}
         />
@@ -238,9 +238,7 @@ export const ProjectsSection = ({ theme, isPhone }) => (
     </DirtContainer>
 
     <DirtContainer theme={theme} light={"#654A15"} dark={"#3D4334"}>
-      <YearTitle theme={theme} light={"#8C6A28"} dark={"#FEFFDD"}>
-        
-      </YearTitle>
+      <YearTitle theme={theme} light={"#8C6A28"} dark={"#FEFFDD"}></YearTitle>
     </DirtContainer>
   </>
 );

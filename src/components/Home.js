@@ -291,7 +291,7 @@ export default function Home() {
           <HighlightedLink
             onClick={() => handleIslandClick("projects")}
             theme={theme}
-            darkColor="#7FDFFF"
+            darkColor="#FEFFDD"
           >
             Stadium Live.
           </HighlightedLink>{" "}
@@ -300,7 +300,7 @@ export default function Home() {
           <HighlightedLink
             onClick={() => handleIslandClick("projects")}
             theme={theme}
-            darkColor="#7FDFFF"
+            darkColor="#FEFFDD"
           >
             Created cool projects.
           </HighlightedLink>{" "}
@@ -314,7 +314,7 @@ export default function Home() {
             target="_blank"
             rel="noreferrer"
             theme={theme}
-            darkColor="#7FDFFF"
+            darkColor="#FEFFDD"
           >
             Software Engineering @ Waterloo
           </HighlightedLink>
@@ -328,7 +328,7 @@ export default function Home() {
             target="_blank"
             rel="noreferrer"
             theme={theme}
-            darkColor="#7FDFFF"
+            darkColor="#FEFFDD"
           >
             basketball
           </HighlightedLink>

@@ -81,7 +81,7 @@ export const HighlightedLink = styled.span`
     `
       : `
       color: ${props.darkColor || "#7FDFFF"};
-      text-shadow: 0 0 4px #B4DBFF, 0 0 10px #B4DBFF;
+      text-shadow: 0 0 2px #fff, 0 0 2px #fff;
     `}
 
   &:hover {
