@@ -12,17 +12,26 @@ import GlobalStyle from "./GlobalStyle";
 import { DarkContext } from "./contexts/DarkContext";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./Themes";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Analytics } from "@vercel/analytics/react";
-import LeCoach from './pages/LeCoach';
+import LeCoach from "./pages/LeCoach";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
-  const [isToggled, setIsToggled] = useState(false);
-  const [theme, setTheme] = useState("light");
+  // Check localStorage for saved theme preference
+  const savedTheme = localStorage.getItem("theme") || "light";
+  const [theme, setTheme] = useState(savedTheme);
+  const [isToggled, setIsToggled] = useState(savedTheme === "dark");
+
+  // Save theme preference to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   return (
     <BrowserRouter>
       <Analytics />
+      <ScrollToTop />
       <DarkContext.Provider
         value={{ isToggled, setIsToggled, theme, setTheme }}
       >

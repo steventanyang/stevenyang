@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Toggle from "../components/Toggle";
@@ -8,6 +8,9 @@ import dashboard from "../images/lecoach/lecoach1.png";
 import gameanalysis from "../images/lecoach/lecoach2.png";
 import playerperformance from "../images/lecoach/lecoach3.png";
 import agent from "../images/lecoach/lecoach4.png";
+import systemDiagram from "../images/lecoach/lecoacharch.png";
+import design1 from "../images/lecoach/lecoachdesign1.png";
+import design2 from "../images/lecoach/lecoachdesign2.png";
 
 const PageWrap = styled.div`
   background-color: ${(props) => props.theme.backgroundColor};
@@ -22,7 +25,7 @@ const Container = styled.div`
   margin: 0 auto;
   padding: 40px 20px;
   font-family: "Source Code Pro", monospace;
-  color: ${(props) => (props.theme === "light" ? "#222" : props.theme.color)};
+  color: ${(props) => props.theme.color};
 `;
 
 const Header = styled.div`
@@ -31,7 +34,7 @@ const Header = styled.div`
   align-items: center;
   margin-bottom: 40px;
   border-bottom: 1px solid
-    ${(props) => (props.theme === "light" ? "#ddd" : "#333")};
+    ${(props) => (props.theme.backgroundColor === "#fff" ? "#ddd" : "#333")};
   padding-bottom: 20px;
 `;
 
@@ -45,7 +48,7 @@ const ToggleContainer = styled.div`
 const ProjectTitle = styled.h1`
   font-size: 24px;
   font-weight: 500;
-  color: ${(props) => (props.theme === "light" ? "#222" : props.theme.color)};
+  color: ${(props) => props.theme.color};
   margin: 0;
 `;
 
@@ -59,16 +62,19 @@ const NavLink = styled.div`
 
   a {
     text-decoration: none;
-    color: ${(props) => (props.theme === "light" ? "#222" : "#FFFFFF")};
+    color: ${(props) => props.theme.color};
     font-size: 16px;
     font-weight: 400;
     display: flex;
     align-items: center;
 
     &:hover {
-      color: ${(props) => (props.theme === "light" ? "#0D72A8" : "#FFFFFF")};
+      color: ${(props) =>
+        props.theme.backgroundColor === "#fff" ? "#0D72A8" : "#FFFFFF"};
       text-shadow: ${(props) =>
-        props.theme === "light" ? "none" : "0 0 4px #FFFFFF, 0 0 10px #FFFFFF"};
+        props.theme.backgroundColor === "#fff"
+          ? "none"
+          : "0 0 4px #FFFFFF, 0 0 10px #FFFFFF"};
     }
   }
 `;
@@ -84,7 +90,7 @@ const Content = styled.div`
 const ProjectDescription = styled.div`
   margin-bottom: 60px;
   line-height: 1.7;
-  color: ${(props) => (props.theme === "light" ? "#333" : props.theme.color)};
+  color: ${(props) => props.theme.color};
   font-size: 16px;
 `;
 
@@ -93,12 +99,13 @@ const SectionTitle = styled.h2`
   margin-top: 60px;
   margin-bottom: 30px;
   font-weight: 500;
-  color: ${(props) => (props.theme === "light" ? "#222" : props.theme.color)};
+  color: ${(props) => props.theme.color};
 `;
 
 const DividerLine = styled.div`
   height: 1px;
-  background-color: ${(props) => (props.theme === "light" ? "#ddd" : "#333")};
+  background-color: ${(props) =>
+    props.theme.backgroundColor === "#fff" ? "#ddd" : "#333"};
   margin: ${(props) => props.margin || "80px 0"};
   opacity: ${(props) => props.opacity || "1"};
 `;
@@ -109,6 +116,16 @@ const ProjectMedia = styled.div`
   video {
     max-width: 100%;
     border-radius: 4px;
+  }
+`;
+
+const SystemDiagramContainer = styled.div`
+  width: 70%;
+  margin: 40px auto;
+  img {
+    max-width: 100%;
+    border-radius: 4px;
+    display: block;
   }
 `;
 
@@ -128,14 +145,14 @@ const SubsectionHeader = styled.div`
 const SubsectionTitle = styled.h3`
   font-size: 18px;
   margin: 0;
-  color: ${(props) => (props.theme === "light" ? "#333" : props.theme.color)};
+  color: ${(props) => props.theme.color};
   font-weight: 500;
 `;
 
 const ToggleIcon = styled.span`
   margin-left: 12px;
   font-size: 16px;
-  color: ${(props) => (props.theme === "light" ? "#555" : props.theme.color)};
+  color: ${(props) => props.theme.color};
   transform: ${(props) => (props.isOpen ? "rotate(180deg)" : "rotate(0)")};
   transition: transform 0.3s ease;
 `;
@@ -148,14 +165,14 @@ const SubsectionContent = styled.div`
   transition: opacity 0.3s ease, max-height 0.5s ease;
   padding-left: 25px;
   border-left: 1px solid
-    ${(props) => (props.theme === "light" ? "#ddd" : "#333")};
+    ${(props) => (props.theme.backgroundColor === "#fff" ? "#ddd" : "#333")};
 `;
 
 const SubsectionText = styled.div`
   margin-bottom: 20px;
   line-height: 1.6;
   font-size: 16px;
-  color: ${(props) => (props.theme === "light" ? "#333" : props.theme.color)};
+  color: ${(props) => props.theme.color};
 `;
 
 const SubsectionImage = styled.div`
@@ -164,7 +181,8 @@ const SubsectionImage = styled.div`
   img {
     max-width: 100%;
     border-radius: 4px;
-    border: 1px solid ${(props) => (props.theme === "light" ? "#ddd" : "#333")};
+    border: 1px solid
+      ${(props) => (props.theme.backgroundColor === "#fff" ? "#ddd" : "#333")};
   }
 `;
 
@@ -175,15 +193,13 @@ const Subsection = ({ title, text, image, currentTheme }) => {
   return (
     <SubsectionContainer>
       <SubsectionHeader onClick={() => setIsOpen(!isOpen)} isOpen={isOpen}>
-        <SubsectionTitle theme={currentTheme}>{title}</SubsectionTitle>
-        <ToggleIcon isOpen={isOpen} theme={currentTheme}>
-          ▼
-        </ToggleIcon>
+        <SubsectionTitle>{title}</SubsectionTitle>
+        <ToggleIcon isOpen={isOpen}>▼</ToggleIcon>
       </SubsectionHeader>
-      <SubsectionContent isOpen={isOpen} theme={currentTheme}>
-        <SubsectionText theme={currentTheme}>{text}</SubsectionText>
+      <SubsectionContent isOpen={isOpen}>
+        <SubsectionText>{text}</SubsectionText>
         {image && (
-          <SubsectionImage theme={currentTheme}>
+          <SubsectionImage>
             <img src={image} alt={title} />
           </SubsectionImage>
         )}
@@ -192,27 +208,44 @@ const Subsection = ({ title, text, image, currentTheme }) => {
   );
 };
 
+const PhotoGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin: 40px 0;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid
+      ${(props) => (props.theme.backgroundColor === "#fff" ? "#ddd" : "#333")};
+  }
+`;
+
 const LeCoach = () => {
   const { theme, setTheme, isToggled, setIsToggled } = useContext(DarkContext);
+
+  const handleToggle = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setIsToggled(!isToggled);
+    setTheme(newTheme);
+  };
 
   return (
     <PageWrap>
       {theme === "dark" && <Stars />}
       <ToggleContainer>
-        <Toggle
-          rounded={true}
-          isToggled={isToggled}
-          onToggle={() => {
-            setIsToggled(!isToggled);
-            theme === "light" ? setTheme("dark") : setTheme("light");
-          }}
-        />
+        <Toggle rounded={true} isToggled={isToggled} onToggle={handleToggle} />
       </ToggleContainer>
       <Container>
-        <Header theme={theme}>
-          <ProjectTitle theme={theme}>LeCoach</ProjectTitle>
+        <Header>
+          <ProjectTitle>LeCoach</ProjectTitle>
           <Navigation>
-            <NavLink theme={theme}>
+            <NavLink>
               <Link to="/">
                 <Arrow>←</Arrow>Back to Home
               </Link>
@@ -221,7 +254,7 @@ const LeCoach = () => {
         </Header>
 
         <Content>
-          <ProjectDescription theme={theme}>
+          <ProjectDescription>
             LeCoach is a comprehensive analytics platform for coaches and
             players in Canadian usports basketball. It features an agent system
             for game analysis and predictive analytics powered by 10+ years of
@@ -236,10 +269,10 @@ const LeCoach = () => {
             />
           </ProjectMedia>
 
-          <DividerLine theme={theme} margin="60px 0" />
+          <DividerLine margin="60px 0" />
 
-          <SectionTitle theme={theme}>Motivations</SectionTitle>
-          <ProjectDescription theme={theme}>
+          <SectionTitle>Motivations</SectionTitle>
+          <ProjectDescription>
             Over the past year, I've been leading and expanding the data
             solutions team for the Waterloo varsity basketball program. The
             critical challenge we've identified is the lack of a centralized,
@@ -250,9 +283,9 @@ const LeCoach = () => {
             gap between raw data and basketball-first minded coaches + players.
           </ProjectDescription>
 
-          <DividerLine theme={theme} margin="60px 0" />
+          <DividerLine margin="60px 0" />
 
-          <SectionTitle theme={theme}>User Flow</SectionTitle>
+          <SectionTitle>User Flow</SectionTitle>
           {/* <ProjectDescription theme={theme}>
             The primary 
           </ProjectDescription> */}
@@ -280,34 +313,101 @@ const LeCoach = () => {
 
           <Subsection
             title="Agent chat"
-            text="The agent system analyzes game data to answer any question about the game."
+            text="Our chat system uses RAG and chains multiple specialized agents together to handle different aspects of data retrieval, analysis, and response generation."
             image={agent}
             currentTheme={theme}
           />
 
-          <DividerLine theme={theme} margin="60px 0" />
+          <DividerLine margin="60px 0" />
 
-          <SectionTitle theme={theme}>System Diagram</SectionTitle>
-          <ProjectDescription theme={theme}>
-            [Add your system architecture diagram and explanation here]
+          <SectionTitle>System Diagram</SectionTitle>
+          <ProjectDescription>
+            The system architecture for LeCoach integrates data collection,
+            processing, and presentation layers to deliver real-time analytics
+            and insights.
+          </ProjectDescription>
+          <SystemDiagramContainer>
+            <img
+              src={systemDiagram}
+              alt="LeCoach System Architecture Diagram"
+            />
+          </SystemDiagramContainer>
+
+          <DividerLine margin="60px 0" />
+
+          <SectionTitle>Design</SectionTitle>
+          <ProjectDescription>
+            LeCoach's design prioritizes simplicity and intuitive navigation,
+            with bold colors against a monochromatic background. The interface
+            employs thoughtful information hierarchy to ensure key metrics stand
+            out, allowing coaches to make data-driven decisions quickly. I was
+            inspired by modern data apps such as Real Sports and Bevel.
           </ProjectDescription>
 
-          <DividerLine theme={theme} margin="60px 0" />
+          <PhotoGrid>
+            <img src={design1} alt="Design 1" />
+            <img src={design2} alt="Design 2" />
+          </PhotoGrid>
 
-          <SectionTitle theme={theme}>Technical Details</SectionTitle>
-          <ProjectDescription theme={theme}>
-            [Discuss the technical implementation, technologies used, challenges
-            overcome, etc.]
-          </ProjectDescription>
+          <DividerLine margin="60px 0" />
 
-          <DividerLine theme={theme} margin="60px 0" />
+          <SectionTitle>Technical Details</SectionTitle>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <ProjectDescription style={{ flex: "1", marginRight: "40px" }}>
+              <div>
+                <strong>Frontend:</strong> Next.js, Tailwind CSS, Recharts
+                <br />
+                <strong>Backend:</strong> Python, FastAPI, Almebic, Docker
+                <br />
+                <strong>Cloud:</strong> S3, RDS, Lambda, Sagemaker
+                <br />
+                <strong>Other:</strong> Langchain, OpenAI, Scikit-learn
+              </div>
+            </ProjectDescription>
 
-          <SectionTitle theme={theme}>Future</SectionTitle>
-          <ProjectDescription theme={theme}>
-            [Share your plans for future development and improvements]
-          </ProjectDescription>
+            <ProjectDescription style={{ flex: "1" }}>
+              <div>
+                <strong>Links:</strong>
+                <br />
+                <a
+                  href="https://lecoach.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    color:
+                      theme.backgroundColor === "#fff" ? "#FEFFDD" : "#FEFFDD",
+                    textDecoration: "none",
+                  }}
+                >
+                  Live Demo →
+                </a>
+                <span
+                  style={{
+                    marginLeft: "10px",
+                    fontSize: "14px",
+                    opacity: "0.8",
+                  }}
+                >
+                  (currently for internal use only)
+                </span>
+                <br />
+                <a
+                  href="https://github.com/warriorswbb/lecoach"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    color:
+                      theme.backgroundColor === "#fff" ? "#FEFFDD" : "#FEFFDD",
+                    textDecoration: "none",
+                  }}
+                >
+                  GitHub Repository →
+                </a>
+              </div>
+            </ProjectDescription>
+          </div>
 
-          <DividerLine theme={theme} margin="80px 0" />
+          <DividerLine margin="80px 0" />
         </Content>
       </Container>
     </PageWrap>

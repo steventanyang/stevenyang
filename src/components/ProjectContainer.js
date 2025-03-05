@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useContext, useState, useEffect } from "react";
 import { DarkContext } from "../contexts/DarkContext";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   width: ${(props) => (props.phone ? props.width * 0.8 : props.width * 0.4)}px;
@@ -13,19 +14,19 @@ const Container = styled.div`
       ? 90
       : 100}px;
   background-color: ${(props) => props.background};
-  border-radius: ${(props) => props.height * 0.010}px;
-  
-  ${props => props.rainbowBorder 
-    ? `
+  border-radius: ${(props) => props.height * 0.01}px;
+
+  ${(props) =>
+    props.rainbowBorder
+      ? `
       border: 4px solid transparent;
       background-image: linear-gradient(${props.background}, ${props.background}),
                         linear-gradient(145deg, #B7EC97, #7BD9CA, #88D1E4, #A0CBEC, #8FC9D9, #7BD9CA, #B7EC97);
       background-origin: border-box;
       background-clip: content-box, border-box;
     `
-    : `border: 4px solid ${props.border};`
-  }
-  
+      : `border: 4px solid ${props.border};`}
+
   transition: height 0.5s ease;
   flex-direction: column;
   align-items: center;
@@ -166,6 +167,20 @@ const CloseButton = styled.button`
   }
 `;
 
+const MoreButton = styled.button`
+  background: transparent;
+  border: none;
+  color: ${(props) => props.color};
+  font-size: 1.2rem;
+  font-weight: 900;
+  cursor: pointer;
+  text-decoration: underline;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
 const ProjectContainer = ({
   background,
   border,
@@ -176,6 +191,7 @@ const ProjectContainer = ({
   description,
   more,
   rainbowBorder = false,
+  isInternalLink = false,
 }) => {
   const { theme, setTheme } = useContext(DarkContext);
   const [windowSize, setWindowSize] = useState({
@@ -266,14 +282,9 @@ const ProjectContainer = ({
         {expanded && (
           <LinkContainer fadeIn={fadeIn}>
             {more && (
-              <Links
-                color={border}
-                href={more}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                See More
-              </Links>
+              <Link to={more} style={{ textDecoration: "none" }}>
+                <MoreButton color={border}>Learn more</MoreButton>
+              </Link>
             )}
           </LinkContainer>
         )}
@@ -281,9 +292,7 @@ const ProjectContainer = ({
 
       {showVideoPopup && (
         <PopupOverlay onClick={() => setShowVideoPopup(false)}>
-          <CloseButton onClick={() => setShowVideoPopup(false)}>
-            ✕
-          </CloseButton>
+          <CloseButton onClick={() => setShowVideoPopup(false)}>✕</CloseButton>
           <PopupVideo
             src={video}
             controls

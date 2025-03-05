@@ -216,19 +216,21 @@ const Projects = () => {
         </YearTitle>
 
         <PContainer phone={isPhone}>
-          <ProjectContainer // LeCoach
-            background={"#303030"}
-            border={"#B7EC97"}
-            emoji={"🔍"}
-            title={"LeCoach"}
-            image={""}
-            description={
-              "Complete analytics platform for usports basketball. 10+ years of historical data, win probability model, + multi agent system for game analysis."
-            }
-            more={"/lecoach"}
-            rainbowBorder={true}
-            video={lecoachVideo}
-          />
+          <Link to="/lecoach" style={{ textDecoration: "none" }}>
+            <ProjectContainer // LeCoach
+              background={"#303030"}
+              border={"#B7EC97"}
+              emoji={"🔍"}
+              title={"LeCoach"}
+              image={""}
+              description={
+                "Complete analytics platform for usports basketball. 10+ years of historical data, win probability model, + multi agent system for game analysis."
+              }
+              more={""}
+              rainbowBorder={true}
+              video={lecoachVideo}
+            />
+          </Link>
         </PContainer>
 
         <PContainer phone={isPhone}>
