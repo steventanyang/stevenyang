@@ -226,6 +226,22 @@ const PhotoGrid = styled.div`
   }
 `;
 
+// Add this styled component near your other styled components
+const StyledLink = styled.a`
+  color: ${(props) => props.theme.color};
+  text-decoration: none;
+  transition: color 0.2s, text-shadow 0.2s;
+
+  &:hover {
+    color: ${(props) =>
+      props.theme.backgroundColor === "#fff" ? "#0D72A8" : "#FFFFFF"};
+    text-shadow: ${(props) =>
+      props.theme.backgroundColor === "#fff"
+        ? "none"
+        : "0 0 4px #FFFFFF, 0 0 10px #FFFFFF"};
+  }
+`;
+
 const LeCoach = () => {
   const { theme, setTheme, isToggled, setIsToggled } = useContext(DarkContext);
 
@@ -369,18 +385,13 @@ const LeCoach = () => {
               <div>
                 <strong>Links:</strong>
                 <br />
-                <a
+                <StyledLink
                   href="https://lecoach.vercel.app"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{
-                    color:
-                      theme.backgroundColor === "#fff" ? "#FEFFDD" : "#FEFFDD",
-                    textDecoration: "none",
-                  }}
                 >
                   Live Demo →
-                </a>
+                </StyledLink>
                 <span
                   style={{
                     marginLeft: "10px",
@@ -391,18 +402,13 @@ const LeCoach = () => {
                   (currently for internal use only)
                 </span>
                 <br />
-                <a
+                <StyledLink
                   href="https://github.com/warriorswbb/lecoach"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{
-                    color:
-                      theme.backgroundColor === "#fff" ? "#FEFFDD" : "#FEFFDD",
-                    textDecoration: "none",
-                  }}
                 >
                   GitHub Repository →
-                </a>
+                </StyledLink>
               </div>
             </ProjectDescription>
           </div>
