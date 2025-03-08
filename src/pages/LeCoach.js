@@ -18,14 +18,26 @@ const PageWrap = styled.div`
   width: 100%;
   position: relative;
   overflow-x: hidden;
+  max-width: 100vw;
+  
+  &.lecoach-page {
+    overflow-y: auto;
+    height: auto;
+  }
 `;
 
 const Container = styled.div`
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   padding: 40px 20px;
   font-family: "Source Code Pro", monospace;
   color: ${(props) => props.theme.color};
+  box-sizing: border-box;
+  
+  @media (max-width: 768px) {
+    padding: 20px 15px;
+  }
 `;
 
 const Header = styled.div`
@@ -92,6 +104,10 @@ const ProjectDescription = styled.div`
   line-height: 1.7;
   color: ${(props) => props.theme.color};
   font-size: 16px;
+
+  @media (max-width: 768px) {
+    font-size: 15px;
+  }
 `;
 
 const SectionTitle = styled.h2`
@@ -112,20 +128,30 @@ const DividerLine = styled.div`
 
 const ProjectMedia = styled.div`
   margin: 40px 0;
-  img,
-  video {
+  width: 100%;
+  
+  img, video {
     max-width: 100%;
+    height: auto;
     border-radius: 4px;
+    display: block;
   }
 `;
 
 const SystemDiagramContainer = styled.div`
-  width: 70%;
+  width: 100%;
+  max-width: 800px;
   margin: 40px auto;
+  
   img {
     max-width: 100%;
+    height: auto;
     border-radius: 4px;
     display: block;
+  }
+  
+  @media (max-width: 768px) {
+    width: 100%;
   }
 `;
 
@@ -177,9 +203,12 @@ const SubsectionText = styled.div`
 
 const SubsectionImage = styled.div`
   margin: 15px 0 25px 0;
-  width: 55%;
+  width: 100%;
+  max-width: 600px;
+  
   img {
     max-width: 100%;
+    height: auto;
     border-radius: 4px;
     border: 1px solid
       ${(props) => (props.theme.backgroundColor === "#fff" ? "#ddd" : "#333")};
@@ -242,6 +271,29 @@ const StyledLink = styled.a`
   }
 `;
 
+// Add this near the top of your component
+const TechnicalDetailsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+const TechnicalDetailsColumn = styled.div`
+  flex: 1;
+
+  &:first-child {
+    margin-right: 40px;
+
+    @media (max-width: 768px) {
+      margin-right: 0;
+      margin-bottom: 30px;
+    }
+  }
+`;
+
 const LeCoach = () => {
   const { theme, setTheme, isToggled, setIsToggled } = useContext(DarkContext);
 
@@ -252,7 +304,7 @@ const LeCoach = () => {
   };
 
   return (
-    <PageWrap>
+    <PageWrap className="lecoach-page">
       {theme === "dark" && <Stars />}
       <ToggleContainer>
         <Toggle rounded={true} isToggled={isToggled} onToggle={handleToggle} />
@@ -368,50 +420,54 @@ const LeCoach = () => {
           <DividerLine margin="60px 0" />
 
           <SectionTitle>Technical Details</SectionTitle>
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <ProjectDescription style={{ flex: "1", marginRight: "40px" }}>
-              <div>
-                <strong>Frontend:</strong> Next.js, Tailwind CSS, Recharts
-                <br />
-                <strong>Backend:</strong> Python, FastAPI, Almebic, Docker
-                <br />
-                <strong>Cloud:</strong> S3, RDS, Lambda, Sagemaker
-                <br />
-                <strong>Other:</strong> Langchain, OpenAI, Scikit-learn
-              </div>
-            </ProjectDescription>
+          <TechnicalDetailsContainer>
+            <TechnicalDetailsColumn>
+              <ProjectDescription>
+                <div>
+                  <strong>Frontend:</strong> Next.js, Tailwind CSS, Recharts
+                  <br />
+                  <strong>Backend:</strong> Python, FastAPI, Almebic, Docker
+                  <br />
+                  <strong>Cloud:</strong> S3, RDS, Lambda, Sagemaker
+                  <br />
+                  <strong>Other:</strong> Langchain, OpenAI, Scikit-learn
+                </div>
+              </ProjectDescription>
+            </TechnicalDetailsColumn>
 
-            <ProjectDescription style={{ flex: "1" }}>
-              <div>
-                <strong>Links:</strong>
-                <br />
-                <StyledLink
-                  href="https://lecoach.vercel.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Live Demo →
-                </StyledLink>
-                <span
-                  style={{
-                    marginLeft: "10px",
-                    fontSize: "14px",
-                    opacity: "0.8",
-                  }}
-                >
-                  (currently for internal use only)
-                </span>
-                <br />
-                <StyledLink
-                  href="https://github.com/warriorswbb/lecoach"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub Repository →
-                </StyledLink>
-              </div>
-            </ProjectDescription>
-          </div>
+            <TechnicalDetailsColumn>
+              <ProjectDescription>
+                <div>
+                  <strong>Links:</strong>
+                  <br />
+                  <StyledLink
+                    href="https://lecoach.vercel.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live Demo →
+                  </StyledLink>
+                  <span
+                    style={{
+                      marginLeft: "10px",
+                      fontSize: "14px",
+                      opacity: "0.8",
+                    }}
+                  >
+                    (currently for internal use only)
+                  </span>
+                  <br />
+                  <StyledLink
+                    href="https://github.com/warriorswbb/lecoach"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub Repository →
+                  </StyledLink>
+                </div>
+              </ProjectDescription>
+            </TechnicalDetailsColumn>
+          </TechnicalDetailsContainer>
 
           <DividerLine margin="80px 0" />
         </Content>
