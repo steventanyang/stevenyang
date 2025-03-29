@@ -111,7 +111,7 @@ export const ProjectsSection = ({ theme, isPhone }) => (
   <>
     <DescriptionContainer>
       <DescriptionText color={theme === "light" ? "#5A5A5A" : "#F6F6F6"}>
-        Here are some projects that I've worked on recently:
+        
       </DescriptionText>
     </DescriptionContainer>
 

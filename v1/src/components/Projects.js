@@ -1,5 +1,5 @@
 import "../static/Projects.css";
-import Toggle from "../components/Toggle";
+import Toggle from "./Toggle";
 import Stars from "./Stars";
 
 import styled from "styled-components";

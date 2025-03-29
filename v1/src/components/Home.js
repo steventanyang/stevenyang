@@ -1,5 +1,5 @@
 import "../static/Home.css";
-import Toggle from "../components/Toggle";
+import Toggle from "./Toggle";
 import island1 from "../images/island1.png";
 import island2 from "../images/island2.png";
 import island3 from "../images/island3.png";
@@ -282,7 +282,9 @@ export default function Home() {
         <Spacer />
 
         <IntroText>
-          <span className="heading">Currently:</span> Working on the gen ai
+          Working on the gen ai integration team @ sunlife. I'm looking for
+          opportunities in engineering / product / design.
+          {/* <span className="heading">Currently:</span> Working on the gen ai
           integration team @ sunlife. I'm looking for opportunities in
           engineering / product / design.
           <br />
@@ -334,7 +336,7 @@ export default function Home() {
             basketball
           </HighlightedLink>
           . I also enjoy spending time engaging with art. I paint, make music,
-          and like graphic design.
+          and like graphic design. */}
         </IntroText>
 
         <IslandContainer>

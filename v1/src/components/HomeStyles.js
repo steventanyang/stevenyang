@@ -116,6 +116,7 @@ export const IslandContainer = styled.div`
   justify-content: center;
   gap: 2rem;
   margin-top: 3rem;
+  margin-bottom: 2rem;
   width: 100%;
 
   .island-and-logo {
