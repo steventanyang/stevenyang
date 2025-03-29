@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useTheme } from "./context/ThemeContext";
 import { themes } from "./themes";
 
 export default function Home() {
-  // State for current theme
-  const [currentTheme, setCurrentTheme] = useState<string>("default");
+  // Use the global theme context
+  const { currentTheme, setCurrentTheme } = useTheme();
 
   // Get current theme colors
   const themeColors = themes[currentTheme];
@@ -20,8 +20,8 @@ export default function Home() {
         color: themeColors.text,
       }}
     >
-      {/* Navigation - fixed height to prevent shifting */}
-      <nav className="flex justify-center gap-6 mt-10 mb-16 w-full h-10">
+      {/* Navigation - reduced vertical spacing */}
+      <nav className="flex justify-center gap-6 mt-8 mb-14 w-full h-10">
         <Link
           href="/"
           className="text-2xl font-extrabold transition-colors duration-300"
@@ -47,9 +47,9 @@ export default function Home() {
 
       {/* Main Content */}
       <main className="flex flex-col w-full max-w-md">
-        {/* Profile Section - making name brighter and increasing separation */}
+        {/* Profile Section - reducing boldness */}
         <h1
-          className="text-2xl font-black mb-10"
+          className="text-2xl font-bold mb-10"
           style={{
             color: themeColors.text === "#FFFFFF" ? "#FFFFFF" : "#000000",
             opacity: 1,
@@ -79,7 +79,7 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Color Palette */}
+        {/* Color Palette - only shown on home page */}
         <div className="flex gap-3 mb-10">
           <button
             className="w-8 h-8 bg-[#333333] rounded cursor-pointer transform transition-transform hover:scale-125"

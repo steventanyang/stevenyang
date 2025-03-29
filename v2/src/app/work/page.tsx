@@ -2,25 +2,61 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useTheme } from "../context/ThemeContext";
 import { themes } from "../themes";
+import { Inter, Montserrat, Raleway, Roboto, Poppins, Playfair_Display, Open_Sans, Nunito_Sans, IBM_Plex_Sans, Rubik, DM_Sans } from 'next/font/google';
+
+// Font definitions
+const inter = Inter({ subsets: ['latin'], display: 'swap' });
+const montserrat = Montserrat({ subsets: ['latin'], display: 'swap' });
+const raleway = Raleway({ subsets: ['latin'], display: 'swap' });
+const roboto = Roboto({ weight: ['400', '500', '700', '900'], display: 'swap', subsets: ['latin'] });
+const poppins = Poppins({ weight: ['400', '500', '600', '700', '900'], display: 'swap', subsets: ['latin'] });
+const playfair = Playfair_Display({ subsets: ['latin'], display: 'swap' });
+const openSans = Open_Sans({ subsets: ['latin'], display: 'swap' });
+const nunitoSans = Nunito_Sans({ subsets: ['latin'], display: 'swap' });
+const ibmPlexSans = IBM_Plex_Sans({ weight: ['400', '500', '600', '700'], subsets: ['latin'], display: 'swap' });
+const rubik = Rubik({ subsets: ['latin'], display: 'swap' });
+const dmSans = DM_Sans({ subsets: ['latin'], display: 'swap' });
 
 export default function Work() {
-  // State for current theme
-  const [currentTheme, setCurrentTheme] = useState<string>("default");
+  // Use the global theme context
+  const { currentTheme } = useTheme();
+  
+  // State for current font (only on work page)
+  const [currentFont, setCurrentFont] = useState("system");
 
   // Get current theme colors
   const themeColors = themes[currentTheme];
 
+  // Function to get font class
+  const getFontClass = () => {
+    switch(currentFont) {
+      case "inter": return inter.className;
+      case "montserrat": return montserrat.className;
+      case "raleway": return raleway.className;
+      case "roboto": return roboto.className;
+      case "poppins": return poppins.className;
+      case "playfair": return playfair.className;
+      case "openSans": return openSans.className;
+      case "nunitoSans": return nunitoSans.className;
+      case "ibmPlexSans": return ibmPlexSans.className;
+      case "rubik": return rubik.className;
+      case "dmSans": return dmSans.className;
+      default: return "";
+    }
+  };
+
   return (
     <div
-      className="flex flex-col items-center min-h-screen p-6 transition-colors duration-300"
+      className={`flex flex-col items-center min-h-screen p-6 transition-colors duration-300 ${getFontClass()}`}
       style={{
         backgroundColor: themeColors.background,
         color: themeColors.text,
       }}
     >
-      {/* Navigation - fixed height to prevent shifting */}
-      <nav className="flex justify-center gap-6 mt-10 mb-16 w-full h-10">
+      {/* Navigation - reduced vertical spacing */}
+      <nav className="flex justify-center gap-6 mt-8 mb-14 w-full h-10">
         <Link
           href="/"
           className="text-2xl font-extrabold transition-colors duration-300"
@@ -47,50 +83,73 @@ export default function Work() {
       {/* Main Content */}
       <main className="flex flex-col w-full max-w-md">
         <h1
-          className="text-2xl font-black mb-10"
+          className="text-2xl font-bold mb-10"
           style={{
             color: themeColors.text === "#FFFFFF" ? "#FFFFFF" : "#000000",
             opacity: 1,
           }}
         >
-          Work
+          Font Options
         </h1>
         
-        {/* Empty content for now */}
-        <p className="font-medium">Coming soon...</p>
-
-        {/* Color Palette */}
-        <div className="flex gap-3 my-10">
-          <button
-            className="w-8 h-8 bg-[#333333] rounded cursor-pointer transform transition-transform hover:scale-125"
-            onClick={() => setCurrentTheme("dark")}
-            aria-label="Dark theme"
-          ></button>
-          <button
-            className="w-8 h-8 bg-[#E0E0E0] rounded cursor-pointer transform transition-transform hover:scale-125"
-            onClick={() => setCurrentTheme("light")}
-            aria-label="Light theme"
-          ></button>
-          <button
-            className="w-8 h-8 bg-[#C25450] rounded cursor-pointer transform transition-transform hover:scale-125"
-            onClick={() => setCurrentTheme("red")}
-            aria-label="Red theme"
-          ></button>
-          <button
-            className="w-8 h-8 bg-[#5C8D76] rounded cursor-pointer transform transition-transform hover:scale-125"
-            onClick={() => setCurrentTheme("green")}
-            aria-label="Green theme"
-          ></button>
-          <button
-            className="w-8 h-8 bg-[#4A6B8A] rounded cursor-pointer transform transition-transform hover:scale-125"
-            onClick={() => setCurrentTheme("blue")}
-            aria-label="Blue theme"
-          ></button>
-          <button
-            className="w-8 h-8 bg-[#3B5998] rounded cursor-pointer transform transition-transform hover:scale-125"
-            onClick={() => setCurrentTheme("navy")}
-            aria-label="Navy theme"
-          ></button>
+        {/* Font Selection */}
+        <div className="mb-10">
+          <p className="mb-6 font-medium">Select a font to see how it looks:</p>
+          
+          <div className="grid grid-cols-2 gap-4 mb-10">
+            <button 
+              onClick={() => setCurrentFont("system")}
+              className={`p-3 rounded ${currentFont === "system" ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
+            >
+              System Font
+            </button>
+            <button 
+              onClick={() => setCurrentFont("inter")}
+              className={`p-3 rounded ${currentFont === "inter" ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
+            >
+              Inter
+            </button>
+            <button 
+              onClick={() => setCurrentFont("openSans")}
+              className={`p-3 rounded ${currentFont === "openSans" ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
+            >
+              Open Sans
+            </button>
+            <button 
+              onClick={() => setCurrentFont("nunitoSans")}
+              className={`p-3 rounded ${currentFont === "nunitoSans" ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
+            >
+              Nunito Sans
+            </button>
+            <button 
+              onClick={() => setCurrentFont("ibmPlexSans")}
+              className={`p-3 rounded ${currentFont === "ibmPlexSans" ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
+            >
+              IBM Plex Sans
+            </button>
+            <button 
+              onClick={() => setCurrentFont("rubik")}
+              className={`p-3 rounded ${currentFont === "rubik" ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
+            >
+              Rubik
+            </button>
+            <button 
+              onClick={() => setCurrentFont("dmSans")}
+              className={`p-3 rounded ${currentFont === "dmSans" ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
+            >
+              DM Sans
+            </button>
+          </div>
+          
+          <div className="mb-10">
+            <h2 className="text-xl font-bold mb-4">Font Preview</h2>
+            <p className="mb-4">This is how your text will look with the selected font.</p>
+            <p className="mb-4 font-medium">This is medium weight text.</p>
+            <p className="mb-4 font-semibold">This is semibold weight text.</p>
+            <p className="mb-4 font-bold">This is bold weight text.</p>
+            <p className="mb-4 font-extrabold">This is extra bold weight text.</p>
+            <p className="font-black">This is black weight text.</p>
+          </div>
         </div>
       </main>
     </div>
