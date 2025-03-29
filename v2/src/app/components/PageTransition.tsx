@@ -10,18 +10,21 @@ export default function PageTransition({ children }: PageTransitionProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Immediate visibility for color changes, but still animate position
-    setIsVisible(true);
+    // Small delay to ensure the animation is noticeable
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 50);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <div
-      className={`transition-transform duration-700 ease-in-out ${
+      className={`transform transition-all duration-700 ease-in-out ${
         isVisible 
-          ? 'translate-y-0' 
-          : '-translate-y-4'
+          ? 'opacity-100 translate-y-0' 
+          : 'opacity-0 -translate-y-4'
       }`}
-      style={{ opacity: isVisible ? 1 : 0 }}
     >
       {children}
     </div>

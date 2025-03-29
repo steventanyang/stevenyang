@@ -1,56 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 import { useTheme } from "../context/ThemeContext";
 import { themes } from "../themes";
-import { Inter, Montserrat, Raleway, Roboto, Poppins, Playfair_Display, Open_Sans, Nunito_Sans, IBM_Plex_Sans, Rubik, DM_Sans } from 'next/font/google';
-import PageTransition from '../components/PageTransition';
-
-// Font definitions
-const inter = Inter({ subsets: ['latin'], display: 'swap' });
-const montserrat = Montserrat({ subsets: ['latin'], display: 'swap' });
-const raleway = Raleway({ subsets: ['latin'], display: 'swap' });
-const roboto = Roboto({ weight: ['400', '500', '700', '900'], display: 'swap', subsets: ['latin'] });
-const poppins = Poppins({ weight: ['400', '500', '600', '700', '900'], display: 'swap', subsets: ['latin'] });
-const playfair = Playfair_Display({ subsets: ['latin'], display: 'swap' });
-const openSans = Open_Sans({ subsets: ['latin'], display: 'swap' });
-const nunitoSans = Nunito_Sans({ subsets: ['latin'], display: 'swap' });
-const ibmPlexSans = IBM_Plex_Sans({ weight: ['400', '500', '600', '700'], subsets: ['latin'], display: 'swap' });
-const rubik = Rubik({ subsets: ['latin'], display: 'swap' });
-const dmSans = DM_Sans({ subsets: ['latin'], display: 'swap' });
+import PageTransition from "../components/PageTransition";
 
 export default function Work() {
   // Use the global theme context
   const { currentTheme } = useTheme();
-  
-  // State for current font (only on work page)
-  const [currentFont, setCurrentFont] = useState("system");
 
   // Get current theme colors
   const themeColors = themes[currentTheme];
 
-  // Function to get font class
-  const getFontClass = () => {
-    switch(currentFont) {
-      case "inter": return inter.className;
-      case "montserrat": return montserrat.className;
-      case "raleway": return raleway.className;
-      case "roboto": return roboto.className;
-      case "poppins": return poppins.className;
-      case "playfair": return playfair.className;
-      case "openSans": return openSans.className;
-      case "nunitoSans": return nunitoSans.className;
-      case "ibmPlexSans": return ibmPlexSans.className;
-      case "rubik": return rubik.className;
-      case "dmSans": return dmSans.className;
-      default: return "";
-    }
-  };
-
   return (
     <div
-      className={`flex flex-col items-center min-h-screen p-6 transition-colors duration-300 ${getFontClass()}`}
+      className="flex flex-col items-center min-h-screen p-6 transition-colors duration-300"
       style={{
         backgroundColor: themeColors.background,
         color: themeColors.text,
@@ -68,7 +32,13 @@ export default function Work() {
         <Link
           href="/work"
           className="text-2xl font-extrabold transition-colors duration-300"
-          style={{ color: themeColors.navActive }}
+          style={{
+            color: themeColors.navActive,
+            textShadow:
+              currentTheme !== "light"
+                ? "0 0 10px rgba(255,255,255,0.5)"
+                : "none",
+          }}
         >
           &lt;3
         </Link>
@@ -91,70 +61,322 @@ export default function Work() {
               opacity: 1,
             }}
           >
-            Font Options
+            Experience
           </h1>
-          
-          {/* Font Selection */}
-          <div className="mb-10">
-            <p className="mb-6 font-medium">Select a font to see how it looks:</p>
-            
-            <div className="grid grid-cols-2 gap-4 mb-10">
-              <button 
-                onClick={() => setCurrentFont("system")}
-                className={`p-3 rounded ${currentFont === "system" ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
-              >
-                System Font
-              </button>
-              <button 
-                onClick={() => setCurrentFont("inter")}
-                className={`p-3 rounded ${currentFont === "inter" ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
-              >
-                Inter
-              </button>
-              <button 
-                onClick={() => setCurrentFont("openSans")}
-                className={`p-3 rounded ${currentFont === "openSans" ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
-              >
-                Open Sans
-              </button>
-              <button 
-                onClick={() => setCurrentFont("nunitoSans")}
-                className={`p-3 rounded ${currentFont === "nunitoSans" ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
-              >
-                Nunito Sans
-              </button>
-              <button 
-                onClick={() => setCurrentFont("ibmPlexSans")}
-                className={`p-3 rounded ${currentFont === "ibmPlexSans" ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
-              >
-                IBM Plex Sans
-              </button>
-              <button 
-                onClick={() => setCurrentFont("rubik")}
-                className={`p-3 rounded ${currentFont === "rubik" ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
-              >
-                Rubik
-              </button>
-              <button 
-                onClick={() => setCurrentFont("dmSans")}
-                className={`p-3 rounded ${currentFont === "dmSans" ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
-              >
-                DM Sans
-              </button>
+
+          {/* Experience Section */}
+          <div className="mb-16">
+            {/* Experience Item with hover effect */}
+            <div className="group cursor-pointer mb-10">
+              <div className="flex items-center">
+                <div className="mr-4 text-4xl">🦷</div>
+                <div className="flex-grow">
+                  <div className="flex justify-between items-center mb-1">
+                    <span
+                      className="text-lg font-medium relative inline-block"
+                      style={{ color: themeColors.text }}
+                    >
+                      -
+                      <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                    </span>
+                    <span
+                      className="text-base"
+                      style={{ color: themeColors.navInactive }}
+                    >
+                      S25
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span
+                      className="text-base min-w-[250px]"
+                      style={{ color: themeColors.navInactive }}
+                    >
+                      Product Engineering
+                    </span>
+                    <span
+                      className="text-base whitespace-nowrap"
+                      style={{ color: themeColors.navInactive }}
+                    >
+                      San Francisco
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
-            
-            <div className="mb-10">
-              <h2 className="text-xl font-bold mb-4">Font Preview</h2>
-              <p className="mb-4">This is how your text will look with the selected font.</p>
-              <p className="mb-4 font-medium">This is medium weight text.</p>
-              <p className="mb-4 font-semibold">This is semibold weight text.</p>
-              <p className="mb-4 font-bold">This is bold weight text.</p>
-              <p className="mb-4 font-extrabold">This is extra bold weight text.</p>
-              <p className="font-black">This is black weight text.</p>
+
+            {/* Sunlife with hover effect */}
+            <div className="group cursor-pointer mb-10">
+              <div className="flex items-center">
+                <div className="mr-4 text-4xl">☀️</div>
+                <div className="flex-grow">
+                  <div className="flex justify-between items-center mb-1">
+                    <span
+                      className="text-lg font-medium relative inline-block"
+                      style={{ color: themeColors.text }}
+                    >
+                      Sunlife
+                      <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                    </span>
+                    <span
+                      className="text-base"
+                      style={{ color: themeColors.navInactive }}
+                    >
+                      W25
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span
+                      className="text-base min-w-[250px]"
+                      style={{ color: themeColors.navInactive }}
+                    >
+                      GenAI Infra / DevOps
+                    </span>
+                    <span
+                      className="text-base whitespace-nowrap"
+                      style={{ color: themeColors.navInactive }}
+                    >
+                      Toronto
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Stadium Live with hover effect */}
+            <div className="group cursor-pointer mb-10">
+              <div className="flex items-center">
+                <div className="mr-4 text-4xl">🏟️</div>
+                <div className="flex-grow">
+                  <div className="flex justify-between items-center mb-1">
+                    <span
+                      className="text-lg font-medium relative inline-block"
+                      style={{ color: themeColors.text }}
+                    >
+                      Stadium Live
+                      <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                    </span>
+                    <span
+                      className="text-base"
+                      style={{ color: themeColors.navInactive }}
+                    >
+                      S24
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span
+                      className="text-base min-w-[250px]"
+                      style={{ color: themeColors.navInactive }}
+                    >
+                      Full Stack Engineer
+                    </span>
+                    <span
+                      className="text-base whitespace-nowrap"
+                      style={{ color: themeColors.navInactive }}
+                    >
+                      Toronto
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h1
+            className="text-2xl font-bold mb-10"
+            style={{
+              color: themeColors.text === "#FFFFFF" ? "#FFFFFF" : "#000000",
+              opacity: 1,
+            }}
+          >
+            Projects
+          </h1>
+
+          {/* Projects Section */}
+          <div className="mb-16">
+            {/* LeCoach with hover effect */}
+            <div className="group cursor-pointer mb-10">
+              <div className="flex items-center">
+                <div className="mr-4 text-4xl">🏀</div>
+                <div className="flex-grow">
+                  <div className="mb-1">
+                    <span
+                      className="text-lg font-medium relative inline-block"
+                      style={{ color: themeColors.text }}
+                    >
+                      LeCoach
+                      <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                    </span>
+                  </div>
+                  <div>
+                    <span
+                      className="text-base"
+                      style={{ color: themeColors.navInactive }}
+                    >
+                      Agentic basketball analytics platform
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Marketloo */}
+            <div className="group cursor-pointer mb-10">
+              <div className="flex items-center">
+                <div className="mr-4 text-4xl">📈</div>
+                <div className="flex-grow">
+                  <div className="mb-1">
+                    <span
+                      className="text-lg font-medium relative inline-block"
+                      style={{ color: themeColors.text }}
+                    >
+                      marketloo
+                      <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                    </span>
+                  </div>
+                  <div>
+                    <span
+                      className="text-base"
+                      style={{ color: themeColors.navInactive }}
+                    >
+                      Financial market analysis tool
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* elitecode */}
+            <div className="group cursor-pointer mb-10">
+              <div className="flex items-center">
+                <div className="mr-4 text-4xl">👨‍💻</div>
+                <div className="flex-grow">
+                  <div className="mb-1">
+                    <span
+                      className="text-lg font-medium relative inline-block"
+                      style={{ color: themeColors.text }}
+                    >
+                      elitecode
+                      <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                    </span>
+                  </div>
+                  <div>
+                    <span
+                      className="text-base"
+                      style={{ color: themeColors.navInactive }}
+                    >
+                      Competitive programming platform
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* LeResume */}
+            <div className="group cursor-pointer mb-10">
+              <div className="flex items-center">
+                <div className="mr-4 text-4xl">💵</div>
+                <div className="flex-grow">
+                  <div className="mb-1">
+                    <span
+                      className="text-lg font-medium relative inline-block"
+                      style={{ color: themeColors.text }}
+                    >
+                      LeResume
+                      <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                    </span>
+                  </div>
+                  <div>
+                    <span
+                      className="text-base"
+                      style={{ color: themeColors.navInactive }}
+                    >
+                      AI-powered resume builder
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* ufc rax */}
+            <div className="group cursor-pointer mb-10">
+              <div className="flex items-center">
+                <div className="mr-4 text-4xl">🥊</div>
+                <div className="flex-grow">
+                  <div className="mb-1">
+                    <span
+                      className="text-lg font-medium relative inline-block"
+                      style={{ color: themeColors.text }}
+                    >
+                      ufc rax
+                      <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                    </span>
+                  </div>
+                  <div>
+                    <span
+                      className="text-base"
+                      style={{ color: themeColors.navInactive }}
+                    >
+                      UFC fight prediction and analysis
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* milwaukee bucks hackathon 2024 */}
+            <div className="group cursor-pointer mb-10">
+              <div className="flex items-center">
+                <div className="mr-4 text-4xl">🏀</div>
+                <div className="flex-grow">
+                  <div className="mb-1">
+                    <span
+                      className="text-lg font-medium relative inline-block"
+                      style={{ color: themeColors.text }}
+                    >
+                      milwaukee bucks hackathon 2024
+                      <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                    </span>
+                  </div>
+                  <div>
+                    <span
+                      className="text-base"
+                      style={{ color: themeColors.navInactive }}
+                    >
+                      Basketball analytics competition project
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* LeGM */}
+            <div className="group cursor-pointer mb-10">
+              <div className="flex items-center">
+                <div className="mr-4 text-4xl">🧠</div>
+                <div className="flex-grow">
+                  <div className="mb-1">
+                    <span
+                      className="text-lg font-medium relative inline-block"
+                      style={{ color: themeColors.text }}
+                    >
+                      LeGM
+                      <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                    </span>
+                  </div>
+                  <div>
+                    <span
+                      className="text-base"
+                      style={{ color: themeColors.navInactive }}
+                    >
+                      AI-powered sports team management simulator
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </main>
       </PageTransition>
     </div>
   );
-} 
+}

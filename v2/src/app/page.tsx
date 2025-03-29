@@ -67,14 +67,14 @@ export default function Home() {
           </h1>
 
           <div className="mb-10">
-            <p className="mb-6 font-medium">
+            <p className="mb-6 font-medium" style={{ color: themeColors.text }}>
               I&apos;m studying software eng @ waterloo. I enjoy solving
               problems that blend product, design, and engineering.
             </p>
-            <p className="mb-6 font-medium">
+            <p className="mb-6 font-medium" style={{ color: themeColors.text }}>
               I enjoy basketball, books, and creative self-expression.
             </p>
-            <p className="font-medium">
+            <p className="font-medium" style={{ color: themeColors.text }}>
               Check out my{" "}
               <Link
                 href="/work"
