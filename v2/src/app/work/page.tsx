@@ -19,7 +19,15 @@ type Project = {
   emoji: string;
   name: string;
   description: string;
-  link?: string; // Optional link URL
+  link?: string; // Optional external link URL
+  slug?: string; // Optional internal route slug
+};
+
+type ThemeColors = {
+  background: string;
+  text: string;
+  navActive: string;
+  navInactive: string;
 };
 
 // Experience data array - add new experiences at the top
@@ -53,6 +61,7 @@ const projects: Project[] = [
     emoji: "👨‍🍳",
     name: "Laudure",
     description: "AI Management System for Restaurants",
+    slug: "laudure",
   },
   {
     emoji: "🏀",
@@ -98,7 +107,7 @@ const ExperienceItem = ({
   themeColors,
 }: {
   experience: Experience;
-  themeColors: any;
+  themeColors: ThemeColors;
 }) => {
   // Wrapper component - either a div or an anchor based on whether there's a link
   const Wrapper = ({ children }: { children: React.ReactNode }) =>
@@ -161,22 +170,37 @@ const ProjectItem = ({
   themeColors,
 }: {
   project: Project;
-  themeColors: any;
+  themeColors: ThemeColors;
 }) => {
-  // Wrapper component - either a div or an anchor based on whether there's a link
-  const Wrapper = ({ children }: { children: React.ReactNode }) =>
-    project.link ? (
-      <a
-        href={project.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group cursor-pointer mb-8 block"
-      >
-        {children}
-      </a>
-    ) : (
-      <div className="group cursor-pointer mb-8">{children}</div>
-    );
+  // Wrapper component - handles external links, internal routes, or no link
+  const Wrapper = ({ children }: { children: React.ReactNode }) => {
+    if (project.link) {
+      // External link
+      return (
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group cursor-pointer mb-8 block"
+        >
+          {children}
+        </a>
+      );
+    } else if (project.slug) {
+      // Internal route
+      return (
+        <Link
+          href={`/work/${project.slug}`}
+          className="group cursor-pointer mb-8 block"
+        >
+          {children}
+        </Link>
+      );
+    } else {
+      // No link
+      return <div className="group cursor-pointer mb-8">{children}</div>;
+    }
+  };
 
   return (
     <Wrapper>
@@ -215,14 +239,14 @@ export default function Work() {
 
   return (
     <div
-      className="flex flex-col items-center min-h-screen p-4 sm:p-6 transition-colors duration-300"
+      className="flex flex-col items-center min-h-screen p-6 transition-colors duration-300"
       style={{
         backgroundColor: themeColors.background,
         color: themeColors.text,
       }}
     >
-      {/* Navigation - reduced vertical spacing */}
-      <nav className="flex justify-center gap-4 sm:gap-6 mt-6 sm:mt-8 mb-10 sm:mb-14 w-full h-10">
+      {/* Navigation with consistent spacing */}
+      <nav className="flex justify-center gap-6 mt-8 mb-14 w-full h-10">
         <Link
           href="/"
           className="text-2xl font-extrabold transition-colors duration-300"
