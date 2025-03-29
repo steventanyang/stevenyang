@@ -5,99 +5,10 @@ import { useTheme } from "../../context/ThemeContext";
 import { themes } from "../../themes";
 import PageTransition from "../../components/PageTransition";
 import { useParams } from "next/navigation";
+import { projectData } from "../../data/projects";
 
-// Project data structure with more detailed content
-const projectData: Record<
-  string,
-  {
-    title: string;
-    emoji: string;
-    description: string;
-    videoUrl?: string;
-    sections?: Array<{
-      title: string;
-      content: React.ReactNode;
-    }>;
-  }
-> = {
-  laudure: {
-    title: "Laudure",
-    emoji: "👨‍🍳",
-    description: "AI Management System for Restaurants",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with your actual video
-    sections: [
-      {
-        title: "Overview",
-        content: (
-          <p>
-            Laudure is an AI-powered management system designed specifically for
-            restaurants. It streamlines operations, inventory management, and
-            customer interactions through intelligent automation and data
-            analysis.
-          </p>
-        ),
-      },
-      {
-        title: "Technical Stack",
-        content: (
-          <>
-            <p className="mb-4">
-              Laudure was built using a modern tech stack focused on performance
-              and scalability:
-            </p>
-            <ul className="list-disc pl-5 mb-4">
-              <li>Frontend: React with Next.js for server-side rendering</li>
-              <li>Backend: Node.js with Express and GraphQL API</li>
-              <li>
-                Database: PostgreSQL for relational data, Redis for caching
-              </li>
-              <li>
-                AI/ML: TensorFlow for demand forecasting and recommendation
-                engines
-              </li>
-              <li>DevOps: Docker, Kubernetes, and GitHub Actions for CI/CD</li>
-            </ul>
-          </>
-        ),
-      },
-      {
-        title: "Key Features",
-        content: (
-          <>
-            <p className="mb-4">
-              The system includes several innovative features:
-            </p>
-            <ul className="list-disc pl-5">
-              <li>Intelligent inventory management with predictive ordering</li>
-              <li>Staff scheduling optimization based on historical demand</li>
-              <li>Real-time analytics dashboard for business performance</li>
-              <li>
-                Customer relationship management with personalized
-                recommendations
-              </li>
-              <li>
-                Integration with popular POS systems and delivery platforms
-              </li>
-            </ul>
-          </>
-        ),
-      },
-      {
-        title: "Challenges & Solutions",
-        content: (
-          <p>
-            One of the biggest challenges was developing an accurate demand
-            forecasting model that could account for seasonal variations,
-            special events, and weather conditions. We solved this by
-            implementing a hybrid model combining LSTM neural networks with
-            traditional statistical methods, achieving 92% prediction accuracy.
-          </p>
-        ),
-      },
-    ],
-  },
-  // Add more projects as needed
-};
+// Define types for our project data
+// Project data for all projects
 
 export default function ProjectPage() {
   // Get the slug from the URL
@@ -115,17 +26,16 @@ export default function ProjectPage() {
     title: "Project Not Found",
     emoji: "❓",
     description: "This project doesn't exist or hasn't been added yet.",
-    sections: [
-      {
-        title: "Error",
-        content: <p>Please check the URL or go back to the projects page.</p>,
-      },
-    ],
+    overview: "Please check the URL or go back to the projects page.",
+    links: [],
   };
+
+  // If this project has a custom page, we would render that here
+  // For now, we'll just use the default template for all projects
 
   return (
     <div
-      className="flex flex-col items-center min-h-screen p-4 sm:p-6 transition-colors duration-300"
+      className="flex flex-col items-center min-h-screen p-6 transition-colors duration-300"
       style={{
         backgroundColor: themeColors.background,
         color: themeColors.text,
@@ -137,15 +47,29 @@ export default function ProjectPage() {
           {/* Back button */}
           <Link
             href="/work"
-            className="text-sm mb-8 flex items-center"
-            style={{ color: themeColors.navInactive }}
+            className="text-base font-medium mb-8 flex items-center hover:opacity-80 transition-opacity"
+            style={{ color: themeColors.text }}
           >
-            ← Back to projects
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="mr-2"
+            >
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            Back
           </Link>
 
           {/* Project header */}
           <div className="flex items-center mb-4">
-            <div className="mr-3 text-5xl">{project.emoji}</div>
+            <div className="mr-3 text-4xl">{project.emoji}</div>
             <h1
               className="text-3xl font-bold"
               style={{
@@ -166,49 +90,69 @@ export default function ProjectPage() {
 
           {/* Video Demo Section */}
           {project.videoUrl && (
-            <div className="mb-12">
-              <h2
-                className="text-xl font-semibold mb-4"
-                style={{ color: themeColors.text }}
-              >
-                Demo
-              </h2>
+            <div className="mb-10">
               <div className="aspect-w-16 aspect-h-9 w-full">
-                <iframe
+                <video
                   src={project.videoUrl}
-                  title={`${project.title} demo`}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
+                  controls
+                  autoPlay
+                  muted
                   className="w-full h-[300px] rounded-lg"
-                ></iframe>
+                />
               </div>
             </div>
           )}
 
-          {/* Technical Breakdown Sections */}
-          {project.sections &&
-            project.sections.map((section, index) => (
-              <div key={`section-${index}`} className="mb-10">
-                <h2
-                  className="text-xl font-semibold mb-4"
-                  style={{ color: themeColors.text }}
-                >
-                  {section.title}
-                </h2>
-                <div
-                  className="prose prose-lg max-w-none"
-                  style={
-                    {
+          {/* Overview Section */}
+          <div className="mb-8">
+            <h2
+              className="text-xl font-semibold mb-4"
+              style={{ color: themeColors.text }}
+            >
+              Overview
+            </h2>
+            <p className="text-base" style={{ color: themeColors.text }}>
+              {project.overview}
+            </p>
+          </div>
+
+          {/* Divider */}
+          <div
+            className="w-full h-[0.5px] mb-8 opacity-50"
+            style={{ backgroundColor: themeColors.navInactive }}
+          ></div>
+
+          {/* Links Section */}
+          {project.links && project.links.length > 0 && (
+            <div className="mb-8">
+              <h2
+                className="text-xl font-semibold mb-4"
+                style={{ color: themeColors.text }}
+              >
+                Links
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {project.links.map((link, index) => (
+                  <a
+                    key={`link-${index}`}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center p-3 rounded-lg transition-colors duration-300 hover:bg-opacity-10"
+                    style={{
+                      backgroundColor: `${themeColors.navInactive}20`,
                       color: themeColors.text,
-                      "--tw-prose-invert-headings": themeColors.text,
-                      "--tw-prose-invert-body": themeColors.text,
-                    } as React.CSSProperties
-                  }
-                >
-                  {section.content}
-                </div>
+                    }}
+                  >
+                    {link.icon && (
+                      <span className="mr-2 text-xl">{link.icon}</span>
+                    )}
+                    <span>{link.title}</span>
+                  </a>
+                ))}
               </div>
-            ))}
+            </div>
+          )}
         </main>
       </PageTransition>
     </div>

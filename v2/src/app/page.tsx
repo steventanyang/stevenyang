@@ -134,7 +134,7 @@ export default function Home() {
 
           {/* Divider - making it more subtle */}
           <div
-            className="w-full h-[0.5px] mb-8 transition-colors duration-300 opacity-30"
+            className="w-full h-[0.5px] mb-8 transition-colors duration-300 opacity-50"
             style={{ backgroundColor: themeColors.navInactive }}
           ></div>
 

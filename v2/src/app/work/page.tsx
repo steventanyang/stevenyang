@@ -23,7 +23,7 @@ type Project = {
   slug?: string; // Optional internal route slug
 };
 
-type ThemeColors = {
+export type ThemeColors = {
   background: string;
   text: string;
   navActive: string;
@@ -67,37 +67,31 @@ const projects: Project[] = [
     emoji: "🏀",
     name: "LeCoach",
     description: "Agentic basketball analytics platform",
+    slug: "lecoach",
   },
   {
     emoji: "📈",
     name: "Marketloo",
-    description: "Prediction market with real-time paper trading",
+    description: "Prediction market with real-time paper trading + agents",
+    slug: "marketloo",
   },
   {
     emoji: "👨‍💻",
     name: "Elitecode",
     description: "Ultimate leetcode companion",
+    slug: "elitecode",
   },
   {
     emoji: "💵",
     name: "LeResume",
     description: "AI resume builder + optimizer",
+    slug: "leresume",
   },
   {
     emoji: "🥊",
     name: "Rax",
     description: "plugin for realapp.link, 30k+ active users",
-    link: "https://realapp.link/plugins/raxx",
-  },
-  {
-    emoji: "🏀",
-    name: "Thanasis",
-    description: "ml modelling for milwakuee bucks",
-  },
-  {
-    emoji: "🧠",
-    name: "LeGM",
-    description: "fantasy sports lineup optimizer",
+    slug: "rax",
   },
 ];
 
@@ -278,7 +272,7 @@ export default function Work() {
 
       {/* Main Content with transition */}
       <PageTransition>
-        <main className="flex flex-col w-full max-w-md">
+        <main className="flex flex-col w-full max-w-2xl">
           <h1
             className="text-2xl font-bold mb-10"
             style={{
