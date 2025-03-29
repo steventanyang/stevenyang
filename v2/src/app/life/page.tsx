@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useTheme } from "../context/ThemeContext";
 import { themes } from "../themes";
+import PageTransition from '../components/PageTransition';
 
 export default function Life() {
   // Use the global theme context
@@ -44,21 +45,23 @@ export default function Life() {
         </Link>
       </nav>
 
-      {/* Main Content */}
-      <main className="flex flex-col w-full max-w-md">
-        <h1
-          className="text-2xl font-bold mb-10"
-          style={{
-            color: themeColors.text === "#FFFFFF" ? "#FFFFFF" : "#000000",
-            opacity: 1,
-          }}
-        >
-          Life
-        </h1>
-        
-        {/* Empty content for now */}
-        <p className="font-medium">Coming soon...</p>
-      </main>
+      {/* Main Content with transition */}
+      <PageTransition>
+        <main className="flex flex-col w-full max-w-md">
+          <h1
+            className="text-2xl font-bold mb-10"
+            style={{
+              color: themeColors.text === "#FFFFFF" ? "#FFFFFF" : "#000000",
+              opacity: 1,
+            }}
+          >
+            Life
+          </h1>
+          
+          {/* Empty content for now */}
+          <p className="font-medium">Coming soon...</p>
+        </main>
+      </PageTransition>
     </div>
   );
 } 

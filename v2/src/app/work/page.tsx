@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useTheme } from "../context/ThemeContext";
 import { themes } from "../themes";
 import { Inter, Montserrat, Raleway, Roboto, Poppins, Playfair_Display, Open_Sans, Nunito_Sans, IBM_Plex_Sans, Rubik, DM_Sans } from 'next/font/google';
+import PageTransition from '../components/PageTransition';
 
 // Font definitions
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
@@ -80,78 +81,80 @@ export default function Work() {
         </Link>
       </nav>
 
-      {/* Main Content */}
-      <main className="flex flex-col w-full max-w-md">
-        <h1
-          className="text-2xl font-bold mb-10"
-          style={{
-            color: themeColors.text === "#FFFFFF" ? "#FFFFFF" : "#000000",
-            opacity: 1,
-          }}
-        >
-          Font Options
-        </h1>
-        
-        {/* Font Selection */}
-        <div className="mb-10">
-          <p className="mb-6 font-medium">Select a font to see how it looks:</p>
+      {/* Main Content with transition */}
+      <PageTransition>
+        <main className="flex flex-col w-full max-w-md">
+          <h1
+            className="text-2xl font-bold mb-10"
+            style={{
+              color: themeColors.text === "#FFFFFF" ? "#FFFFFF" : "#000000",
+              opacity: 1,
+            }}
+          >
+            Font Options
+          </h1>
           
-          <div className="grid grid-cols-2 gap-4 mb-10">
-            <button 
-              onClick={() => setCurrentFont("system")}
-              className={`p-3 rounded ${currentFont === "system" ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
-            >
-              System Font
-            </button>
-            <button 
-              onClick={() => setCurrentFont("inter")}
-              className={`p-3 rounded ${currentFont === "inter" ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
-            >
-              Inter
-            </button>
-            <button 
-              onClick={() => setCurrentFont("openSans")}
-              className={`p-3 rounded ${currentFont === "openSans" ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
-            >
-              Open Sans
-            </button>
-            <button 
-              onClick={() => setCurrentFont("nunitoSans")}
-              className={`p-3 rounded ${currentFont === "nunitoSans" ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
-            >
-              Nunito Sans
-            </button>
-            <button 
-              onClick={() => setCurrentFont("ibmPlexSans")}
-              className={`p-3 rounded ${currentFont === "ibmPlexSans" ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
-            >
-              IBM Plex Sans
-            </button>
-            <button 
-              onClick={() => setCurrentFont("rubik")}
-              className={`p-3 rounded ${currentFont === "rubik" ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
-            >
-              Rubik
-            </button>
-            <button 
-              onClick={() => setCurrentFont("dmSans")}
-              className={`p-3 rounded ${currentFont === "dmSans" ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
-            >
-              DM Sans
-            </button>
-          </div>
-          
+          {/* Font Selection */}
           <div className="mb-10">
-            <h2 className="text-xl font-bold mb-4">Font Preview</h2>
-            <p className="mb-4">This is how your text will look with the selected font.</p>
-            <p className="mb-4 font-medium">This is medium weight text.</p>
-            <p className="mb-4 font-semibold">This is semibold weight text.</p>
-            <p className="mb-4 font-bold">This is bold weight text.</p>
-            <p className="mb-4 font-extrabold">This is extra bold weight text.</p>
-            <p className="font-black">This is black weight text.</p>
+            <p className="mb-6 font-medium">Select a font to see how it looks:</p>
+            
+            <div className="grid grid-cols-2 gap-4 mb-10">
+              <button 
+                onClick={() => setCurrentFont("system")}
+                className={`p-3 rounded ${currentFont === "system" ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
+              >
+                System Font
+              </button>
+              <button 
+                onClick={() => setCurrentFont("inter")}
+                className={`p-3 rounded ${currentFont === "inter" ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
+              >
+                Inter
+              </button>
+              <button 
+                onClick={() => setCurrentFont("openSans")}
+                className={`p-3 rounded ${currentFont === "openSans" ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
+              >
+                Open Sans
+              </button>
+              <button 
+                onClick={() => setCurrentFont("nunitoSans")}
+                className={`p-3 rounded ${currentFont === "nunitoSans" ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
+              >
+                Nunito Sans
+              </button>
+              <button 
+                onClick={() => setCurrentFont("ibmPlexSans")}
+                className={`p-3 rounded ${currentFont === "ibmPlexSans" ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
+              >
+                IBM Plex Sans
+              </button>
+              <button 
+                onClick={() => setCurrentFont("rubik")}
+                className={`p-3 rounded ${currentFont === "rubik" ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
+              >
+                Rubik
+              </button>
+              <button 
+                onClick={() => setCurrentFont("dmSans")}
+                className={`p-3 rounded ${currentFont === "dmSans" ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
+              >
+                DM Sans
+              </button>
+            </div>
+            
+            <div className="mb-10">
+              <h2 className="text-xl font-bold mb-4">Font Preview</h2>
+              <p className="mb-4">This is how your text will look with the selected font.</p>
+              <p className="mb-4 font-medium">This is medium weight text.</p>
+              <p className="mb-4 font-semibold">This is semibold weight text.</p>
+              <p className="mb-4 font-bold">This is bold weight text.</p>
+              <p className="mb-4 font-extrabold">This is extra bold weight text.</p>
+              <p className="font-black">This is black weight text.</p>
+            </div>
           </div>
-        </div>
-      </main>
+        </main>
+      </PageTransition>
     </div>
   );
 } 

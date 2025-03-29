@@ -6,7 +6,7 @@ export type ThemeColor = {
   navInactive: string;
 };
 
-// Theme definitions
+// Theme definitions with darker backgrounds
 export const themes: Record<string, ThemeColor> = {
   default: {
     background: "#1A1A1A",
@@ -15,7 +15,7 @@ export const themes: Record<string, ThemeColor> = {
     navInactive: "#9CA3AF",
   },
   dark: {
-    background: "#222222",
+    background: "#1A1A1A",
     text: "#FFFFFF",
     navActive: "#FFFFFF",
     navInactive: "#9CA3AF",
@@ -27,27 +27,27 @@ export const themes: Record<string, ThemeColor> = {
     navInactive: "#666666",
   },
   red: {
-    background: "#5A2522",
+    background: "#3A1512",
     text: "#FFFFFF",
     navActive: "#FFFFFF",
-    navInactive: "#DDDDDD",
+    navInactive: "#AAAAAA",
   },
   green: {
-    background: "#2A4535",
+    background: "#1A2C22",
     text: "#FFFFFF",
     navActive: "#FFFFFF",
-    navInactive: "#CCCCCC",
+    navInactive: "#AAAAAA",
   },
   blue: {
-    background: "#1F2F42",
+    background: "#121E2C",
     text: "#FFFFFF",
     navActive: "#FFFFFF",
-    navInactive: "#CCCCCC",
+    navInactive: "#AAAAAA",
   },
   navy: {
-    background: "#1A2545",
+    background: "#0F1525",
     text: "#FFFFFF",
     navActive: "#FFFFFF",
-    navInactive: "#CCCCCC",
+    navInactive: "#AAAAAA",
   },
-}; 
+};
