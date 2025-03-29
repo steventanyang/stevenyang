@@ -1,11 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { themes } from "./themes";
+import { themes } from "../themes";
 
-export default function Home() {
+export default function Work() {
   // State for current theme
   const [currentTheme, setCurrentTheme] = useState<string>("default");
 
@@ -25,14 +24,14 @@ export default function Home() {
         <Link
           href="/"
           className="text-2xl font-extrabold transition-colors duration-300"
-          style={{ color: themeColors.navActive }}
+          style={{ color: themeColors.navInactive }}
         >
           &lt;&gt;
         </Link>
         <Link
           href="/work"
           className="text-2xl font-extrabold transition-colors duration-300"
-          style={{ color: themeColors.navInactive }}
+          style={{ color: themeColors.navActive }}
         >
           &lt;3
         </Link>
@@ -47,7 +46,6 @@ export default function Home() {
 
       {/* Main Content */}
       <main className="flex flex-col w-full max-w-md">
-        {/* Profile Section - making name brighter and increasing separation */}
         <h1
           className="text-2xl font-black mb-10"
           style={{
@@ -55,32 +53,14 @@ export default function Home() {
             opacity: 1,
           }}
         >
-          Steven Yang
+          Work
         </h1>
-
-        <div className="mb-10">
-          <p className="mb-6 font-medium">
-            I&apos;m studying software eng @ waterloo. I enjoy solving problems
-            that blend product, design, and engineering.
-          </p>
-          <p className="mb-6 font-medium">
-            I enjoy basketball, books, and creative self-expression.
-          </p>
-          <p className="font-medium">
-            Check out my{" "}
-            <Link
-              href="/work"
-              className="underline transition-colors duration-300"
-              style={{ color: themeColors.text }}
-            >
-              work
-            </Link>{" "}
-            + reach out at steventanyang@gmail.com
-          </p>
-        </div>
+        
+        {/* Empty content for now */}
+        <p className="font-medium">Coming soon...</p>
 
         {/* Color Palette */}
-        <div className="flex gap-3 mb-10">
+        <div className="flex gap-3 my-10">
           <button
             className="w-8 h-8 bg-[#333333] rounded cursor-pointer transform transition-transform hover:scale-125"
             onClick={() => setCurrentTheme("dark")}
@@ -112,49 +92,7 @@ export default function Home() {
             aria-label="Navy theme"
           ></button>
         </div>
-
-        {/* Placeholder Image - reduced height */}
-        <div className="mb-10 w-full">
-          <Image
-            src="/placeholder-mountains.jpg"
-            alt="Mountain landscape"
-            width={1200}
-            height={400}
-            className="rounded w-full h-auto max-h-[200px] object-cover"
-          />
-        </div>
-
-        {/* Divider - making it more subtle */}
-        <div
-          className="w-full h-[0.5px] mb-8 transition-colors duration-300 opacity-30"
-          style={{ backgroundColor: themeColors.navInactive }}
-        ></div>
-
-        {/* Social Links - smaller, underlined, and closer together */}
-        <div className="flex flex-col gap-2">
-          <Link
-            href="https://twitter.com/yourusername"
-            className="text-sm font-medium underline transition-colors duration-300"
-            style={{ color: themeColors.navInactive }}
-          >
-            Twitter/X
-          </Link>
-          <Link
-            href="mailto:steventanyang@gmail.com"
-            className="text-sm font-medium underline transition-colors duration-300"
-            style={{ color: themeColors.navInactive }}
-          >
-            Email
-          </Link>
-          <Link
-            href="https://linkedin.com/in/yourusername"
-            className="text-sm font-medium underline transition-colors duration-300"
-            style={{ color: themeColors.navInactive }}
-          >
-            LinkedIn
-          </Link>
-        </div>
       </main>
     </div>
   );
-}
+} 
