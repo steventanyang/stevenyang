@@ -75,6 +75,17 @@ export default function Home() {
               I enjoy basketball, books, and creative self-expression.
             </p>
             <p className="font-medium" style={{ color: themeColors.text }}>
+              I&apos;m currently looking for opportunities in{" "}
+              <Link
+                href="https://cansbridgefellowship.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline transition-colors duration-300"
+                style={{ color: themeColors.text }}
+              >
+                Asia
+              </Link>{" "}
+              for fall 2025.
               Check out my{" "}
               <Link
                 href="/work"
@@ -83,7 +94,7 @@ export default function Home() {
               >
                 work
               </Link>{" "}
-              + reach out at steventanyang@gmail.com
+              + reach out!
             </p>
           </div>
 

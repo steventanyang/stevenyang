@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from 'next/font/google';
+import { Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from './context/ThemeContext';
-import { Analytics } from '@vercel/analytics/react';
+import { ThemeProvider } from "./context/ThemeContext";
+import { Analytics } from "@vercel/analytics/react";
 
 // Initialize Inter font
-const inter = Inter({ 
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['500', '600', '700', '800', '900'] // Starting from medium (500) weight
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["500", "600", "700", "800", "900"], // Starting from medium (500) weight
 });
 
 export const metadata: Metadata = {
@@ -24,9 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
+        <ThemeProvider>{children}</ThemeProvider>
         <Analytics />
       </body>
     </html>
