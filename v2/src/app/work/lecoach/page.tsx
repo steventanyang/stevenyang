@@ -7,6 +7,7 @@ import { themes } from "../../themes";
 import PageTransition from "../../components/PageTransition";
 import { useState } from "react";
 import { ThemeColors } from "../page";
+
 // Subsection component for collapsible content
 const Subsection = ({
   title,
@@ -87,7 +88,7 @@ export default function LeCoachPage() {
       }}
     >
       <PageTransition>
-        <main className="flex flex-col w-full max-w-3xl">
+        <main className="flex flex-col w-full max-w-2xl">
           {/* Back button */}
           <Link
             href="/work"
@@ -112,7 +113,7 @@ export default function LeCoachPage() {
           </Link>
 
           {/* Project header */}
-          <div className="flex items-center mb-6">
+          <div className="flex items-center mb-4">
             <div className="mr-3 text-4xl">🏀</div>
             <h1
               className="text-3xl font-bold"
@@ -125,37 +126,57 @@ export default function LeCoachPage() {
           </div>
 
           {/* Project description */}
-          <p className="text-lg mb-10" style={{ color: themeColors.text }}>
-            LeCoach is a comprehensive analytics platform for coaches and
-            players in Canadian usports basketball. It features an agent system
-            for game analysis and predictive analytics powered by 10+ years of
-            historical league data.
+          <p
+            className="text-lg mb-10"
+            style={{ color: themeColors.navInactive }}
+          >
+            Agentic basketball analytics platform
           </p>
 
-          {/* Video Demo */}
-          <div className="mb-12 w-full">
-            <video
-              src="https://yangstevenwebsite.s3.us-east-1.amazonaws.com/lecoach.mp4"
-              controls
-              className="w-full rounded-lg"
-            />
+          {/* Video Demo Section */}
+          <div className="mb-10">
+            <div className="aspect-w-16 aspect-h-9 w-full">
+              <video
+                src="https://yangstevenwebsite.s3.us-east-1.amazonaws.com/lecoach.mp4"
+                controls
+                autoPlay
+                muted
+                className="w-full h-[300px] rounded-lg"
+              />
+            </div>
+          </div>
+
+          {/* Overview Section */}
+          <div className="mb-8">
+            <h2
+              className="text-xl font-semibold mb-4"
+              style={{ color: themeColors.text }}
+            >
+              Overview
+            </h2>
+            <p className="text-base" style={{ color: themeColors.text }}>
+              LeCoach is a comprehensive analytics platform for coaches and
+              players in Canadian usports basketball. It features an agent
+              system for game analysis and predictive analytics powered by 10+
+              years of historical league data.
+            </p>
           </div>
 
           {/* Divider */}
           <div
-            className="w-full h-[0.5px] mb-12 opacity-50"
+            className="w-full h-[0.5px] mb-8 opacity-50"
             style={{ backgroundColor: themeColors.navInactive }}
-          />
+          ></div>
 
           {/* Motivations Section */}
           <h2
-            className="text-2xl font-semibold mb-4"
+            className="text-xl font-semibold mb-4"
             style={{ color: themeColors.text }}
           >
             Motivations
           </h2>
           <p
-            className="mb-12 leading-relaxed"
+            className="mb-8 text-base leading-relaxed"
             style={{ color: themeColors.text }}
           >
             Over the past year, I&apos;ve been leading and expanding the data
@@ -171,13 +192,13 @@ export default function LeCoachPage() {
 
           {/* Divider */}
           <div
-            className="w-full h-[0.5px] mb-12 opacity-50"
+            className="w-full h-[0.5px] mb-8 opacity-50"
             style={{ backgroundColor: themeColors.navInactive }}
-          />
+          ></div>
 
           {/* User Flow Section */}
           <h2
-            className="text-2xl font-semibold mb-6"
+            className="text-xl font-semibold mb-4"
             style={{ color: themeColors.text }}
           >
             User Flow
@@ -213,26 +234,26 @@ export default function LeCoachPage() {
 
           {/* Divider */}
           <div
-            className="w-full h-[0.5px] mb-12 opacity-50"
+            className="w-full h-[0.5px] mb-8 opacity-50"
             style={{ backgroundColor: themeColors.navInactive }}
-          />
+          ></div>
 
           {/* System Diagram Section */}
           <h2
-            className="text-2xl font-semibold mb-4"
+            className="text-xl font-semibold mb-4"
             style={{ color: themeColors.text }}
           >
             System Diagram
           </h2>
           <p
-            className="mb-6 leading-relaxed"
+            className="mb-6 text-base leading-relaxed"
             style={{ color: themeColors.text }}
           >
             The system architecture for LeCoach integrates data collection,
             processing, and presentation layers to deliver real-time analytics
             and insights.
           </p>
-          <div className="mb-12 max-w-2xl mx-auto">
+          <div className="mb-8 max-w-2xl mx-auto">
             <Image
               src="/placeholder-mountains.jpg"
               alt="LeCoach System Architecture Diagram"
@@ -244,19 +265,19 @@ export default function LeCoachPage() {
 
           {/* Divider */}
           <div
-            className="w-full h-[0.5px] mb-12 opacity-50"
+            className="w-full h-[0.5px] mb-8 opacity-50"
             style={{ backgroundColor: themeColors.navInactive }}
-          />
+          ></div>
 
           {/* Design Section */}
           <h2
-            className="text-2xl font-semibold mb-4"
+            className="text-xl font-semibold mb-4"
             style={{ color: themeColors.text }}
           >
             Design
           </h2>
           <p
-            className="mb-6 leading-relaxed"
+            className="mb-6 text-base leading-relaxed"
             style={{ color: themeColors.text }}
           >
             LeCoach&apos;s design prioritizes simplicity and intuitive
@@ -268,7 +289,7 @@ export default function LeCoachPage() {
           </p>
 
           {/* Design Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <Image
               src="/placeholder-mountains.jpg"
               alt="Design 1"
@@ -289,20 +310,23 @@ export default function LeCoachPage() {
 
           {/* Divider */}
           <div
-            className="w-full h-[0.5px] mb-12 opacity-50"
+            className="w-full h-[0.5px] mb-8 opacity-50"
             style={{ backgroundColor: themeColors.navInactive }}
-          />
+          ></div>
 
           {/* Technical Details Section */}
           <h2
-            className="text-2xl font-semibold mb-6"
+            className="text-xl font-semibold mb-4"
             style={{ color: themeColors.text }}
           >
             Technical Details
           </h2>
 
           <div className="mb-8">
-            <p className="leading-relaxed" style={{ color: themeColors.text }}>
+            <p
+              className="text-base leading-relaxed"
+              style={{ color: themeColors.text }}
+            >
               <strong>Frontend:</strong> Next.js, Tailwind CSS, Recharts
               <br />
               <strong>Backend:</strong> Python, FastAPI, Almebic, Docker
@@ -317,7 +341,7 @@ export default function LeCoachPage() {
           <div
             className="w-full h-[0.5px] mb-8 opacity-50"
             style={{ backgroundColor: themeColors.navInactive }}
-          />
+          ></div>
 
           {/* Links Section */}
           <h2
@@ -326,7 +350,7 @@ export default function LeCoachPage() {
           >
             Links
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <a
               href="https://lecoach.vercel.app"
               target="_blank"

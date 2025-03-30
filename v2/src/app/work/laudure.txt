@@ -1,0 +1,88 @@
+## **Overview**
+
+---
+
+Laudure is a “morning huddle” platform for fine dining restaurants
+
+Core Features:
+
+- built for **back-of-house** staff
+- agent system that automates reservation analysis
+- overview → **how much** of each dish do we need today?
+- volume →  **when** do demands spike?
+- timeline → **what** in particular does each guest need?
+
+Sections:
+
+[Design](https://www.notion.so/Design-1b82c8f3e9f78059a989e665c7aa74fd?pvs=21) 
+
+[Architecture](https://www.notion.so/Architecture-1b82c8f3e9f780f9a678eea4873ae1ed?pvs=21) 
+
+[Prompting](https://www.notion.so/Prompting-1b92c8f3e9f780d3b6c0e9b15b7dd872?pvs=21) 
+
+live demo → https://laudure.vercel.app/overview
+
+## Design
+
+---
+
+### design philosophy
+
+The only exposure I've had to restaurant management comes from watching Gordon Ramsay Hell's Kitchen clips on YouTube. From that I imagined restaurant morning huddles functioning like basketball timeouts - high-pressure moments where every second counts. Both situations demand instant clarity that's fast, visual, and immediately useful.
+
+Every design choice I made answers one question: how can we show what matters without overwhelming people with details? The result is a highly visual system that lets the team focus on service, not decoding information.
+
+### information flow
+
+My design creates a visual journey from simple to complex. The overview page provides essentials, with clarifying details revealed as you navigate deeper. Each page has a clear and defined focus.
+
+> **Overview**
+> 
+
+![Screenshot 2025-03-16 at 6.51.16 PM.png](attachment:d56c21f6-18dd-4085-acc5-7f7b7636b483:Screenshot_2025-03-16_at_6.51.16_PM.png)
+
+The overview page answers how much food needs to be prepared. Everything else is intentionally abstracted away.
+
+I used a treemap vixy separate dishes
+
+- Box area sizes indicate relative volume needs
+- The format maximizes information density at a glance
+
+This design gives kitchen staff an instant visual snapshot of exactly what needs to be done.
+
+> **Volume**
+> 
+
+![Screenshot 2025-03-16 at 7.01.06 PM.png](attachment:e3877e74-f4b6-4b06-a959-bc44691f5a54:Screenshot_2025-03-16_at_7.01.06_PM.png)
+
+The volume section introduces time as a critical variable, showing when dishes need to be prepared throughout the evening.
+
+I chose an area chart over a stacked bar chart because it:
+
+- Better represents the fluid, unpredictable flow of orders
+- Creates distinctive silhouettes for each dish category
+
+This chart acts like a ‘rhythm guide’ for the kitchen — a forecast of todays’ service demands. 
+
+> **Timeline**
+> 
+
+![Screenshot 2025-03-16 at 7.15.53 PM.png](attachment:4d60f9a5-148e-467d-b884-3ac92e425ba6:Screenshot_2025-03-16_at_7.15.53_PM.png)
+
+The timeline showcases back-of-house information in one comprehensive view, answering all the “what” questions. 
+Key features include: 
+
+- Compact guest cards with agent-generated service suggestions, ranked on urgency
+- Interactive service flow timeline
+- Detailed filtering + printing of reservations
+
+While previous views provide the big picture, the timeline has the specific context staff need to execute.
+
+### other
+
+> Shapes
+> 
+
+![Screenshot 2025-03-16 at 7.36.04 PM.png](attachment:a9d2f6e2-de94-414a-8148-72d797051843:Screenshot_2025-03-16_at_7.36.04_PM.png)
+
+I represented courses with shapes: triangles for appetizers, squares for mains, and pentagons for desserts. The increasing number of sides (3→4→5) intentionally mirrors both the dining progression and the growing complexity across our interface pages. This geometric system build a mental model that’s intuitive (also its just cooler).

@@ -23,24 +23,9 @@ export type ThemeColors = {
 // Writing data array - add new pieces at the top
 const writings: Writing[] = [
   {
-    title: "On Building Things",
-    description: "Reflections on the creative process and making ideas tangible",
-    slug: "on-building-things",
-  },
-  {
-    title: "Digital Minimalism",
-    description: "Finding focus in an age of constant distraction",
-    slug: "digital-minimalism",
-  },
-  {
-    title: "The Art of Noticing",
-    description: "How paying attention changes everything",
-    slug: "art-of-noticing",
-  },
-  {
-    title: "Learning to Learn",
-    description: "Meta-skills for continuous growth and adaptation",
-    slug: "learning-to-learn",
+    title: "pushing 20",
+    description: "goals heading into 2026",
+    slug: "pushing-20",
   },
 ];
 
@@ -166,11 +151,9 @@ export default function Life() {
             Writing
           </h1>
 
-          <p 
-            className="mb-16"
-            style={{ color: themeColors.navInactive }}
-          >
-            Here are some pieces of writing that I want to share.
+          <p className="mb-16" style={{ color: themeColors.navInactive }}>
+            Personal reflections + pieces of writing that I&apos;ve decided to
+            share.
           </p>
 
           {/* Writing Section - mapped from data */}
@@ -187,4 +170,4 @@ export default function Life() {
       </PageTransition>
     </div>
   );
-} 
+}

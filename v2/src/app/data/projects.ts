@@ -24,14 +24,13 @@ export const projectData: Record<string, ProjectData> = {
     description: "AI Management System for Restaurants",
     videoUrl: "https://yangstevenwebsite.s3.us-east-1.amazonaws.com/laudure.mp4", // Replace with actual video
     overview:
-      "Laudure is an AI-powered management system designed specifically for restaurants. It streamlines operations, inventory management, and customer interactions through intelligent automation and data analysis.",
+      "Laudure is a agentic system designed for restaurants. It streamlines operations, inventory management, and customer interactions.",
     links: [
       {
         title: "GitHub",
         url: "https://github.com/username/laudure",
         icon: "💻",
       },
-      { title: "Live Demo", url: "https://laudure.example.com", icon: "🔗" },
       {
         title: "Documentation",
         url: "https://docs.laudure.example.com",
