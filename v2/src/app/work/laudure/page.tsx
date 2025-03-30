@@ -23,7 +23,7 @@ const Subsection = ({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="mb-8 ml-6">
+    <div className="mb-8 ml-2 sm:ml-6">
       {/* Subsection header */}
       <div
         className="flex items-center cursor-pointer mb-2"
@@ -48,18 +48,21 @@ const Subsection = ({
 
       {/* Subsection content */}
       <div
-        className="overflow-hidden transition-all duration-500 pl-6 border-l-2"
+        className="overflow-hidden transition-all duration-500 pl-4 sm:pl-6 border-l-2"
         style={{
           maxHeight: isOpen ? "2000px" : "0",
           opacity: isOpen ? 1 : 0,
           borderColor: `${themeColors.navInactive}40`,
         }}
       >
-        <p className="mb-5 leading-relaxed" style={{ color: themeColors.text }}>
+        <p
+          className="mb-5 leading-relaxed text-sm sm:text-base"
+          style={{ color: themeColors.text }}
+        >
           {text}
         </p>
         {image && (
-          <div className="mb-6 max-w-2xl">
+          <div className="mb-6 max-w-full">
             <Image
               src={image}
               alt={title}
@@ -84,7 +87,7 @@ export default function LaudurePage() {
 
   return (
     <div
-      className="flex flex-col items-center min-h-screen p-4 sm:p-6 transition-colors duration-300"
+      className="flex flex-col items-center min-h-screen p-3 sm:p-6 transition-colors duration-300"
       style={{
         backgroundColor: themeColors.background,
         color: themeColors.text,
@@ -336,6 +339,7 @@ export default function LaudurePage() {
             </div>
           </div>
 
+          {/* JSON Structure Section - fix mobile overflow */}
           <h3
             className="text-lg font-medium mb-3"
             style={{ color: themeColors.text }}
@@ -365,7 +369,7 @@ export default function LaudurePage() {
               </span>
             </div>
             <div
-              className="overflow-hidden transition-all duration-500 bg-opacity-5 p-4 rounded-b-md"
+              className="overflow-hidden transition-all duration-500 bg-opacity-5 p-2 sm:p-4 rounded-b-md"
               style={{
                 maxHeight: jsonOpen ? "3000px" : "0",
                 opacity: jsonOpen ? 1 : 0,
@@ -373,8 +377,12 @@ export default function LaudurePage() {
               }}
             >
               <pre
-                className="text-xs sm:text-sm overflow-auto p-2"
-                style={{ color: themeColors.text }}
+                className="text-xs sm:text-sm overflow-auto p-2 max-w-full"
+                style={{
+                  color: themeColors.text,
+                  wordBreak: "break-word",
+                  whiteSpace: "pre-wrap",
+                }}
               >
                 {`"agent_analysis": {
   "agent_analysis": {

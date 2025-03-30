@@ -23,7 +23,7 @@ const Subsection = ({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="mb-8 ml-6">
+    <div className="mb-8 ml-2 sm:ml-6">
       {/* Subsection header */}
       <div
         className="flex items-center cursor-pointer mb-2"
@@ -48,25 +48,30 @@ const Subsection = ({
 
       {/* Subsection content */}
       <div
-        className="overflow-hidden transition-all duration-500 pl-6 border-l"
+        className="overflow-hidden transition-all duration-500 pl-4 sm:pl-6 border-l-2"
         style={{
           maxHeight: isOpen ? "2000px" : "0",
           opacity: isOpen ? 1 : 0,
-          borderColor: themeColors.navInactive,
+          borderColor: `${themeColors.navInactive}40`,
         }}
       >
-        <p className="mb-5 leading-relaxed" style={{ color: themeColors.text }}>
+        <p
+          className="mb-5 leading-relaxed text-sm sm:text-base"
+          style={{ color: themeColors.text }}
+        >
           {text}
         </p>
         {image && (
-          <div className="mb-6 max-w-2xl">
+          <div className="mb-6 max-w-full">
             <Image
               src={image}
               alt={title}
               width={800}
               height={450}
-              className="rounded-md border w-full"
-              style={{ borderColor: themeColors.navInactive }}
+              className="rounded-md w-full"
+              style={{
+                border: "none",
+              }}
             />
           </div>
         )}
@@ -134,22 +139,22 @@ export default function LeCoachPage() {
           </p>
 
           {/* Video Demo Section */}
-          <div className="mb-10">
+          <div className="mb-6 sm:mb-10">
             <div className="aspect-w-16 aspect-h-9 w-full">
               <video
                 src="https://yangstevenwebsite.s3.us-east-1.amazonaws.com/lecoach.mp4"
                 controls
                 autoPlay
                 muted
-                className="w-full h-[300px] rounded-lg"
+                className="w-full h-[200px] sm:h-[300px] rounded-lg"
               />
             </div>
           </div>
 
           {/* Overview Section */}
-          <div className="mb-8">
+          <div className="mb-6 sm:mb-8">
             <h2
-              className="text-xl font-semibold mb-4"
+              className="text-xl font-semibold mb-3 sm:mb-4"
               style={{ color: themeColors.text }}
             >
               Overview
@@ -184,8 +189,7 @@ export default function LeCoachPage() {
             critical challenge we&apos;ve identified is the lack of a
             centralized, user-first platform for performance analysis. While
             Synergy Sports is our current solution, the platform is
-            overwhelmingly complex and cluttered. The value isn&apos;t in the
-            numbers themselves but rather in making them actionable. LeCoach
+            overwhelmingly complex and cluttered. LeCoach
             would be a platform that bridges the gap between raw data and
             basketball-first minded coaches + players.
           </p>
@@ -207,28 +211,28 @@ export default function LeCoachPage() {
           <Subsection
             title="Games Navigation"
             text="Users can navigate through all games dating back to the 2005-06 season."
-            image="/placeholder-mountains.jpg"
+            image="/images/lecoach1.png"
             themeColors={themeColors}
           />
 
           <Subsection
             title="Analysis Interface"
             text="The win probability graph is powered by a model trained on 1.4 million historical plays. More team metrics will be available soon (traditional stats + VORP, BPM, etc.)"
-            image="/placeholder-mountains.jpg"
+            image="/images/lecoach2.png"
             themeColors={themeColors}
           />
 
           <Subsection
             title="Play by play tracking"
             text="View detailed play by play tracking for every game."
-            image="/placeholder-mountains.jpg"
+            image="/images/lecoach3.png"
             themeColors={themeColors}
           />
 
           <Subsection
             title="Agent chat"
             text="Our chat system uses RAG and chains multiple specialized agents together to handle different aspects of data retrieval, analysis, and response generation."
-            image="/placeholder-mountains.jpg"
+            image="/images/lecoach4.png"
             themeColors={themeColors}
           />
 
@@ -255,7 +259,7 @@ export default function LeCoachPage() {
           </p>
           <div className="mb-8 max-w-2xl mx-auto">
             <Image
-              src="/placeholder-mountains.jpg"
+              src="/images/lecoacharch.png"
               alt="LeCoach System Architecture Diagram"
               width={800}
               height={450}
@@ -291,20 +295,20 @@ export default function LeCoachPage() {
           {/* Design Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <Image
-              src="/placeholder-mountains.jpg"
+              src="/images/lecoachdesign1.png"
               alt="Design 1"
               width={500}
               height={300}
-              className="rounded-md border w-full"
-              style={{ borderColor: themeColors.navInactive }}
+              className="rounded-md w-full"
+              style={{ border: "none" }}
             />
             <Image
-              src="/placeholder-mountains.jpg"
+              src="/images/lecoachdesign2.png"
               alt="Design 2"
               width={500}
               height={300}
-              className="rounded-md border w-full"
-              style={{ borderColor: themeColors.navInactive }}
+              className="rounded-md w-full"
+              style={{ border: "none" }}
             />
           </div>
 
@@ -352,7 +356,7 @@ export default function LeCoachPage() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <a
-              href="https://lecoach.vercel.app"
+              href="#"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center p-3 rounded-lg transition-colors duration-300 hover:bg-opacity-10"
@@ -377,8 +381,8 @@ export default function LeCoachPage() {
                 color: themeColors.text,
               }}
             >
-              <span className="mr-2 text-xl">💻</span>
-              <span>GitHub Repository</span>
+              <span className="mr-2 text-xl">😺</span>
+              <span>GitHub</span>
             </a>
           </div>
         </main>
