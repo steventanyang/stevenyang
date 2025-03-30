@@ -110,12 +110,12 @@ export default function Home() {
               aria-label="Green theme"
             ></button>
             <button
-              className="w-8 h-8 bg-[#4A6B8A] rounded cursor-pointer transform transition-transform hover:scale-125"
+              className="w-8 h-8 bg-[#66A2BB] rounded cursor-pointer transform transition-transform hover:scale-125"
               onClick={() => setCurrentTheme("blue")}
               aria-label="Blue theme"
             ></button>
             <button
-              className="w-8 h-8 bg-[#3B5998] rounded cursor-pointer transform transition-transform hover:scale-125"
+              className="w-8 h-8 bg-[#777DAE] rounded cursor-pointer transform transition-transform hover:scale-125"
               onClick={() => setCurrentTheme("navy")}
               aria-label="Navy theme"
             ></button>
@@ -124,11 +124,15 @@ export default function Home() {
           {/* Placeholder Image - reduced height */}
           <div className="mb-10 w-full">
             <Image
-              src="/placeholder-mountains.jpg"
-              alt="Mountain landscape"
+              src={`/${currentTheme}.jpg`}
+              alt="Themed landscape"
               width={1200}
               height={400}
               className="rounded w-full h-auto max-h-[200px] object-cover"
+              onError={(e) => {
+                // Fallback to placeholder if theme image doesn't exist
+                e.currentTarget.src = "/placeholder-mountains.jpg";
+              }}
             />
           </div>
 
