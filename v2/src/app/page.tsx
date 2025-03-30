@@ -145,11 +145,11 @@ export default function Home() {
           {/* Social Links - smaller, underlined, and closer together */}
           <div className="flex flex-col gap-2">
             <Link
-              href="https://twitter.com/yourusername"
+              href="https://x.com/steventanyang"
               className="text-sm font-medium underline transition-colors duration-300"
               style={{ color: themeColors.navInactive }}
             >
-              Twitter/X
+              X
             </Link>
             <Link
               href="mailto:steventanyang@gmail.com"
@@ -159,11 +159,18 @@ export default function Home() {
               Email
             </Link>
             <Link
-              href="https://linkedin.com/in/yourusername"
+              href="https://linkedin.com/in/stevenyangtan"
               className="text-sm font-medium underline transition-colors duration-300"
               style={{ color: themeColors.navInactive }}
             >
               LinkedIn
+            </Link>
+            <Link
+              href="https://github.com/steventanyang"
+              className="text-sm font-medium underline transition-colors duration-300"
+              style={{ color: themeColors.navInactive }}
+            >
+              Github
             </Link>
           </div>
         </main>
