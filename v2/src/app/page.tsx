@@ -68,7 +68,7 @@ export default function Home() {
 
           <div className="mb-10">
             <p className="mb-6 font-medium" style={{ color: themeColors.text }}>
-              I&apos;m studying software eng @ waterloo. I enjoy solving
+              I&apos;m studying software eng @ waterloo. I like solving
               problems that blend product, design, and engineering.
             </p>
             <p className="mb-6 font-medium" style={{ color: themeColors.text }}>
@@ -142,35 +142,39 @@ export default function Home() {
             style={{ backgroundColor: themeColors.navInactive }}
           ></div>
 
-          {/* Social Links - smaller, underlined, and closer together */}
+          {/* Social Links - with hover underline effect */}
           <div className="flex flex-col gap-2">
             <Link
               href="https://x.com/steventanyang"
-              className="text-sm font-medium underline transition-colors duration-300"
+              className="text-sm font-medium relative inline-block w-fit group transition-colors duration-300"
               style={{ color: themeColors.navInactive }}
             >
               X
+              <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 ease-in-out group-hover:w-full"></span>
             </Link>
             <Link
               href="mailto:steventanyang@gmail.com"
-              className="text-sm font-medium underline transition-colors duration-300"
+              className="text-sm font-medium relative inline-block w-fit group transition-colors duration-300"
               style={{ color: themeColors.navInactive }}
             >
               Email
+              <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 ease-in-out group-hover:w-full"></span>
             </Link>
             <Link
               href="https://linkedin.com/in/stevenyangtan"
-              className="text-sm font-medium underline transition-colors duration-300"
+              className="text-sm font-medium relative inline-block w-fit group transition-colors duration-300"
               style={{ color: themeColors.navInactive }}
             >
               LinkedIn
+              <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 ease-in-out group-hover:w-full"></span>
             </Link>
             <Link
               href="https://github.com/steventanyang"
-              className="text-sm font-medium underline transition-colors duration-300"
+              className="text-sm font-medium relative inline-block w-fit group transition-colors duration-300"
               style={{ color: themeColors.navInactive }}
             >
               Github
+              <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 ease-in-out group-hover:w-full"></span>
             </Link>
           </div>
         </main>
