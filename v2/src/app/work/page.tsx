@@ -76,6 +76,12 @@ const projects: Project[] = [
     slug: "marketloo",
   },
   {
+    emoji: "🥊",
+    name: "Rax",
+    description: "plugin for realapp.link, 30k+ active users",
+    slug: "rax",
+  },
+  {
     emoji: "👨‍💻",
     name: "Elitecode",
     description: "Ultimate leetcode companion",
@@ -86,13 +92,7 @@ const projects: Project[] = [
     name: "LeResume",
     description: "AI resume builder + optimizer",
     slug: "leresume",
-  },
-  {
-    emoji: "🥊",
-    name: "Rax",
-    description: "plugin for realapp.link, 30k+ active users",
-    slug: "rax",
-  },
+  }
 ];
 
 // Experience Item Component

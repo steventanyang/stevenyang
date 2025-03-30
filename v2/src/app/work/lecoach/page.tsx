@@ -139,22 +139,22 @@ export default function LeCoachPage() {
           </p>
 
           {/* Video Demo Section */}
-          <div className="mb-6 sm:mb-10">
+          <div className="mb-10">
             <div className="aspect-w-16 aspect-h-9 w-full">
               <video
                 src="https://yangstevenwebsite.s3.us-east-1.amazonaws.com/lecoach.mp4"
                 controls
                 autoPlay
                 muted
-                className="w-full h-[200px] sm:h-[300px] rounded-lg"
+                className="w-full h-[300px] rounded-lg"
               />
             </div>
           </div>
 
           {/* Overview Section */}
-          <div className="mb-6 sm:mb-8">
+          <div className="mb-8">
             <h2
-              className="text-xl font-semibold mb-3 sm:mb-4"
+              className="text-xl font-semibold mb-4"
               style={{ color: themeColors.text }}
             >
               Overview
@@ -189,9 +189,9 @@ export default function LeCoachPage() {
             critical challenge we&apos;ve identified is the lack of a
             centralized, user-first platform for performance analysis. While
             Synergy Sports is our current solution, the platform is
-            overwhelmingly complex and cluttered. LeCoach
-            would be a platform that bridges the gap between raw data and
-            basketball-first minded coaches + players.
+            overwhelmingly complex and cluttered. LeCoach would be a platform
+            that bridges the gap between raw data and basketball-first minded
+            coaches + players.
           </p>
 
           {/* Divider */}

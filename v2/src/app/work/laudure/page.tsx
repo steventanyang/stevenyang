@@ -87,14 +87,14 @@ export default function LaudurePage() {
 
   return (
     <div
-      className="flex flex-col items-center min-h-screen p-3 sm:p-6 transition-colors duration-300"
+      className="flex flex-col items-center min-h-screen p-4 sm:p-6 transition-colors duration-300"
       style={{
         backgroundColor: themeColors.background,
         color: themeColors.text,
       }}
     >
       <PageTransition>
-        <main className="flex flex-col w-full max-w-2xl">
+        <main className="flex flex-col w-full max-w-2xl px-1 sm:px-0">
           {/* Back button */}
           <Link
             href="/work"
@@ -133,19 +133,23 @@ export default function LaudurePage() {
 
           {/* Project description */}
           <p
-            className="text-lg mb-10"
+            className="text-lg mb-15"
             style={{ color: themeColors.navInactive }}
           >
             AI Management System for Restaurants
           </p>
 
           {/* Video Demo Section */}
-          <div className="mb-8 sm:mb-10">
+          <div className="mb-15">
             <div className="aspect-w-16 aspect-h-9 w-full">
               <video
                 src="https://yangstevenwebsite.s3.us-east-1.amazonaws.com/laudure.mp4"
                 controls
                 className="w-full h-[200px] sm:h-[300px] rounded-lg"
+                style={{
+                  border: "none",
+                  outline: "none",
+                }}
               />
             </div>
           </div>
@@ -347,7 +351,7 @@ export default function LaudurePage() {
             Sample Agent Output Structure
           </h3>
 
-          <div className="mb-8">
+          <div className="mb-0">
             <div
               className="flex items-center justify-between cursor-pointer p-4 rounded-md transition-colors duration-300 hover:bg-opacity-20"
               onClick={() => setJsonOpen(!jsonOpen)}

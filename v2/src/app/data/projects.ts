@@ -18,45 +18,6 @@ export type ProjectData = {
 
 // Project data for all projects
 export const projectData: Record<string, ProjectData> = {
-  laudure: {
-    title: "Laudure",
-    emoji: "👨‍🍳",
-    description: "AI Management System for Restaurants",
-    videoUrl: "https://yangstevenwebsite.s3.us-east-1.amazonaws.com/laudure.mp4", // Replace with actual video
-    overview:
-      "Laudure is a agentic system designed for restaurants. It streamlines operations, inventory management, and customer interactions.",
-    links: [
-      {
-        title: "GitHub",
-        url: "https://github.com/username/laudure",
-        icon: "💻",
-      },
-      {
-        title: "Documentation",
-        url: "https://docs.laudure.example.com",
-        icon: "📚",
-      },
-    ],
-    hasCustomPage: true,
-  },
-  lecoach: {
-    title: "LeCoach",
-    emoji: "🏀",
-    description: "Agentic basketball analytics platform",
-    videoUrl:
-      "https://yangstevenwebsite.s3.us-east-1.amazonaws.com/lecoach.mp4", // Convert to MP4
-    overview:
-      "LeCoach is an AI-powered basketball analytics platform that helps coaches and players analyze game footage, track performance metrics, and generate personalized training recommendations.",
-    links: [
-      {
-        title: "GitHub",
-        url: "https://github.com/username/lecoach",
-        icon: "💻",
-      },
-      { title: "Live Demo", url: "https://lecoach.example.com", icon: "🔗" },
-    ],
-    hasCustomPage: true,
-  },
   marketloo: {
     title: "Marketloo",
     emoji: "📈",
@@ -64,14 +25,18 @@ export const projectData: Record<string, ProjectData> = {
     videoUrl:
       "https://yangstevenwebsite.s3.us-east-1.amazonaws.com/marketloo.mp4", // Replace with actual video
     overview:
-      "Marketloo is a prediction market platform that allows users to trade virtual assets based on real-world events and outcomes. It features real-time paper trading, leaderboards, and comprehensive analytics.",
+      "Marketloo is a prediction market platform that allows users to trade virtual assets based on real-world events and outcomes (inspired by Polymarket). It features real-time paper trading, leaderboards, and a functional orderbook system. We also deployed specialized agents to simulate market dynamics.",
     links: [
       {
-        title: "GitHub",
-        url: "https://github.com/username/marketloo",
-        icon: "💻",
+        title: "Live Demo",
+        url: "https://market-loo.vercel.app/",
+        icon: "🔗",
       },
-      { title: "Try It Out", url: "https://marketloo.example.com", icon: "🚀" },
+      {
+        title: "GitHub",
+        url: "https://github.com/steventanyang/market_loo",
+        icon: "😺",
+      },
     ],
   },
   elitecode: {
@@ -81,14 +46,13 @@ export const projectData: Record<string, ProjectData> = {
     videoUrl:
       "https://yangstevenwebsite.s3.us-east-1.amazonaws.com/elitecode.mp4", // Replace with actual video
     overview:
-      "Elitecode is a comprehensive companion tool for technical interview preparation. It provides optimized learning paths, AI-powered code reviews, and personalized practice recommendations to help users master coding challenges.",
+      "Elitecode is the 'Obsidian x Anki' for leetcode. Includes a graph visualizer on question similarity, an integrated chrome extension, + auto generated ai review w/ syntax highlighting. This project was submitted to UW Launchpoint hosted by Comma Capital.",
     links: [
       {
-        title: "GitHub",
-        url: "https://github.com/username/elitecode",
-        icon: "💻",
+        title: "UW Launchpoint",
+        url: "https://www.instagram.com/uwlaunchpoint/?hl=en",
+        icon: "🚀",
       },
-      { title: "Try It Out", url: "https://elitecode.example.com", icon: "🚀" },
     ],
   },
   leresume: {
@@ -98,14 +62,18 @@ export const projectData: Record<string, ProjectData> = {
     videoUrl:
       "https://yangstevenwebsite.s3.us-east-1.amazonaws.com/leresume.mp4", // Replace with actual video
     overview:
-      "LeResume uses AI to help job seekers create and optimize their resumes. It analyzes job descriptions, suggests tailored content, and provides real-time feedback to maximize interview chances.",
+      "A resume builder + optimizer that uses AI to help students create and optimize their resumes. It analyzes job descriptions, suggests tailored content, and provides real-time feedback to maximize interview chances.",
     links: [
       {
-        title: "GitHub",
-        url: "https://github.com/username/leresume",
-        icon: "💻",
+        title: "Website",
+        url: "https://www.leresume.ca/",
+        icon: "🔗",
       },
-      { title: "Try It Out", url: "https://leresume.example.com", icon: "🚀" },
+      {
+        title: "GitHub",
+        url: "https://github.com/npjd/resumake",
+        icon: "😺",
+      },
     ],
   },
   rax: {
@@ -113,19 +81,19 @@ export const projectData: Record<string, ProjectData> = {
     emoji: "🥊",
     description: "plugin for realapp.link, 30k+ active users",
     videoUrl:
-      "https://yangstevenwebsite.s3.us-east-1.amazonaws.com/rax.mp4", // Replace with actual video
+      "https://yangstevenwebsite.s3.us-east-1.amazonaws.com/ufcrax.mp4", // Replace with actual video
     overview:
-      "Rax is a popular plugin for realapp.link with over 30,000 active users. It enhances the platform with advanced analytics, custom visualizations, and automated reporting features.",
+      "Rax is a 'levels.fyi' for realapp.link with over 30,000 active users. It allows users to track, optimize, and compare in-game investments. I've been the solo maintainer of this project since 2023.",
     links: [
       {
-        title: "Plugin Page",
-        url: "https://realapp.link/plugins/raxx",
-        icon: "🔌",
+        title: "Live Demo",
+        url: "https://ufcrax-v2.vercel.app/",
+        icon: "🔗",
       },
       {
-        title: "User Guide",
-        url: "https://docs.realapp.link/plugins/raxx",
-        icon: "📖",
+        title: "GitHub",
+        url: "https://github.com/steventanyang/ufcraxV2",
+        icon: "😺",
       },
     ],
   },
