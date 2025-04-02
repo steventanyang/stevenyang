@@ -202,7 +202,7 @@ export default function LeCoachPage() {
 
           {/* User Flow Section */}
           <h2
-            className="text-xl font-semibold mb-4"
+            className="text-xl font-semibold mb-8"
             style={{ color: themeColors.text }}
           >
             User Flow

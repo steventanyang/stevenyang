@@ -58,6 +58,12 @@ const experiences: Experience[] = [
 // Projects data array - add new projects at the top
 const projects: Project[] = [
   {
+    emoji: "🛡️",
+    name: "Deployable",
+    description: "soon...",
+    // slug: "deployable",
+  },
+  {
     emoji: "👨‍🍳",
     name: "Laudure",
     description: "AI Management System for Restaurants",
@@ -92,7 +98,7 @@ const projects: Project[] = [
     name: "LeResume",
     description: "AI resume builder + optimizer",
     slug: "leresume",
-  }
+  },
 ];
 
 // Experience Item Component
@@ -246,7 +252,7 @@ export default function Work() {
           className="text-2xl font-extrabold transition-colors duration-300"
           style={{ color: themeColors.navInactive }}
         >
-          &lt;&gt;
+          &lt;3
         </Link>
         <Link
           href="/work"
@@ -259,7 +265,7 @@ export default function Work() {
                 : "none",
           }}
         >
-          &lt;3
+          &lt;&gt;
         </Link>
         <Link
           href="/life"

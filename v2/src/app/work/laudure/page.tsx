@@ -201,7 +201,7 @@ export default function LaudurePage() {
 
           {/* User Flow Section with Dropdowns */}
           <h2
-            className="text-xl font-semibold mb-4"
+            className="text-xl font-semibold mb-8"
             style={{ color: themeColors.text }}
           >
             User Flow

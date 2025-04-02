@@ -34,14 +34,14 @@ export default function Home() {
                 : "none",
           }}
         >
-          &lt;&gt;
+          &lt;3
         </Link>
         <Link
           href="/work"
           className="text-2xl font-extrabold transition-colors duration-300"
           style={{ color: themeColors.navInactive }}
         >
-          &lt;3
+          &lt;&gt;
         </Link>
         <Link
           href="/life"
@@ -68,8 +68,8 @@ export default function Home() {
 
           <div className="mb-10">
             <p className="mb-6 font-medium" style={{ color: themeColors.text }}>
-              I&apos;m studying software eng @ waterloo. I like solving
-              problems that blend product, design, and engineering.
+              I&apos;m studying software eng @ waterloo. I like solving problems
+              that blend product, design, and engineering.
             </p>
             <p className="mb-6 font-medium" style={{ color: themeColors.text }}>
               I enjoy basketball, books, and creative self-expression.
@@ -85,8 +85,7 @@ export default function Home() {
               >
                 Asia
               </Link>{" "}
-              for fall 2025.
-              Check out my{" "}
+              for fall 2025. Check out my{" "}
               <Link
                 href="/work"
                 className="underline transition-colors duration-300"

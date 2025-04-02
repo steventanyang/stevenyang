@@ -114,14 +114,14 @@ export default function Life() {
           className="text-2xl font-extrabold transition-colors duration-300"
           style={{ color: themeColors.navInactive }}
         >
-          &lt;&gt;
+          &lt;3
         </Link>
         <Link
           href="/work"
           className="text-2xl font-extrabold transition-colors duration-300"
           style={{ color: themeColors.navInactive }}
         >
-          &lt;3
+          &lt;&gt;
         </Link>
         <Link
           href="/life"
