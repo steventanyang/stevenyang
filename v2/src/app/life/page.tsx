@@ -27,6 +27,11 @@ const writings: Writing[] = [
     description: "goals heading into 2026",
     slug: "pushing-20",
   },
+  {
+    title: "tatum legacy run",
+    description: "2025 nba playoff predictions",
+    slug: "tatum-legacy-run",
+  },
 ];
 
 // Writing Item Component
