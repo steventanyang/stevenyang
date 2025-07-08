@@ -32,13 +32,13 @@ export type ThemeColors = {
 
 // Experience data array - add new experiences at the top
 const experiences: Experience[] = [
-  // {
-  //   emoji: "🦷",
-  //   company: "-",
-  //   role: "Product Engineering",
-  //   term: "S25",
-  //   location: "San Francisco",
-  // },
+  {
+    emoji: "🦷",
+    company: "-",
+    role: "Product Engineering",
+    term: "S25",
+    location: "San Francisco",
+  },
   {
     emoji: "☀️",
     company: "Sunlife",
