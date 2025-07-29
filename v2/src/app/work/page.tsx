@@ -72,7 +72,7 @@ const projects: Project[] = [
   {
     emoji: "🏀",
     name: "LeCoach",
-    description: "Agentic basketball analytics platform",
+    description: "Basketball analytics platform",
     slug: "lecoach",
   },
   {
@@ -131,14 +131,14 @@ const ExperienceItem = ({
         <div className="flex-grow min-w-0">
           <div className="flex justify-between items-center mb-1">
             <span
-              className="text-base sm:text-lg font-medium relative inline-block mr-2"
+              className="text-base sm:text-lg font-medium font-mono relative inline-block mr-2"
               style={{ color: themeColors.text }}
             >
               {experience.company}
               <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 ease-in-out group-hover:w-full"></span>
             </span>
             <span
-              className="text-sm sm:text-base whitespace-nowrap"
+              className="text-sm sm:text-base font-mono whitespace-nowrap"
               style={{ color: themeColors.navInactive }}
             >
               {experience.term}
@@ -146,13 +146,13 @@ const ExperienceItem = ({
           </div>
           <div className="flex justify-between items-center">
             <span
-              className="text-sm sm:text-base truncate mr-2"
+              className="text-sm sm:text-base font-mono truncate mr-2"
               style={{ color: themeColors.navInactive }}
             >
               {experience.role}
             </span>
             <span
-              className="text-sm sm:text-base whitespace-nowrap"
+              className="text-sm sm:text-base font-mono whitespace-nowrap"
               style={{ color: themeColors.navInactive }}
             >
               {experience.location}
@@ -209,7 +209,7 @@ const ProjectItem = ({
         <div className="flex-grow min-w-0">
           <div className="mb-1">
             <span
-              className="text-base sm:text-lg font-medium relative inline-block"
+              className="text-base sm:text-lg font-medium font-mono relative inline-block"
               style={{ color: themeColors.text }}
             >
               {project.name}
@@ -218,7 +218,7 @@ const ProjectItem = ({
           </div>
           <div>
             <span
-              className="text-sm sm:text-base"
+              className="text-sm sm:text-base font-mono"
               style={{ color: themeColors.navInactive }}
             >
               {project.description}
@@ -249,14 +249,14 @@ export default function Work() {
       <nav className="flex justify-center gap-6 mt-8 mb-14 w-full h-10">
         <Link
           href="/"
-          className="text-2xl font-extrabold transition-colors duration-300"
+          className="text-2xl font-extrabold font-mono transition-colors duration-300"
           style={{ color: themeColors.navInactive }}
         >
           &lt;3
         </Link>
         <Link
           href="/work"
-          className="text-2xl font-extrabold transition-colors duration-300"
+          className="text-2xl font-extrabold font-mono transition-colors duration-300"
           style={{
             color: themeColors.navActive,
             textShadow:
@@ -269,7 +269,7 @@ export default function Work() {
         </Link>
         <Link
           href="/life"
-          className="text-2xl font-extrabold transition-colors duration-300"
+          className="text-2xl font-extrabold font-mono transition-colors duration-300"
           style={{ color: themeColors.navInactive }}
         >
           (:
@@ -284,6 +284,7 @@ export default function Work() {
             style={{
               color: themeColors.text === "#FFFFFF" ? "#FFFFFF" : "#000000",
               opacity: 1,
+              fontFamily: "var(--font-title)",
             }}
           >
             Experience
@@ -305,6 +306,7 @@ export default function Work() {
             style={{
               color: themeColors.text === "#FFFFFF" ? "#FFFFFF" : "#000000",
               opacity: 1,
+              fontFamily: "var(--font-title)",
             }}
           >
             Projects

@@ -25,7 +25,7 @@ export default function Home() {
       <nav className="flex justify-center gap-6 mt-8 mb-14 w-full h-10">
         <Link
           href="/"
-          className="text-2xl font-extrabold transition-colors duration-300"
+          className="text-2xl font-extrabold font-mono transition-colors duration-300"
           style={{
             color: themeColors.navActive,
             textShadow:
@@ -38,14 +38,14 @@ export default function Home() {
         </Link>
         <Link
           href="/work"
-          className="text-2xl font-extrabold transition-colors duration-300"
+          className="text-2xl font-extrabold font-mono transition-colors duration-300"
           style={{ color: themeColors.navInactive }}
         >
           &lt;&gt;
         </Link>
         <Link
           href="/life"
-          className="text-2xl font-extrabold transition-colors duration-300"
+          className="text-2xl font-extrabold font-mono transition-colors duration-300"
           style={{ color: themeColors.navInactive }}
         >
           (:
@@ -61,20 +61,30 @@ export default function Home() {
             style={{
               color: themeColors.text === "#FFFFFF" ? "#FFFFFF" : "#000000",
               opacity: 1,
+              fontFamily: "var(--font-title)",
             }}
           >
             Steven Yang
           </h1>
 
           <div className="mb-10">
-            <p className="mb-6 font-medium" style={{ color: themeColors.text }}>
+            <p
+              className="mb-6 font-medium font-mono"
+              style={{ color: themeColors.text }}
+            >
               I&apos;m studying software eng @ waterloo. I like solving problems
               that blend product, design, and engineering.
             </p>
-            <p className="mb-6 font-medium" style={{ color: themeColors.text }}>
-              I enjoy basketball, books, and creative self-expression.
+            <p
+              className="mb-6 font-medium font-mono"
+              style={{ color: themeColors.text }}
+            >
+              I enjoy basketball, music, writing.
             </p>
-            <p className="font-medium" style={{ color: themeColors.text }}>
+            <p
+              className="font-medium font-mono"
+              style={{ color: themeColors.text }}
+            >
               I&apos;m currently looking for opportunities in{" "}
               <Link
                 href="https://cansbridgefellowship.com/"
@@ -156,7 +166,7 @@ export default function Home() {
           <div className="flex flex-col gap-2">
             <Link
               href="https://x.com/steventanyang"
-              className="text-sm font-medium relative inline-block w-fit group transition-colors duration-300"
+              className="text-sm font-medium font-mono relative inline-block w-fit group transition-colors duration-300"
               style={{ color: themeColors.navInactive }}
             >
               X
@@ -164,7 +174,7 @@ export default function Home() {
             </Link>
             <Link
               href="mailto:steventanyang@gmail.com"
-              className="text-sm font-medium relative inline-block w-fit group transition-colors duration-300"
+              className="text-sm font-medium font-mono relative inline-block w-fit group transition-colors duration-300"
               style={{ color: themeColors.navInactive }}
             >
               Email
@@ -172,7 +182,7 @@ export default function Home() {
             </Link>
             <Link
               href="https://linkedin.com/in/stevenyangtan"
-              className="text-sm font-medium relative inline-block w-fit group transition-colors duration-300"
+              className="text-sm font-medium font-mono relative inline-block w-fit group transition-colors duration-300"
               style={{ color: themeColors.navInactive }}
             >
               LinkedIn
@@ -180,7 +190,7 @@ export default function Home() {
             </Link>
             <Link
               href="https://github.com/steventanyang"
-              className="text-sm font-medium relative inline-block w-fit group transition-colors duration-300"
+              className="text-sm font-medium font-mono relative inline-block w-fit group transition-colors duration-300"
               style={{ color: themeColors.navInactive }}
             >
               Github

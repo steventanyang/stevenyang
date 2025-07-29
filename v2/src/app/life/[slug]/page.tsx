@@ -1,18 +1,18 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useTheme } from "../../context/ThemeContext";
 import { themes } from "../../themes";
 import PageTransition from "../../components/PageTransition";
 import { useParams } from "next/navigation";
-import MarkdownRenderer from '../../components/MarkdownRenderer';
+import MarkdownRenderer from "../../components/MarkdownRenderer";
 
 export default function WritingPage() {
   const params = useParams();
   const slug = params.slug as string;
-  const [content, setContent] = useState<string>('');
-  const [title, setTitle] = useState<string>('');
+  const [content, setContent] = useState<string>("");
+  const [title, setTitle] = useState<string>("");
   const [isLoading, setIsLoading] = useState(true);
 
   // Use the global theme context
@@ -26,24 +26,26 @@ export default function WritingPage() {
       try {
         const response = await fetch(`/writing/${slug}.md`);
         if (!response.ok) {
-          throw new Error('Failed to fetch content');
+          throw new Error("Failed to fetch content");
         }
         const text = await response.text();
-        
+
         // Extract title from first line if it's a heading
-        const lines = text.split('\n');
-        if (lines[0].startsWith('# ')) {
+        const lines = text.split("\n");
+        if (lines[0].startsWith("# ")) {
           setTitle(lines[0].substring(2));
-          setContent(lines.slice(1).join('\n'));
+          setContent(lines.slice(1).join("\n"));
         } else {
-          setTitle('');
+          setTitle("");
           setContent(text);
         }
-        
+
         setIsLoading(false);
       } catch (error) {
-        console.error('Error fetching markdown:', error);
-        setContent('# Content Not Found\n\nSorry, the requested content could not be loaded.');
+        console.error("Error fetching markdown:", error);
+        setContent(
+          "# Content Not Found\n\nSorry, the requested content could not be loaded."
+        );
         setIsLoading(false);
       }
     }
@@ -64,7 +66,7 @@ export default function WritingPage() {
           {/* Back button */}
           <Link
             href="/life"
-            className="text-base font-medium mb-8 flex items-center hover:opacity-80 transition-opacity"
+            className="text-base font-medium font-mono mb-8 flex items-center hover:opacity-80 transition-opacity"
             style={{ color: themeColors.text }}
           >
             <svg
@@ -99,7 +101,9 @@ export default function WritingPage() {
                 <h1
                   className="text-3xl font-bold mb-6"
                   style={{
-                    color: themeColors.text === "#FFFFFF" ? "#FFFFFF" : "#000000",
+                    color:
+                      themeColors.text === "#FFFFFF" ? "#FFFFFF" : "#000000",
+                    fontFamily: "var(--font-title)",
                   }}
                 >
                   {title}
@@ -112,4 +116,4 @@ export default function WritingPage() {
       </PageTransition>
     </div>
   );
-} 
+}

@@ -77,7 +77,7 @@ const WritingItem = ({
       <div className="flex flex-col">
         <div className="mb-1">
           <span
-            className="text-base sm:text-lg font-medium relative inline-block"
+            className="text-base sm:text-lg font-medium font-mono relative inline-block"
             style={{ color: themeColors.text }}
           >
             {writing.title}
@@ -86,7 +86,7 @@ const WritingItem = ({
         </div>
         <div>
           <span
-            className="text-sm sm:text-base"
+            className="text-sm sm:text-base font-mono"
             style={{ color: themeColors.navInactive }}
           >
             {writing.description}
@@ -116,21 +116,21 @@ export default function Life() {
       <nav className="flex justify-center gap-6 mt-8 mb-14 w-full h-10">
         <Link
           href="/"
-          className="text-2xl font-extrabold transition-colors duration-300"
+          className="text-2xl font-extrabold font-mono transition-colors duration-300"
           style={{ color: themeColors.navInactive }}
         >
           &lt;3
         </Link>
         <Link
           href="/work"
-          className="text-2xl font-extrabold transition-colors duration-300"
+          className="text-2xl font-extrabold font-mono transition-colors duration-300"
           style={{ color: themeColors.navInactive }}
         >
           &lt;&gt;
         </Link>
         <Link
           href="/life"
-          className="text-2xl font-extrabold transition-colors duration-300"
+          className="text-2xl font-extrabold font-mono transition-colors duration-300"
           style={{
             color: themeColors.navActive,
             textShadow:
@@ -151,12 +151,16 @@ export default function Life() {
             style={{
               color: themeColors.text === "#FFFFFF" ? "#FFFFFF" : "#000000",
               opacity: 1,
+              fontFamily: "var(--font-title)",
             }}
           >
             Writing
           </h1>
 
-          <p className="mb-16" style={{ color: themeColors.navInactive }}>
+          <p
+            className="mb-16 font-mono"
+            style={{ color: themeColors.navInactive }}
+          >
             Personal reflections + pieces of writing that I&apos;ve decided to
             share.
           </p>

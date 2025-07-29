@@ -97,7 +97,7 @@ export default function LeCoachPage() {
           {/* Back button */}
           <Link
             href="/work"
-            className="text-base font-medium mb-8 flex items-center hover:opacity-80 transition-opacity"
+            className="text-base font-medium font-mono mb-8 flex items-center hover:opacity-80 transition-opacity"
             style={{ color: themeColors.text }}
           >
             <svg
@@ -124,6 +124,7 @@ export default function LeCoachPage() {
               className="text-3xl font-bold"
               style={{
                 color: themeColors.text === "#FFFFFF" ? "#FFFFFF" : "#000000",
+                fontFamily: "var(--font-title)",
               }}
             >
               LeCoach
@@ -132,7 +133,7 @@ export default function LeCoachPage() {
 
           {/* Project description */}
           <p
-            className="text-lg mb-10"
+            className="text-lg font-mono mb-10"
             style={{ color: themeColors.navInactive }}
           >
             Agentic basketball analytics platform
@@ -154,12 +155,15 @@ export default function LeCoachPage() {
           {/* Overview Section */}
           <div className="mb-8">
             <h2
-              className="text-xl font-semibold mb-4"
+              className="text-xl font-semibold font-mono mb-4"
               style={{ color: themeColors.text }}
             >
               Overview
             </h2>
-            <p className="text-base" style={{ color: themeColors.text }}>
+            <p
+              className="text-base font-mono"
+              style={{ color: themeColors.text }}
+            >
               LeCoach is a comprehensive analytics platform for coaches and
               players in Canadian usports basketball. It features an agent
               system for game analysis and predictive analytics powered by 10+

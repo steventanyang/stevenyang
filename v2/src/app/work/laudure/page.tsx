@@ -98,7 +98,7 @@ export default function LaudurePage() {
           {/* Back button */}
           <Link
             href="/work"
-            className="text-base font-medium mb-8 flex items-center hover:opacity-80 transition-opacity"
+            className="text-base font-medium font-mono mb-8 flex items-center hover:opacity-80 transition-opacity"
             style={{ color: themeColors.text }}
           >
             <svg
@@ -125,6 +125,7 @@ export default function LaudurePage() {
               className="text-3xl font-bold"
               style={{
                 color: themeColors.text === "#FFFFFF" ? "#FFFFFF" : "#000000",
+                fontFamily: "var(--font-title)",
               }}
             >
               Laudure
@@ -133,7 +134,7 @@ export default function LaudurePage() {
 
           {/* Project description */}
           <p
-            className="text-lg mb-15"
+            className="text-lg font-mono mb-15"
             style={{ color: themeColors.navInactive }}
           >
             AI Management System for Restaurants

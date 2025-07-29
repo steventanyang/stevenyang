@@ -47,7 +47,7 @@ export default function ProjectPage() {
           {/* Back button */}
           <Link
             href="/work"
-            className="text-base font-medium mb-8 flex items-center hover:opacity-80 transition-opacity"
+            className="text-base font-medium font-mono mb-8 flex items-center hover:opacity-80 transition-opacity"
             style={{ color: themeColors.text }}
           >
             <svg
@@ -74,6 +74,7 @@ export default function ProjectPage() {
               className="text-3xl font-bold"
               style={{
                 color: themeColors.text === "#FFFFFF" ? "#FFFFFF" : "#000000",
+                fontFamily: "var(--font-title)",
               }}
             >
               {project.title}
@@ -82,7 +83,7 @@ export default function ProjectPage() {
 
           {/* Project description */}
           <p
-            className="text-lg mb-10"
+            className="text-lg font-mono mb-10"
             style={{ color: themeColors.navInactive }}
           >
             {project.description}
@@ -106,12 +107,15 @@ export default function ProjectPage() {
           {/* Overview Section */}
           <div className="mb-8">
             <h2
-              className="text-xl font-semibold mb-4"
+              className="text-xl font-semibold font-mono mb-4"
               style={{ color: themeColors.text }}
             >
               Overview
             </h2>
-            <p className="text-base" style={{ color: themeColors.text }}>
+            <p
+              className="text-base font-mono"
+              style={{ color: themeColors.text }}
+            >
               {project.overview}
             </p>
           </div>
@@ -126,7 +130,7 @@ export default function ProjectPage() {
           {project.links && project.links.length > 0 && (
             <div className="mb-8">
               <h2
-                className="text-xl font-semibold mb-4"
+                className="text-xl font-semibold font-mono mb-4"
                 style={{ color: themeColors.text }}
               >
                 Links
@@ -147,7 +151,7 @@ export default function ProjectPage() {
                     {link.icon && (
                       <span className="mr-2 text-xl">{link.icon}</span>
                     )}
-                    <span>{link.title}</span>
+                    <span className="font-mono">{link.title}</span>
                   </a>
                 ))}
               </div>
